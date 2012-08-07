@@ -1,24 +1,27 @@
-Overview of changes for 0.12.6
+Overview of changes for 0.14.2
 ==============================
-• Initialize JsonReader state fields [bug #651271]
-• Handle deserialization of NULL nodes [Tristan Van Berkom] [bug #648539]
-• Remove G_CONST_RETURN usage.
+• Build fixes for compiling against the latest GLib [Matthias Clasen]
+• Documentation fixes
 
-Overview of changes for 0.12.4
+Overview of changes for 0.14.0
 ==============================
-• Fix a bug in JsonObject that led to memory corruption when replacing
-  members.
-• Fix introspection annotations.
-• Use AC_CANONICAL_HOST when building, to ease cross-compiling.
-• List GIO in the Requires: clause of the pkg-config file
-
-Overview of changes for 0.12.2
-==============================
-• Build fix on win32
-• Implement support for bare values in JsonGenerator
-• Do not require GLib 2.20 for the test suite
-• Do not lose precision when serializing floating point values
-• Improve introspection data
+• Documentation fixes
+• Bump the dependency on GLib to 2.26
+• Allow building on Windows using VisualStudio [Chun-wei Fan]
+• Add JSON ↔ GVariant translation [Eduardo Lima Mitev]
+• Improve sanity checks when (de)serializing GObject
+  properties [Tristan Van Berkom]
+• Add missing introspection annotations [Luca Bruno]
+• Add JsonReader.list_members()
+• Allow using JsonReader.read_element() on JSON objects
+• Remove all G_CONST_RETURN usage after the deprecation
+• Allow JsonSerializable to override the introspection and
+  modification of properties
+• Add i18n support for GError messages
+• Do not serialize GObject properties that match their default
+  values.
+• Make JsonReader perform a stricter validation especially when using
+  the strongly typed accessors.
 
 Overview of changes for 0.12.0
 ==============================

@@ -1,14 +1,601 @@
-commit cf3b1190cf239f4cf52af1ea3c4cb702eaa7b740
+commit 6d64c9a4525001700b437af09676013954eb6eb5
 Author: Emmanuele Bassi <ebassi@linux.intel.com>
-Date:   Wed Jun 15 11:20:15 2011 +0100
+Date:   Wed Oct 26 12:32:10 2011 +0100
 
-    Release JSON-GLib 0.12.6 (release)
+    Release JSON-GLib 0.14.2
+
+ NEWS         |    5 +++++
+ configure.ac |    4 ++--
+ 2 files changed, 7 insertions(+), 2 deletions(-)
+
+commit 86bf97d993e638f0131fbf17360d03bc7b34e4a0
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Mon Oct 17 11:19:57 2011 +0100
+
+    docs: Fix typo in JsonObject's description
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=660893
+    (cherry picked from commit 7636e9de9414304f940837ee828d23e4608e9f32)
+    
+    Signed-off-by: Emmanuele Bassi <ebassi@linux.intel.com>
+
+ json-glib/json-object.c |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 45a2f813243652ee2ee82de07348b3218d308861
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Wed Oct 12 12:31:27 2011 +0100
+
+    Use g_value_[sg]et_schar() with GLib ≥ 2.31
+    
+    The non-explicitly signed variant is deprecated.
+    (cherry picked from commit 4ab8059df6ad106bf8958642aa1126925d79128c)
+    
+    Signed-off-by: Emmanuele Bassi <ebassi@linux.intel.com>
+
+ json-glib/json-gobject.c |   10 +++++++++-
+ 1 files changed, 9 insertions(+), 1 deletions(-)
+
+commit 692d8275b0d2a7883af4088c95a8403d902ffd10
+Author: Matthias Clasen <mclasen@redhat.com>
+Date:   Wed Oct 12 07:15:23 2011 -0400
+
+    Adapt to the demise of single includes in GLib
+    (cherry picked from commit f904ad102004258dc7b839b93a7904517cc4c623)
+    
+    Signed-off-by: Emmanuele Bassi <ebassi@linux.intel.com>
+
+ json-glib/json-scanner.h   |    4 +---
+ json-glib/tests/gvariant.c |    2 +-
+ json-glib/tests/node.c     |    2 +-
+ 3 files changed, 3 insertions(+), 5 deletions(-)
+
+commit e95d570170a89c1175adf06720ba1efad96372bd
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Mon Oct 17 11:00:52 2011 +0100
+
+    Conditionally use g_list_free_full()
+    
+    JSON-GLib depends on GLib ≥ 2.26, and g_list_free_full() was introduced
+    in GLib 2.28, so we have to check against the GLib version if we want to
+    use it.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=661244
+
+ json-glib/json-path.c |   19 ++++++++++++++++++-
+ 1 files changed, 18 insertions(+), 1 deletions(-)
+
+commit d498c15566cba0123d35d271b727542309ba7d83
+Author: Chun-wei Fan <fanchunwei@src.gnome.org>
+Date:   Tue Sep 27 15:21:06 2011 +0800
+
+    Update VS9 property sheet
+    
+    Seperate intermediate folders to avoid errors/warnings due to files in use
+    during compilation.
+
+ build/win32/vs9/json-glib.vsprops |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 3543fd3220d5ab567be5d924ef94ee69ae93d5e7
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Mon Sep 19 14:41:39 2011 +0100
+
+    Post-release version bump to 0.14.1
+
+ configure.ac |    4 ++--
+ 1 files changed, 2 insertions(+), 2 deletions(-)
+
+commit 35279b587f0b884fd606be77fd06e4fef919a300
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Mon Sep 19 14:37:45 2011 +0100
+
+    Release JSON-GLib 0.14.0
+
+ configure.ac |    4 +-
+ po/pl.po     |   74 +++++++++++++++++++++++++++++-----------------------------
+ 2 files changed, 39 insertions(+), 39 deletions(-)
+
+commit 3830326516285e6e86d3fa9c58ef7531679dfec0
+Author: Piotr Drąg <piotrdrag@gmail.com>
+Date:   Fri Sep 9 16:27:37 2011 +0200
+
+    Added Polish translation
+
+ po/pl.po |  172 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 files changed, 172 insertions(+), 0 deletions(-)
+
+commit 67a460d9ea8b485e740d1df34943b8df974f4255
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Fri Sep 9 15:00:41 2011 +0100
+
+    Post-release version bump to 0.13.91
+
+ configure.ac |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 1cb4ed1fac84026a19b35ce10c54df8a6ed12959
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Fri Sep 9 14:57:13 2011 +0100
+
+    Release JSON-GLib 0.13.90 (0.14.0-rc1)
+
+ NEWS         |    2 ++
+ configure.ac |    2 +-
+ 2 files changed, 3 insertions(+), 1 deletions(-)
+
+commit 18a83ddad87c92ae78010c678a516087ba012859
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Fri Sep 9 14:58:17 2011 +0100
+
+    build: Fix the path to the 'missing' script
+
+ Makefile.am |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 9f75475871cc8723e0a41d6c8971f741a405cb9f
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Fri Sep 9 14:00:36 2011 +0100
+
+    reader: Do more strict validation
+    
+    JsonReader should perform more strict validation, and put itself in an
+    error state whenever the user asks for values or information on nodes
+    that are not there, or not of the right type.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=658632
+
+ json-glib/json-reader.c |  177 ++++++++++++++++++++++++++++++++++++++++------
+ json-glib/json-reader.h |   10 +++-
+ 2 files changed, 163 insertions(+), 24 deletions(-)
+
+commit e7f2d505de39a9dbdea1a5879c13408c7a394a18
+Author: Chun-wei Fan <fanchunwei@src.gnome.org>
+Date:   Wed Aug 31 13:33:41 2011 +0800
+
+    Update Win32 and VS Readme files
+    
+    Tell people about the GNOME Live! page that outlines building
+    JSON-GLib and its dependencies with Visual C++.
+
+ build/win32/vs10/README.txt |    5 +++++
+ build/win32/vs9/README.txt  |    5 +++++
+ 2 files changed, 10 insertions(+), 0 deletions(-)
+
+commit c2f5b8bc64f9ac06b2dda8662924d88cc759718e
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Tue Aug 23 20:42:15 2011 +0100
+
+    gobject: Deserialize CONSTRUCT properties
+    
+    While we have to give up deserializing CONSTRUCT_ONLY properties with
+    JsonSerializable, CONSTRUCT properties should just be deserialized like
+    any other property.
+    
+    Sadly, there's still a refuse in the json_gobject_new() code that skips
+    CONSTRUCT properties along with CONSTRUCT_ONLY ones — a remnant of a
+    period when we deserialized them both without JsonSerializable.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=655526
+
+ json-glib/json-gobject.c            |   13 +++++--------
+ json-glib/tests/serialize-complex.c |   19 ++++++++++++++++++-
+ json-glib/tests/serialize-full.c    |    3 ++-
+ 3 files changed, 25 insertions(+), 10 deletions(-)
+
+commit bcfac335a8e4086ff6afa5f267f9886a4d1b6370
+Author: Tristan Van Berkom <tristan.van.berkom@gmail.com>
+Date:   Sun Jul 31 02:38:08 2011 -0400
+
+    Handle integer to float/double conversions in json_deserialize_pspec()
+    
+    It happens that while serializing that float/double properties are
+    set to round numbers, this results in deserialization as gint64
+    values and a parse failure. This patch addresses it by accepting
+    round gint64 numbers as valid values for float/double properties.
+
+ json-glib/json-gobject.c |   22 +++++++++++++++++++++-
+ 1 files changed, 21 insertions(+), 1 deletions(-)
+
+commit 996d89911d71f54f9a476242f1bd43c077d4428c
+Author: Tristan Van Berkom <tristan.van.berkom@gmail.com>
+Date:   Wed Jul 13 15:27:07 2011 -0400
+
+    Added an additional warning to json_gobject_new()
+    
+    The same warning that is fired when failing to deserialize
+    properties normally needed to be added for the case that
+    we fail to deserialize construct-only properties.
+
+ json-glib/json-gobject.c |    7 ++++++-
+ 1 files changed, 6 insertions(+), 1 deletions(-)
+
+commit 4315308a19e4cf474451cecf8b69aceddda91f49
+Author: Tristan Van Berkom <tristan.van.berkom@gmail.com>
+Date:   Sat Jul 9 15:23:36 2011 -0400
+
+    Avoid serializing default property values only after
+    consulting the JsonSerializable.
+    
+    This patch gives the JsonSerializable class a chance to decide
+    whether it's appropriate to serialize a property before
+    JsonGObject checks for a default value and skips the property.
+
+ json-glib/json-gobject.c      |   10 ++--------
+ json-glib/json-serializable.c |    4 ++++
+ 2 files changed, 6 insertions(+), 8 deletions(-)
+
+commit 4ba9a6a81709221ba58d0f8e067de660eb96914e
+Author: Tristan Van Berkom <tristan.van.berkom@gmail.com>
+Date:   Thu Jul 7 16:35:21 2011 -0400
+
+    Fixed badly handled fundamental types in json_deserialize_pspec().
+    
+    This patch fixes json_deserialize_pspec() to return FALSE when
+    failing to deserialize some properties. Consequently the patch
+    ensures we get the intended warnings when failing to deserialize
+    pspecs for some fundamental types:
+      Failed to deserialize property "foo" of type "int" on object "bar"
+
+ json-glib/json-gobject.c |   42 ++++++++++++++++++++++++++++++------------
+ 1 files changed, 30 insertions(+), 12 deletions(-)
+
+commit 24fa4503ad5d85bf60027bd77c434b2a596b1c17
+Author: Laurent Bigonville <bigon@bigon.be>
+Date:   Wed Jul 6 12:34:56 2011 +0200
+
+    Fix GVariant creation on some architectures (bug #650483)
+    
+    Fix casting issue in Gvariant creation on some architectures.
+
+ json-glib/json-gvariant.c |   46 +++++++++++++++++++++++++++++++++++++++-----
+ 1 files changed, 40 insertions(+), 6 deletions(-)
+
+commit dd3c30c5821f9f6bac4cc9016c49c7e6250377eb
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Tue Jul 5 15:07:20 2011 +0100
+
+    tests/path: Link expressions and results
+    
+    Use a structure to keep the testable expressions and their results
+    together.
+
+ json-glib/tests/path.c |   74 ++++++++++++++++++++++++++++++-----------------
+ 1 files changed, 47 insertions(+), 27 deletions(-)
+
+commit acb33a7e6bd3d05d36e7278fafdcb4c35ec88388
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Tue Jul 5 14:23:13 2011 +0100
+
+    build: Replace AC_HELP_STRING with AS_HELP_STRING
+
+ configure.ac |    4 ++--
+ 1 files changed, 2 insertions(+), 2 deletions(-)
+
+commit c296ca9ed06b8e4b54a4bd8003593b3a98b94f6b
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Tue Jul 5 14:22:13 2011 +0100
+
+    build: Allow m4 substitution for conditional defaults
+    
+    To compensate for AC_HELP_STRING()'s braindamage.
+
+ configure.ac |    4 ++--
+ 1 files changed, 2 insertions(+), 2 deletions(-)
+
+commit 1fb457af51a5632956fd679deca0021becb5468b
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Tue Jul 5 14:22:01 2011 +0100
+
+    build: Clean up configure.ac's preamble
+
+ configure.ac |    7 +++++--
+ 1 files changed, 5 insertions(+), 2 deletions(-)
+
+commit 75e370e53cb5d31d4a366fc5f126583872f1349a
+Author: Chun-wei Fan <fanchunwei@src.gnome.org>
+Date:   Wed Jun 29 14:29:12 2011 +0800
+
+    Added README.txt's for Visual Studio support
+    
+    Added README.txt's and included them in distribution to tell
+    people how JSON-GLib can be build on Windows using Visual C++.
+
+ build/win32/vs10/Makefile.am |    1 +
+ build/win32/vs10/README.txt  |   87 ++++++++++++++++++++++++++++++++++++++++++
+ build/win32/vs9/Makefile.am  |    1 +
+ build/win32/vs9/README.txt   |   86 +++++++++++++++++++++++++++++++++++++++++
+ 4 files changed, 175 insertions(+), 0 deletions(-)
+
+commit 7da6eb52937588537754be7e0b496f51077165d2
+Author: Chun-wei Fan <fanchunwei@src.gnome.org>
+Date:   Wed Jun 29 12:54:52 2011 +0800
+
+    Re-attempt to correct EOL on VS2010 solution
+    
+    This time I realized that I needed to set autocrlf=false on my Windows side
+    ... ugh...
+    
+    This is one of those files that must have CRLF line endings to work
+    correctly :|
+
+ build/win32/vs10/json-glib.sln |  332 ++++++++++++++++++++--------------------
+ 1 files changed, 166 insertions(+), 166 deletions(-)
+
+commit 4ef07b2c6e7d4d444f8ec6ce93c27f7189b942a0
+Author: Travis Reitter <treitter@gmail.com>
+Date:   Thu Jun 23 16:54:38 2011 -0700
+
+    Link the tests against the appropriate libraries.
+    
+    This avoids some linking failures.
+    
+    Closes: bgo#653295 - json-glib tests need to link against libgobject-2
+
+ json-glib/tests/Makefile.am |    5 ++++-
+ 1 files changed, 4 insertions(+), 1 deletions(-)
+
+commit c9ac9ce2d417210ccb06d0445a809ce9cd57c7a5
+Author: Chun-wei Fan <fanchunwei@src.gnome.org>
+Date:   Mon Jun 20 11:59:57 2011 +0800
+
+    Update VS 2010 property sheet
+    
+    Make up for missed backslash
+
+ build/win32/vs10/json-glib.props |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 230801c694169e50ca45df7df431adbdb89cab18
+Author: Chun-wei Fan <fanchunwei@src.gnome.org>
+Date:   Mon Jun 20 11:58:03 2011 +0800
+
+    Refine Visual C++ 2010 projects
+    
+    Should have realized that my previous commit on Visual C++ 2010 projects
+    (refinement) can be consolidated into the property sheet...
+
+ build/win32/vs10/array.vcxproj             |    8 --------
+ build/win32/vs10/boxed.vcxproj             |    8 --------
+ build/win32/vs10/builder.vcxproj           |    8 --------
+ build/win32/vs10/generator.vcxproj         |    8 --------
+ build/win32/vs10/gvariant.vcxproj          |   10 +---------
+ build/win32/vs10/json-glib.props           |    2 +-
+ build/win32/vs10/json-glib.vcxprojin       |    8 --------
+ build/win32/vs10/node.vcxproj              |   10 +---------
+ build/win32/vs10/object.vcxproj            |   10 +---------
+ build/win32/vs10/parser.vcxproj            |   10 +---------
+ build/win32/vs10/path.vcxproj              |   10 +---------
+ build/win32/vs10/reader.vcxproj            |    8 --------
+ build/win32/vs10/serialize-complex.vcxproj |    8 --------
+ build/win32/vs10/serialize-full.vcxproj    |    8 --------
+ build/win32/vs10/serialize-simple.vcxproj  |    8 --------
+ 15 files changed, 6 insertions(+), 118 deletions(-)
+
+commit d6fdf92ee000666ceb7892151673b4b56517cdd9
+Author: Chun-wei Fan <fanchunwei@src.gnome.org>
+Date:   Mon Jun 20 01:11:18 2011 +0800
+
+    Further refinements to Visual C++ 2010 projects
+    
+    -Seperate the intermediate folders for each configuration so that MSB6003
+     (cannot write into MSBuild log file as file is in use) errors and other
+     related MSBuild errors can be avoided, and will avoid rebuilding/relinking
+     projects when no sources are changed.
+    
+    -Fixed dependencies for the "install" project
+
+ build/win32/vs10/array.vcxproj             |    8 ++++++--
+ build/win32/vs10/boxed.vcxproj             |    8 ++++++--
+ build/win32/vs10/builder.vcxproj           |    8 ++++++--
+ build/win32/vs10/generator.vcxproj         |    8 ++++++--
+ build/win32/vs10/gvariant.vcxproj          |    9 ++++++++-
+ build/win32/vs10/install.vcxproj           |   18 +++++++++---------
+ build/win32/vs10/json-glib.vcxprojin       |    8 ++++++--
+ build/win32/vs10/node.vcxproj              |    8 ++++++--
+ build/win32/vs10/object.vcxproj            |    8 ++++++--
+ build/win32/vs10/parser.vcxproj            |    8 ++++++--
+ build/win32/vs10/path.vcxproj              |    9 ++++++++-
+ build/win32/vs10/reader.vcxproj            |    8 ++++++--
+ build/win32/vs10/serialize-complex.vcxproj |    8 ++++++--
+ build/win32/vs10/serialize-full.vcxproj    |    8 ++++++--
+ build/win32/vs10/serialize-simple.vcxproj  |    8 ++++++--
+ 15 files changed, 97 insertions(+), 35 deletions(-)
+
+commit 8518effca75d2249b8186083b950644ba4098d47
+Author: Chun-wei Fan <fanchunwei@src.gnome.org>
+Date:   Mon Jun 20 00:13:29 2011 +0800
+
+    VS 2008 project files update
+    
+    Update RootNamespace as well for consistency sake.
+    
+    Thanks to Emmanuele for updating the VS9 projects earlier due to the
+    changes in the filenames of the test sources
+
+ build/win32/vs9/array.vcproj     |    2 +-
+ build/win32/vs9/boxed.vcproj     |    2 +-
+ build/win32/vs9/builder.vcproj   |    2 +-
+ build/win32/vs9/generator.vcproj |    2 +-
+ build/win32/vs9/gvariant.vcproj  |    2 +-
+ build/win32/vs9/node.vcproj      |    2 +-
+ build/win32/vs9/object.vcproj    |    2 +-
+ build/win32/vs9/parser.vcproj    |    2 +-
+ build/win32/vs9/path.vcproj      |    2 +-
+ build/win32/vs9/reader.vcproj    |    2 +-
+ 10 files changed, 10 insertions(+), 10 deletions(-)
+
+commit 49ecbb4e2449ad55623fb46a0072fd1fbaf837e1
+Author: Chun-wei Fan <fanchunwei@src.gnome.org>
+Date:   Mon Jun 20 00:04:30 2011 +0800
+
+    Update VS2010 project files
+    
+    -Reflect on the change of filenames of test sources, and updated dist
+     stuff accordingly.
+    -Clean up projects a little bit.
+
+ build/win32/vs10/Makefile.am                    |   36 +++---
+ build/win32/vs10/array-test.vcxproj             |  172 ----------------------
+ build/win32/vs10/array-test.vcxproj.filters     |   14 --
+ build/win32/vs10/array.vcxproj                  |  171 ++++++++++++++++++++++
+ build/win32/vs10/array.vcxproj.filters          |   14 ++
+ build/win32/vs10/boxed.vcxproj                  |    1 -
+ build/win32/vs10/builder-test.vcxproj           |  172 ----------------------
+ build/win32/vs10/builder-test.vcxproj.filters   |   14 --
+ build/win32/vs10/builder.vcxproj                |  171 ++++++++++++++++++++++
+ build/win32/vs10/builder.vcxproj.filters        |   14 ++
+ build/win32/vs10/generator-test.vcxproj         |  172 ----------------------
+ build/win32/vs10/generator-test.vcxproj.filters |   14 --
+ build/win32/vs10/generator.vcxproj              |  171 ++++++++++++++++++++++
+ build/win32/vs10/generator.vcxproj.filters      |   14 ++
+ build/win32/vs10/gvariant-test.vcxproj          |  159 ---------------------
+ build/win32/vs10/gvariant-test.vcxproj.filters  |   14 --
+ build/win32/vs10/gvariant.vcxproj               |  159 +++++++++++++++++++++
+ build/win32/vs10/gvariant.vcxproj.filters       |   14 ++
+ build/win32/vs10/install.vcxproj                |    1 -
+ build/win32/vs10/json-glib.props                |    1 -
+ build/win32/vs10/json-glib.sln                  |   18 ++--
+ build/win32/vs10/json-glib.vcxprojin            |    1 -
+ build/win32/vs10/node-test.vcxproj              |  172 ----------------------
+ build/win32/vs10/node-test.vcxproj.filters      |   14 --
+ build/win32/vs10/node.vcxproj                   |  171 ++++++++++++++++++++++
+ build/win32/vs10/node.vcxproj.filters           |   14 ++
+ build/win32/vs10/object-test.vcxproj            |  172 ----------------------
+ build/win32/vs10/object-test.vcxproj.filters    |   13 --
+ build/win32/vs10/object.vcxproj                 |  171 ++++++++++++++++++++++
+ build/win32/vs10/object.vcxproj.filters         |   13 ++
+ build/win32/vs10/parser-test.vcxproj            |  172 ----------------------
+ build/win32/vs10/parser-test.vcxproj.filters    |   14 --
+ build/win32/vs10/parser.vcxproj                 |  171 ++++++++++++++++++++++
+ build/win32/vs10/parser.vcxproj.filters         |   14 ++
+ build/win32/vs10/path-test.vcxproj              |  159 ---------------------
+ build/win32/vs10/path-test.vcxproj.filters      |   14 --
+ build/win32/vs10/path.vcxproj                   |  159 +++++++++++++++++++++
+ build/win32/vs10/path.vcxproj.filters           |   14 ++
+ build/win32/vs10/reader-test.vcxproj            |  173 -----------------------
+ build/win32/vs10/reader-test.vcxproj.filters    |   14 --
+ build/win32/vs10/reader.vcxproj                 |  172 ++++++++++++++++++++++
+ build/win32/vs10/reader.vcxproj.filters         |   14 ++
+ build/win32/vs10/serialize-complex.vcxproj      |    1 -
+ build/win32/vs10/serialize-full.vcxproj         |    1 -
+ build/win32/vs10/serialize-simple.vcxproj       |    1 -
+ 45 files changed, 1668 insertions(+), 1682 deletions(-)
+
+commit 54711b3e093e00457a355926516ba87c8171f17d
+Author: Emmanuele Bassi <ebassi@gnome.org>
+Date:   Sun Jun 19 12:18:04 2011 +0100
+
+    build/vs9: Update after the changes in json-glib/tests
+
+ build/win32/vs9/Makefile.am           |   24 +++---
+ build/win32/vs9/array-test.vcproj     |  157 -------------------------------
+ build/win32/vs9/array.vcproj          |  157 +++++++++++++++++++++++++++++++
+ build/win32/vs9/boxed.vcproj          |    2 +-
+ build/win32/vs9/builder-test.vcproj   |  157 -------------------------------
+ build/win32/vs9/builder.vcproj        |  157 +++++++++++++++++++++++++++++++
+ build/win32/vs9/generator-test.vcproj |  157 -------------------------------
+ build/win32/vs9/generator.vcproj      |  157 +++++++++++++++++++++++++++++++
+ build/win32/vs9/gvariant-test.vcproj  |  147 -----------------------------
+ build/win32/vs9/gvariant.vcproj       |  147 +++++++++++++++++++++++++++++
+ build/win32/vs9/json-glib.sln         |   18 ++--
+ build/win32/vs9/node-test.vcproj      |  157 -------------------------------
+ build/win32/vs9/node.vcproj           |  157 +++++++++++++++++++++++++++++++
+ build/win32/vs9/object-test.vcproj    |  155 ------------------------------
+ build/win32/vs9/object.vcproj         |  155 ++++++++++++++++++++++++++++++
+ build/win32/vs9/parser-test.vcproj    |  166 ---------------------------------
+ build/win32/vs9/parser.vcproj         |  166 +++++++++++++++++++++++++++++++++
+ build/win32/vs9/path-test.vcproj      |  147 -----------------------------
+ build/win32/vs9/path.vcproj           |  147 +++++++++++++++++++++++++++++
+ build/win32/vs9/reader-test.vcproj    |  158 -------------------------------
+ build/win32/vs9/reader.vcproj         |  158 +++++++++++++++++++++++++++++++
+ 21 files changed, 1423 insertions(+), 1423 deletions(-)
+
+commit 78e896c64e8cbccf1b55291521f11a3f5093080a
+Author: Emmanuele Bassi <ebassi@gnome.org>
+Date:   Sun Jun 19 12:08:03 2011 +0100
+
+    build: Rename test binaries
+    
+    It's pointless to add the '-test' suffix to files under the tests/ directory.
+
+ json-glib/tests/Makefile.am      |   18 +-
+ json-glib/tests/array-test.c     |  122 ------
+ json-glib/tests/array.c          |  122 ++++++
+ json-glib/tests/builder-test.c   |  161 --------
+ json-glib/tests/builder.c        |  161 ++++++++
+ json-glib/tests/generator-test.c |  330 ----------------
+ json-glib/tests/generator.c      |  330 ++++++++++++++++
+ json-glib/tests/gvariant-test.c  |  233 -----------
+ json-glib/tests/gvariant.c       |  233 +++++++++++
+ json-glib/tests/node-test.c      |  112 ------
+ json-glib/tests/node.c           |  112 ++++++
+ json-glib/tests/object-test.c    |  165 --------
+ json-glib/tests/object.c         |  165 ++++++++
+ json-glib/tests/parser-test.c    |  785 --------------------------------------
+ json-glib/tests/parser.c         |  785 ++++++++++++++++++++++++++++++++++++++
+ json-glib/tests/path-test.c      |  143 -------
+ json-glib/tests/path.c           |  143 +++++++
+ json-glib/tests/reader-test.c    |  134 -------
+ json-glib/tests/reader.c         |  134 +++++++
+ 19 files changed, 2194 insertions(+), 2194 deletions(-)
+
+commit cef1f16cec529eeb03338f995a8b3d32b262df8b
+Author: Emmanuele Bassi <ebassi@gnome.org>
+Date:   Sun Jun 19 12:00:01 2011 +0100
+
+    docs: Add index for symbols added in the 0.13 cycle
+
+ doc/reference/json-glib-docs.xml |    5 +++++
+ 1 files changed, 5 insertions(+), 0 deletions(-)
+
+commit cc2543e101ca8fa41989bc8eb296f8d11b5b9cad
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Wed Jun 15 11:30:28 2011 +0100
+
+    build: Add tar-ustar and silent-rules automake options
+    
+    The tar-ustar format allows longer file names and other niceties —
+    though a format ratified in a standard from 1988 is still judged as
+    "possibly not widespread enough". I weep for the future of humanity
+    and software engineering.
+    
+    The silent-rules option is just added to avoid using AM_SILENT_RULES()
+    on a separate line.
+
+ configure.ac |    3 +--
+ 1 files changed, 1 insertions(+), 2 deletions(-)
+
+commit c106aa5b0fc0ca408328b95ba721eef6a9d560d2
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Wed Jun 15 11:12:38 2011 +0100
+
+    Post-release version bump to 0.13.5
+
+ configure.ac |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 02b3ee77a35624a3d6e478ae3700100cb24bf18f
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Wed Jun 15 11:08:37 2011 +0100
+
+    Release JSON-GLib 0.13.4
 
  NEWS         |    6 ++++++
- configure.ac |    4 ++--
- 2 files changed, 8 insertions(+), 2 deletions(-)
+ configure.ac |    2 +-
+ 2 files changed, 7 insertions(+), 1 deletions(-)
 
-commit dadbfd97443970b547b147cf9e5c987a98dc3324
+commit f37878ec1759283f78a6d580c1f78e9039717862
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Wed Jun 15 11:08:12 2011 +0100
+
+    docs: Fix API reference missing symbols
+
+ doc/reference/json-glib-sections.txt |    4 ++++
+ json-glib/json-gobject.h             |    6 ++++++
+ 2 files changed, 10 insertions(+), 0 deletions(-)
+
+commit c994a9bfdc13aba1b7c5fd019853c68fb38148a6
 Author: Emmanuele Bassi <ebassi@linux.intel.com>
 Date:   Thu Jun 9 17:23:04 2011 +0100
 
@@ -19,73 +606,412 @@ Date:   Thu Jun 9 17:23:04 2011 +0100
       https://bugzilla.gnome.org/show_bug.cgi?id=644611
     
     The macro is going to be deprecated soon.
-    (cherry picked from commit c994a9bfdc13aba1b7c5fd019853c68fb38148a6)
-    
-    Conflicts:
-    
-    	json-glib/json-reader.c
-    	json-glib/json-reader.h
 
  json-glib/json-array.c         |    2 +-
  json-glib/json-node.c          |    6 +++---
  json-glib/json-object.c        |    2 +-
- json-glib/json-reader.c        |    4 ++--
- json-glib/json-reader.h        |    4 ++--
+ json-glib/json-reader.c        |    6 +++---
+ json-glib/json-reader.h        |    6 +++---
  json-glib/json-types-private.h |    2 +-
  json-glib/json-types.h         |    8 ++++----
- 7 files changed, 14 insertions(+), 14 deletions(-)
+ 7 files changed, 16 insertions(+), 16 deletions(-)
 
-commit bfd3bf0142dc545a95bdb23a9317d89cd0f572b0
+commit 74bb5d61a737cceffd04c8d9ae8d5db390eda5a2
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Fri Jun 3 11:46:05 2011 +0100
+
+    Use the new atomic functions for refcounting
+    
+    The newly added g_atomic_int_dec_and_test() simplified the logic for
+    unreffing Object and Array.
+
+ json-glib/json-array.c  |    9 ++-------
+ json-glib/json-object.c |    9 ++-------
+ 2 files changed, 4 insertions(+), 14 deletions(-)
+
+commit 4f83868e3a18adac809aff111c5df5ff7af8fedf
 Author: Emmanuele Bassi <ebassi@linux.intel.com>
 Date:   Fri Jun 3 11:18:27 2011 +0100
 
     build: Remove deprecation disabling for GLib
-    (cherry picked from commit 40611ace9568468ffba89bb6d0e79662fe53ca6b)
-    
-    Signed-off-by: Emmanuele Bassi <ebassi@linux.intel.com>
 
  json-glib/Makefile.am |    1 -
  1 files changed, 0 insertions(+), 1 deletions(-)
 
-commit deb1fca120f205ef48354c38bd4e3055384270eb
-Author: Tristan Van Berkom <tristan.van.berkom@gmail.com>
-Date:   Tue May 3 00:20:12 2011 +0900
+commit 65a95198a4a1bca7b418af1639c4bb24b09947c5
+Author: Chun-wei Fan <fanchunwei@src.gnome.org>
+Date:   Fri Jun 3 15:32:55 2011 +0800
 
-    Fixed json_deserialize_pspec() to handle null nodes.
+    Visual C++ support: projects for JSONPath test
     
-    This fixes deserialization to match serialization (bug 648539)
-    (cherry picked from commit d3db7acc1f53491b6dd9637991a1eaf8bb5c5002)
+    Added projects to build test program for  JSONPath (path-test.c)
+
+ build/win32/vs10/Makefile.am               |    2 +
+ build/win32/vs10/install.vcxproj           |    8 ++
+ build/win32/vs10/json-glib.sln             |   26 +++--
+ build/win32/vs10/path-test.vcxproj         |  159 ++++++++++++++++++++++++++++
+ build/win32/vs10/path-test.vcxproj.filters |   14 +++
+ build/win32/vs9/Makefile.am                |    1 +
+ build/win32/vs9/json-glib.sln              |   30 ++++--
+ build/win32/vs9/path-test.vcproj           |  147 +++++++++++++++++++++++++
+ 8 files changed, 371 insertions(+), 16 deletions(-)
+
+commit 16bc9cccd32f4e1c7e9fc0da128aef969d0563b0
+Author: Chun-wei Fan <fanchunwei@src.gnome.org>
+Date:   Fri Jun 3 15:01:16 2011 +0800
+
+    Update config.h.win32.in
     
-    Signed-off-by: Emmanuele Bassi <ebassi@gnome.org>
+    Added definition of GETTEXT_PACKAGE due to the addition of the i18n
+    machinery (commit 67edce08670ce1da4956f87948985434ac5ae2ca)
 
- json-glib/json-gobject.c |   14 +++++++++++++-
- 1 files changed, 13 insertions(+), 1 deletions(-)
-
-commit 3d565abff70ec835b1bcaa7e970a27d18dca8ebb
-Author: Tristan Van Berkom <tristan.van.berkom@gmail.com>
-Date:   Sat Apr 23 18:15:37 2011 +0900
-
-    Warn from json_gobject_deserialize() if a listed property cannot be deserialized.
-    (cherry picked from commit 9824a32a803bd194208d460068ce5ba91d776686)
-    
-    Signed-off-by: Emmanuele Bassi <ebassi@gnome.org>
-
- json-glib/json-gobject.c |    3 +++
+ build/win32/config.h.win32.in |    3 +++
  1 files changed, 3 insertions(+), 0 deletions(-)
 
-commit 942453647b168746da5d6db85e8436e75badde45
-Author: Bastien Nocera <hadess@hadess.net>
-Date:   Thu Apr 21 02:29:53 2011 +0100
+commit d93260c477930140f2ecf2927bd9f2a2d7f4f905
+Author: Chun-wei Fan <fanchunwei@src.gnome.org>
+Date:   Fri Jun 3 14:47:42 2011 +0800
 
-    reader: Fix bug in example usage
-    (cherry picked from commit 254e8e969968e7ed5f594238a980b20c6fabc46e)
+    Update VS property sheets
     
-    Signed-off-by: Emmanuele Bassi <ebassi@gnome.org>
+    -Add json-path.h to the list of headers to be copied in the "install" stage
 
- json-glib/json-reader.c |    2 +-
+ build/win32/vs10/json-glib.props  |    2 ++
+ build/win32/vs9/json-glib.vsprops |    1 +
+ 2 files changed, 3 insertions(+), 0 deletions(-)
+
+commit c3b367ca8bac245712f8390acab1b38a314972a9
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Wed Jun 1 17:10:17 2011 +0100
+
+    serializable: Fix introspection annotations
+
+ json-glib/json-serializable.c |   25 +++++++++++++++++++++++++
+ 1 files changed, 25 insertions(+), 0 deletions(-)
+
+commit aee5a7fbb70e5cb714bcfef79a96c000f62e80db
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Wed Jun 1 17:01:02 2011 +0100
+
+    Remove unused files
+    
+    - AUTHORS
+    - MAINTAINER
+            replaced by json-glib.doap
+    
+    - ChangeLog
+            empty, and not necessary with the foreign automake option
+
+ AUTHORS      |    1 -
+ ChangeLog    |    6 ------
+ MAINTAINERS  |    3 ---
+ configure.ac |    5 +++--
+ 4 files changed, 3 insertions(+), 12 deletions(-)
+
+commit 1d4cdb76b6f97c723dd6e4c634bacc52d3199999
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Wed Jun 1 13:35:16 2011 +0100
+
+    Update the ignore file for the po directory
+
+ po/.gitignore |    1 +
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+
+commit 8863766ca4792383dad0e48550f8fb79d4c104e4
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Wed Jun 1 13:21:32 2011 +0100
+
+    Mark GError messages for translations
+    
+    These errors might find their way into a UI.
+
+ json-glib/json-gobject.c  |    4 ++--
+ json-glib/json-gvariant.c |   40 ++++++++++++++++++----------------------
+ json-glib/json-parser.c   |    5 ++++-
+ json-glib/json-path.c     |   13 +++++++------
+ json-glib/json-reader.c   |   20 ++++++++++----------
+ 5 files changed, 41 insertions(+), 41 deletions(-)
+
+commit 67edce08670ce1da4956f87948985434ac5ae2ca
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Wed Jun 1 13:09:01 2011 +0100
+
+    Add i18n machinery
+    
+    We need to translate the GError messages.
+
+ .gitignore                    |    2 ++
+ Makefile.am                   |    2 +-
+ build/autotools/Makefile.am   |    1 +
+ build/autotools/as-linguas.m4 |   24 ++++++++++++++++++++++++
+ configure.ac                  |   12 ++++++++++++
+ json-glib/json-gobject.c      |    2 ++
+ json-glib/json-gvariant.c     |    6 ++++++
+ json-glib/json-parser.c       |    2 ++
+ json-glib/json-path.c         |    4 +++-
+ json-glib/json-reader.c       |    2 ++
+ po/.gitignore                 |   13 +++++++++++++
+ po/Makevars                   |    7 +++++++
+ po/POTFILES.in                |    6 ++++++
+ 13 files changed, 81 insertions(+), 2 deletions(-)
+
+commit e3b5883d4435da7fe677eb9a7c74d2f83980f5da
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Wed Jun 1 12:49:28 2011 +0100
+
+    gobject: Do not serialize default values
+    
+    If a property is set to its default value then we can skip its
+    serialization, to keep the number of JSON object members down.
+
+ json-glib/json-gobject.c |    7 +++++++
+ 1 files changed, 7 insertions(+), 0 deletions(-)
+
+commit 8c424cc133575282371bff8d17295662267049e9
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Wed Jun 1 12:48:20 2011 +0100
+
+    tests/serialize-complex: Modify the instance
+    
+    Do not test the defaults: create the GObject instance with different
+    values than the default ones from the GParamSpec.
+
+ json-glib/tests/serialize-complex.c |   22 +++++++++++-----------
+ 1 files changed, 11 insertions(+), 11 deletions(-)
+
+commit 96b1e6b50f355c04e794ad7366bd33b9c3d1f81b
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Wed Jun 1 12:35:58 2011 +0100
+
+    serializable: Allow introspecting properties
+    
+    This allows a Serializable implementation to override the property list,
+    and the setter and the getter function.
+
+ json-glib/json-gobject.c      |   43 +++++++++++++++++-----
+ json-glib/json-gobject.h      |   22 +++++++++++
+ json-glib/json-serializable.c |   81 +++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 137 insertions(+), 9 deletions(-)
+
+commit c85fc93f6235b8b9d584585215b2fa860f07f2c3
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Wed Jun 1 12:36:08 2011 +0100
+
+    Revert "path: Add some more validation points"
+    
+    This reverts commit e8fa85705e48d03742eb351addbad53be4d8e60b.
+    
+    The validation broke the test suite; it'll need some more work.
+
+ json-glib/json-path.c |   77 +++++++++++++-----------------------------------
+ 1 files changed, 21 insertions(+), 56 deletions(-)
+
+commit e8fa85705e48d03742eb351addbad53be4d8e60b
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Wed Jun 1 07:55:17 2011 +0100
+
+    path: Add some more validation points
+    
+    Especially for the slice syntax.
+
+ json-glib/json-path.c |   77 +++++++++++++++++++++++++++++++++++-------------
+ 1 files changed, 56 insertions(+), 21 deletions(-)
+
+commit 295c469329d040b4d311e9c295bec908856190d6
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Wed Jun 1 07:54:48 2011 +0100
+
+    symbols: Add JsonPath public entry points
+
+ json-glib/json-glib.symbols |    6 ++++++
+ 1 files changed, 6 insertions(+), 0 deletions(-)
+
+commit 257209ab47ebcbf36006dd3aa3fcee5545381c6f
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Wed Jun 1 07:54:26 2011 +0100
+
+    docs: Document JsonPath and add it to the API reference
+
+ doc/reference/json-glib-docs.xml     |    3 +-
+ doc/reference/json-glib-sections.txt |   20 ++++
+ doc/reference/json-glib.types        |    1 +
+ json-glib/json-path.c                |  174 +++++++++++++++++++++++++++++++++-
+ 4 files changed, 195 insertions(+), 3 deletions(-)
+
+commit ac89bb7fc7491019f8baa687a785eeb93af7213e
+Merge: b5bd477 4ea8cd4
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Tue May 31 23:16:10 2011 +0100
+
+    Merge branch 'wip/json-path'
+    
+    * wip/json-path:
+      Add initial JSONPath implementation
+
+commit 4ea8cd43986d5888fb8e809a198d6b0331b12480
+Author: Emmanuele Bassi <ebassi@gnome.org>
+Date:   Sat May 28 14:36:43 2011 +0100
+
+    Add initial JSONPath implementation
+    
+    JSONPath is a JSON query syntax similar to what XPath does for XML;
+    using JSONPath it's possible to address a specific node (or set of
+    nodes) inside a JSON document.
+    
+    The JsonPath class is a simple implementation of part of the JSONPath
+    proposal, as formalised by Stefan Gössner here:
+    
+      http://goessner.net/articles/JsonPath/
+    
+    The covered operators are:
+    
+      • root, or '$';
+      • child, both using the dot-notation and the bracket notation;
+      • recursive descent, or '..';
+      • subscript, or '[]';
+      • set, or '[,]';
+      • slice, or '[start:end:step]'.
+    
+    The only missing operators are the filter, or '?()' and the script,
+    or '()', because implementing a JavaScript interpreter inside JSON-GLib
+    is not one of my greatest aspirations. It should be possible, though,
+    to parse and evaluate simple arithmetic conditions, in the future.
+    
+    The JsonPath methods are pretty straightforward: a JsonPath instance
+    should be created and used to compile an expression; the compilation
+    might result in a syntax error or not. Then, the JsonPath instance can
+    be used to match any JSON tree. Like the other JSONPath implementations,
+    JsonPath returns a JSON array of matching nodes.
+    
+    A simple, one-off static method called json_path_query() is also
+    provided; the method wraps the JsonPath creation, the expression
+    compilation, and the matching, as well as disposing the JsonPath
+    instance once done.
+    
+    For the time being, only positive testing is provided; negative testing
+    for the expression compilation will follow.
+
+ json-glib/Makefile.am       |    2 +
+ json-glib/json-debug.c      |    3 +-
+ json-glib/json-debug.h      |    3 +-
+ json-glib/json-glib.h       |    1 +
+ json-glib/json-path.c       |  856 +++++++++++++++++++++++++++++++++++++++++++
+ json-glib/json-path.h       |   97 +++++
+ json-glib/tests/Makefile.am |    1 +
+ json-glib/tests/path-test.c |  143 +++++++
+ 8 files changed, 1104 insertions(+), 2 deletions(-)
+
+commit b5bd47727c960990ba98902ee2d7099491a4178a
+Author: Chun-wei Fan <fanchunwei@src.gnome.org>
+Date:   Mon May 30 14:26:54 2011 +0800
+
+    Add/update Visual C++ projects for GVariant API
+    
+    -Added/dist VS 2008/2010 projects to compile the gvariant-test test program
+     (yes, the gvariant-test program passes in the 32-bit and 64-bit modes)
+    -Updated property sheet to "install" the "new" json-gvariant.h
+
+ build/win32/vs10/Makefile.am                   |    2 +
+ build/win32/vs10/gvariant-test.vcxproj         |  159 ++++++++++++++++++++++++
+ build/win32/vs10/gvariant-test.vcxproj.filters |   14 ++
+ build/win32/vs10/json-glib.props               |    2 +
+ build/win32/vs10/json-glib.sln                 |   10 ++
+ build/win32/vs9/Makefile.am                    |    1 +
+ build/win32/vs9/gvariant-test.vcproj           |  147 ++++++++++++++++++++++
+ build/win32/vs9/json-glib.sln                  |   14 ++
+ build/win32/vs9/json-glib.vsprops              |    1 +
+ 9 files changed, 350 insertions(+), 0 deletions(-)
+
+commit 3a1d817fd39b4b4d2bdbc93257be535c5b29780f
+Author: Chun-wei Fan <fanchunwei@src.gnome.org>
+Date:   Mon May 30 13:07:53 2011 +0800
+
+    Update json-glib.symbols
+    
+    Added the JSON-GLib gvariant-related APIs.
+
+ json-glib/json-glib.symbols |    4 ++++
+ 1 files changed, 4 insertions(+), 0 deletions(-)
+
+commit 1b7f20fe88a6647e61964db063eba071114a6f66
+Author: Chun-wei Fan <fanchunwei@src.gnome.org>
+Date:   Mon May 30 12:53:47 2011 +0800
+
+    Update $(srcroot)/Makefile.am
+    
+    Due to changes to this file in commit
+    4e41d26586991d2977c846fa4871b6df39fe4106, change the order of SUBDIRS
+    so that "make dist" will properly run.
+    
+    This has been checked with "make distcheck" on Fedora 15
+
+ Makefile.am |    2 +-
  1 files changed, 1 insertions(+), 1 deletions(-)
 
-commit 1dc959790b04b055e393c28050083b7ddafba9e8
+commit 54172e25e8b62075f0aef98d21e17619466ff30f
+Author: Chun-wei Fan <fanchunwei@src.gnome.org>
+Date:   Mon May 30 11:55:06 2011 +0800
+
+    Update Visual C++ Project Files
+    
+    Update the dist part too...
+
+ build/win32/vs10/Makefile.am |   16 ++++++++--------
+ build/win32/vs9/Makefile.am  |    8 ++++----
+ 2 files changed, 12 insertions(+), 12 deletions(-)
+
+commit 0715050a5a76f187f66f14288a8f3444a4eb49e4
+Author: Chun-wei Fan <fanchunwei@src.gnome.org>
+Date:   Mon May 30 11:53:04 2011 +0800
+
+    Update VS 2008/2010 Project Files
+    
+    Due to the changes in the location/names of some test programs in
+    commit 4e41d26586991d2977c846fa4871b6df39fe4106, update the VS
+    project files...
+
+ build/win32/vs10/boxed.vcxproj                     |  172 ++++++++++++++++++++
+ build/win32/vs10/boxed.vcxproj.filters             |   14 ++
+ build/win32/vs10/install.vcxproj                   |    8 +-
+ build/win32/vs10/json-glib.sln                     |    8 +-
+ build/win32/vs10/serialize-complex.vcxproj         |  171 +++++++++++++++++++
+ build/win32/vs10/serialize-complex.vcxproj.filters |   14 ++
+ build/win32/vs10/serialize-full.vcxproj            |  172 ++++++++++++++++++++
+ build/win32/vs10/serialize-full.vcxproj.filters    |   14 ++
+ build/win32/vs10/serialize-simple.vcxproj          |  171 +++++++++++++++++++
+ build/win32/vs10/serialize-simple.vcxproj.filters  |   14 ++
+ build/win32/vs10/test-serialize-boxed.vcxproj      |  172 --------------------
+ .../vs10/test-serialize-boxed.vcxproj.filters      |   14 --
+ build/win32/vs10/test-serialize-complex.vcxproj    |  171 -------------------
+ .../vs10/test-serialize-complex.vcxproj.filters    |   14 --
+ build/win32/vs10/test-serialize-full.vcxproj       |  172 --------------------
+ .../win32/vs10/test-serialize-full.vcxproj.filters |   14 --
+ build/win32/vs10/test-serialize-simple.vcxproj     |  171 -------------------
+ .../vs10/test-serialize-simple.vcxproj.filters     |   14 --
+ build/win32/vs9/boxed.vcproj                       |  157 ++++++++++++++++++
+ build/win32/vs9/json-glib.sln                      |    8 +-
+ build/win32/vs9/serialize-complex.vcproj           |  156 ++++++++++++++++++
+ build/win32/vs9/serialize-full.vcproj              |  157 ++++++++++++++++++
+ build/win32/vs9/serialize-simple.vcproj            |  156 ++++++++++++++++++
+ build/win32/vs9/test-serialize-boxed.vcproj        |  157 ------------------
+ build/win32/vs9/test-serialize-complex.vcproj      |  156 ------------------
+ build/win32/vs9/test-serialize-full.vcproj         |  157 ------------------
+ build/win32/vs9/test-serialize-simple.vcproj       |  156 ------------------
+ 27 files changed, 1380 insertions(+), 1380 deletions(-)
+
+commit 8b778252358ddb28936c6c9192a84f76368ca122
+Author: Emmanuele Bassi <ebassi@gnome.org>
+Date:   Sat May 28 11:38:18 2011 +0100
+
+    tests: Fix up the JsonBuilder test
+    
+    Clean up some odd code, and add a unit for the empty object case outlined
+    in bug 651271.
+
+ json-glib/tests/builder-test.c |   52 +++++++++++++++++++++++++++++++++++----
+ 1 files changed, 46 insertions(+), 6 deletions(-)
+
+commit d784cc6825607c517d7565049108d1f908a1d71b
 Author: Emmanuele Bassi <ebassi@gnome.org>
 Date:   Sat May 28 11:36:55 2011 +0100
 
@@ -95,14 +1021,242 @@ Date:   Sat May 28 11:36:55 2011 +0100
     NULL or contains valid data.
     
     https://bugzilla.gnome.org/show_bug.cgi?id=651271
-    (cherry picked from commit d784cc6825607c517d7565049108d1f908a1d71b)
-    
-    Signed-off-by: Emmanuele Bassi <ebassi@gnome.org>
 
  json-glib/json-builder.c |    1 +
  1 files changed, 1 insertions(+), 0 deletions(-)
 
-commit c3519b4eddebdba3f27749b7c4849db4e6261b4f
+commit e20a8b0faeb45d1ae2f1bd12d49d31d12e357b24
+Author: Alexandre Mazari <scaroo@gmail.com>
+Date:   Tue Mar 22 17:28:55 2011 +0100
+
+    gvariant: Fix introspection annotation
+    
+    The 'signature' arguments of the json_gvariant_deserialize functions are
+    optional.
+    
+    Signed-off-by: Emmanuele Bassi <ebassi@gnome.org>
+
+ json-glib/json-gvariant.c |    4 ++--
+ 1 files changed, 2 insertions(+), 2 deletions(-)
+
+commit 4e41d26586991d2977c846fa4871b6df39fe4106
+Author: Emmanuele Bassi <ebassi@gnome.org>
+Date:   Sat May 28 11:05:57 2011 +0100
+
+    tests: Move all tests under json-glib
+    
+    The test framework should live under the json-glib directory, and not be
+    spread across the project.
+
+ Makefile.am                         |    6 -
+ configure.ac                        |    2 -
+ json-glib/tests/Makefile.am         |   53 ++---
+ json-glib/tests/boxed.c             |  264 +++++++++++++++++++++++
+ json-glib/tests/serialize-complex.c |  293 +++++++++++++++++++++++++
+ json-glib/tests/serialize-full.c    |  402 +++++++++++++++++++++++++++++++++++
+ json-glib/tests/serialize-simple.c  |  166 ++++++++++++++
+ tests/Makefile.am                   |   34 ---
+ tests/test-serialize-boxed.c        |  264 -----------------------
+ tests/test-serialize-complex.c      |  293 -------------------------
+ tests/test-serialize-full.c         |  402 -----------------------------------
+ tests/test-serialize-simple.c       |  166 --------------
+ 12 files changed, 1142 insertions(+), 1203 deletions(-)
+
+commit 8d98b99b945423085232d358492e97399c9fd071
+Author: Chun-wei Fan <fanchunwei@src.gnome.org>
+Date:   Mon May 23 09:39:20 2011 +0800
+
+    Update Visual Studio property sheets
+    
+    -Make DLL/LIB versioning more like the autotools-compiled versions
+    -"Install" the headers in a more consistent way like the autotools versions
+
+ build/win32/vs10/json-glib.props  |   26 +++++++++++++-------------
+ build/win32/vs9/json-glib.vsprops |   32 ++++++++++++++++----------------
+ 2 files changed, 29 insertions(+), 29 deletions(-)
+
+commit 15221448b5998a071b72299c666044dd65ea97e3
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Thu May 19 08:32:03 2011 +0100
+
+    Add ignore file under build/win32
+
+ build/win32/.gitignore |    4 ++++
+ 1 files changed, 4 insertions(+), 0 deletions(-)
+
+commit f4651885961bf3ccc8d475cdc86af051fe1101f6
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Wed May 18 13:44:07 2011 +0100
+
+    doap: Add the download-page resource
+
+ json-glib.doap |    2 ++
+ 1 files changed, 2 insertions(+), 0 deletions(-)
+
+commit 8ef7da62a7575ebb04c69b9d98fd24efb840ab3b
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Wed May 18 13:39:38 2011 +0100
+
+    Post-release version bump to 0.13.3
+
+ configure.ac |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit aa793a4fbcc4d44d367ba84d3782823885fec045
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Wed May 18 13:37:38 2011 +0100
+
+    Release JSON-GLib 0.13.2 (snapshot)
+
+ NEWS         |   12 ++++++++++++
+ configure.ac |    2 +-
+ 2 files changed, 13 insertions(+), 1 deletions(-)
+
+commit 595bdd9cc160f10edefb9e54f45cb4727f39ac24
+Merge: 46a8e57 d3db7ac
+Author: Chun-wei Fan <fanchunwei@src.gnome.org>
+Date:   Wed May 4 01:47:14 2011 +0800
+
+    Merge branch 'master' into msvc-patch
+
+commit d3db7acc1f53491b6dd9637991a1eaf8bb5c5002
+Author: Tristan Van Berkom <tristan.van.berkom@gmail.com>
+Date:   Tue May 3 00:20:12 2011 +0900
+
+    Fixed json_deserialize_pspec() to handle null nodes.
+    
+    This fixes deserialization to match serialization (bug 648539)
+
+ json-glib/json-gobject.c |   14 +++++++++++++-
+ 1 files changed, 13 insertions(+), 1 deletions(-)
+
+commit 9824a32a803bd194208d460068ce5ba91d776686
+Author: Tristan Van Berkom <tristan.van.berkom@gmail.com>
+Date:   Sat Apr 23 18:15:37 2011 +0900
+
+    Warn from json_gobject_deserialize() if a listed property cannot be deserialized.
+
+ json-glib/json-gobject.c |    3 +++
+ 1 files changed, 3 insertions(+), 0 deletions(-)
+
+commit 254e8e969968e7ed5f594238a980b20c6fabc46e
+Author: Bastien Nocera <hadess@hadess.net>
+Date:   Thu Apr 21 02:29:53 2011 +0100
+
+    reader: Fix bug in example usage
+
+ json-glib/json-reader.c |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 46a8e576f2fae9563219fcd72a9866826e684559
+Author: Chun-wei Fan <fanchunwei@src.gnome.org>
+Date:   Wed Apr 13 00:34:05 2011 +0800
+
+    VS 2010 Project Files (automation support included)
+    
+    These are the VS 2010 project files to build JSON-GLib
+    and its test programs.  The project for building the main JSON-GLib
+    DLL has its source files input into it by the preprocessor during
+    "make dist", like the VS2008 project files, simplifying its maintenance.
+
+ build/win32/vs10/array-test.vcxproj                |  172 +++++++++++++++++
+ build/win32/vs10/array-test.vcxproj.filters        |   14 ++
+ build/win32/vs10/builder-test.vcxproj              |  172 +++++++++++++++++
+ build/win32/vs10/builder-test.vcxproj.filters      |   14 ++
+ build/win32/vs10/generator-test.vcxproj            |  172 +++++++++++++++++
+ build/win32/vs10/generator-test.vcxproj.filters    |   14 ++
+ build/win32/vs10/install.vcxproj                   |  149 +++++++++++++++
+ build/win32/vs10/json-glib.props                   |  123 ++++++++++++
+ build/win32/vs10/json-glib.sln                     |  146 +++++++++++++++
+ build/win32/vs10/json-glib.vcxproj.filtersin       |   20 ++
+ build/win32/vs10/json-glib.vcxprojin               |  196 ++++++++++++++++++++
+ build/win32/vs10/node-test.vcxproj                 |  172 +++++++++++++++++
+ build/win32/vs10/node-test.vcxproj.filters         |   14 ++
+ build/win32/vs10/object-test.vcxproj               |  172 +++++++++++++++++
+ build/win32/vs10/object-test.vcxproj.filters       |   13 ++
+ build/win32/vs10/parser-test.vcxproj               |  172 +++++++++++++++++
+ build/win32/vs10/parser-test.vcxproj.filters       |   14 ++
+ build/win32/vs10/reader-test.vcxproj               |  173 +++++++++++++++++
+ build/win32/vs10/reader-test.vcxproj.filters       |   14 ++
+ build/win32/vs10/test-serialize-boxed.vcxproj      |  172 +++++++++++++++++
+ .../vs10/test-serialize-boxed.vcxproj.filters      |   14 ++
+ build/win32/vs10/test-serialize-complex.vcxproj    |  171 +++++++++++++++++
+ .../vs10/test-serialize-complex.vcxproj.filters    |   14 ++
+ build/win32/vs10/test-serialize-full.vcxproj       |  172 +++++++++++++++++
+ .../win32/vs10/test-serialize-full.vcxproj.filters |   14 ++
+ build/win32/vs10/test-serialize-simple.vcxproj     |  171 +++++++++++++++++
+ .../vs10/test-serialize-simple.vcxproj.filters     |   14 ++
+ 27 files changed, 2678 insertions(+), 0 deletions(-)
+
+commit 6c74292e66be25840612d7ee6871f1668010eada
+Author: Chun-wei Fan <fanchunwei@src.gnome.org>
+Date:   Wed Apr 13 00:30:38 2011 +0800
+
+    Updates to MSVC pre-configured headers
+    
+    Add automation support for config.h.win32(.in), so config.h.win32
+    will be distributed with the correct version info during "make dist"
+    
+    Also eliminate json-version.h.win32 as it is no longer needed (distribute
+    json-version.h during "make dist")
+
+ build/win32/config.h.win32       |   61 -----------------------
+ build/win32/config.h.win32.in    |   61 +++++++++++++++++++++++
+ build/win32/json-version.h.win32 |  100 --------------------------------------
+ 3 files changed, 61 insertions(+), 161 deletions(-)
+
+commit a7bdf87ec150ac7a88a850190fa79359197e552e
+Author: Chun-wei Fan <fanchunwei@src.gnome.org>
+Date:   Wed Apr 13 00:26:35 2011 +0800
+
+    MSVC Support with automation added (autotools part)
+    
+    This updates the autotools files so that the project to compile the main
+    JSON-GLib DLL will have its source files filed into the project during
+    "make dist".  Plus, it enables the creation/distribution of json-version.h
+    and config.h.win32 with the correct version info during "make dist".
+    
+    These changes will simplify the maintenance of the VS project files,
+    and support for VS2010 is also added here, with similar automation support,
+    too.
+
+ Makefile.am                  |    2 +-
+ build/win32/Makefile.am      |    4 ++--
+ build/win32/vs10/Makefile.am |   33 +++++++++++++++++++++++++++++++++
+ build/win32/vs9/Makefile.am  |    1 +
+ configure.ac                 |    2 ++
+ json-glib/Makefile.am        |   39 ++++++++++++++++++++++++++++++++++++++-
+ 6 files changed, 77 insertions(+), 4 deletions(-)
+
+commit 20fe28cfaa605e11c47fe53232b5dccfa47ddf8b
+Author: Chun-wei Fan <fanchunwei@src.gnome.org>
+Date:   Wed Apr 13 00:02:48 2011 +0800
+
+    Update VS 2008 Project Files
+    
+    Add automation support for the VS 2008 project files
+    These are the updated VS 2008 Project files and property sheets
+    themselves.  x64 compiling support is also added
+
+ build/win32/vs9/array-test.vcproj             |  132 ++++-------
+ build/win32/vs9/builder-test.vcproj           |  134 ++++-------
+ build/win32/vs9/generator-test.vcproj         |  134 ++++-------
+ build/win32/vs9/install.vcproj                |   44 +++--
+ build/win32/vs9/json-glib.sln                 |  115 +++++++++-
+ build/win32/vs9/json-glib.vcproj              |  317 -------------------------
+ build/win32/vs9/json-glib.vcprojin            |  204 ++++++++++++++++
+ build/win32/vs9/json-glib.vsprops             |   20 +-
+ build/win32/vs9/node-test.vcproj              |  134 ++++-------
+ build/win32/vs9/object-test.vcproj            |  134 ++++-------
+ build/win32/vs9/parser-test.vcproj            |  125 ++++------
+ build/win32/vs9/reader-test.vcproj            |  134 ++++-------
+ build/win32/vs9/test-serialize-boxed.vcproj   |  134 ++++-------
+ build/win32/vs9/test-serialize-complex.vcproj |  134 ++++-------
+ build/win32/vs9/test-serialize-full.vcproj    |  134 ++++-------
+ build/win32/vs9/test-serialize-simple.vcproj  |  133 ++++-------
+ 16 files changed, 917 insertions(+), 1245 deletions(-)
+
+commit 61da54311018f7afedb5d1e8cbd88ae7a284714f
 Author: Emmanuele Bassi <ebassi@linux.intel.com>
 Date:   Tue Apr 12 08:53:26 2011 +0100
 
@@ -113,40 +1267,29 @@ Date:   Tue Apr 12 08:53:26 2011 +0100
  json-glib.doap |   19 +------------------
  1 files changed, 1 insertions(+), 18 deletions(-)
 
-commit 72001841f6af3c3c98a44c22645762d76b01c258
-Author: Emmanuele Bassi <ebassi@linux.intel.com>
-Date:   Tue Apr 12 08:53:13 2011 +0100
-
-    Post-release version bump to 0.12.5
-
- configure.ac |    4 ++--
- 1 files changed, 2 insertions(+), 2 deletions(-)
-
-commit 83fc292a8fa283073326d7efe743828920a43bd1
-Author: Emmanuele Bassi <ebassi@linux.intel.com>
-Date:   Tue Apr 12 08:47:46 2011 +0100
-
-    Release JSON-GLib 0.12.4 (stable)
-
- NEWS         |    8 ++++++++
- configure.ac |    4 ++--
- 2 files changed, 10 insertions(+), 2 deletions(-)
-
-commit 3863187b2dfafdcb0eea032b72e03c3ddb73d353
+commit 0ff8f784848ad34c37bd60ad92791c6f76944803
 Author: Emmanuele Bassi <ebassi@linux.intel.com>
 Date:   Tue Apr 12 08:41:20 2011 +0100
 
     build: List GIO in the json-glib pkgconfig file
     
     Building against JSON-GLib requires GIO.
-    (cherry picked from commit 0ff8f784848ad34c37bd60ad92791c6f76944803)
-    
-    Signed-off-by: Emmanuele Bassi <ebassi@linux.intel.com>
 
  json-glib.pc.in |    2 +-
  1 files changed, 1 insertions(+), 1 deletions(-)
 
-commit 7f6a754044e611a2e57fd43a631b9262741af3da
+commit 8b060cd9144990aae6531982bad66050fafcb658
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Fri Apr 8 15:17:19 2011 +0100
+
+    object: Use g_list_find_custom()
+    
+    Instead of manual iteration, let's use the function GList provides us.
+
+ json-glib/json-object.c |   13 +++----------
+ 1 files changed, 3 insertions(+), 10 deletions(-)
+
+commit 2158cecee6fe1da8786afe2fad94d1098f879786
 Author: Emmanuele Bassi <ebassi@linux.intel.com>
 Date:   Wed Mar 23 11:35:28 2011 +0000
 
@@ -155,27 +1298,62 @@ Date:   Wed Mar 23 11:35:28 2011 +0000
     Since we check for the contents of the $host variable to detect
     compilation on/for win32, we should also be using the canonicalization
     facilities from autoconf.
-    (cherry picked from commit 311186b08875902f814237b5e7c11921a5166e0e)
-    
-    Signed-off-by: Emmanuele Bassi <ebassi@linux.intel.com>
 
  configure.ac |   20 +++++++++++---------
  1 files changed, 11 insertions(+), 9 deletions(-)
 
-commit 0ba35c4514f096c639224a70f38ef67849e7245e
+commit 992d966572e3e498031578558ac307d0f4909246
+Author: Rob Taylor <rob.taylor@codethink.co.uk>
+Date:   Tue Mar 15 09:09:11 2011 +0000
+
+    gvariant: Pass NULL down the chain for *signature
+    
+    Some small internal change from passing the signature to a pointer to
+    the signature down the call chain caused all the checks for
+    signature==NULL to fail.
+    
+    Signed-off-by: Emmanuele Bassi <ebassi@linux.intel.com>
+
+ json-glib/json-gvariant.c |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit af70f34b3fc46a4c464418ebd6a16d9a1f18af8a
+Author: Eduardo Lima Mitev <elima@igalia.com>
+Date:   Thu Jan 27 16:58:48 2011 +0100
+
+    generator: Removes blank spaces from generated JSON when not pretty-print
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=640729
+
+ json-glib/json-generator.c       |   35 +++++++++++------
+ json-glib/tests/builder-test.c   |    6 +-
+ json-glib/tests/generator-test.c |   34 ++++++++--------
+ json-glib/tests/gvariant-test.c  |   78 +++++++++++++++++++-------------------
+ 4 files changed, 82 insertions(+), 71 deletions(-)
+
+commit 8bb22d7de00f15ef44cad502d757639d8a4e8973
 Author: Emmanuele Bassi <ebassi@linux.intel.com>
 Date:   Tue Feb 15 16:28:07 2011 +0000
 
     Fix introspection annotations
-    (cherry picked from commit 8bb22d7de00f15ef44cad502d757639d8a4e8973)
-    
-    Signed-off-by: Emmanuele Bassi <ebassi@linux.intel.com>
 
  json-glib/json-node.c   |    7 ++++---
  json-glib/json-object.c |    4 ++--
  2 files changed, 6 insertions(+), 5 deletions(-)
 
-commit 94c9e35cc4f95873f6a4539b717342d42d921ec0
+commit 217127545b07f93ac27e3f137d748d61a5e199da
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Tue Feb 15 16:16:46 2011 +0000
+
+    tests/object: Add a set_member() unit
+    
+    Verify that setting an object member multiple times does not lead to
+    random values.
+
+ json-glib/tests/object-test.c |   29 +++++++++++++++++++++++++++++
+ 1 files changed, 29 insertions(+), 0 deletions(-)
+
+commit 1a633159a593c962233a5ef4660e31e60eed96d9
 Author: Emmanuele Bassi <ebassi@linux.intel.com>
 Date:   Tue Feb 15 16:12:38 2011 +0000
 
@@ -192,55 +1370,216 @@ Date:   Tue Feb 15 16:12:38 2011 +0000
     removing and prepending won't do.
     
     https://bugzilla.gnome.org/show_bug.cgi?id=642383
-    (cherry picked from commit 1a633159a593c962233a5ef4660e31e60eed96d9)
-    
-    Signed-off-by: Emmanuele Bassi <ebassi@linux.intel.com>
 
  json-glib/json-object.c |   21 +++++++++++++++++++++
  1 files changed, 21 insertions(+), 0 deletions(-)
 
-commit 33c03c4d154f5fcbc67b2a648c28d37348d21957
+commit a125a724894a08a8d8053fdd2db92d0ad8e2dfd4
 Author: Emmanuele Bassi <ebassi@linux.intel.com>
-Date:   Mon Jan 10 11:39:34 2011 +0000
+Date:   Sun Feb 6 23:10:54 2011 +0000
 
-    Post release version bump to 0.12.3
+    reader: Plug a leak
+    
+    Free the current_member string, and since we're destroying data we own
+    let's do it inside the finalize implementation instead of the dispose
+    one.
 
- configure.ac |    4 ++--
- 1 files changed, 2 insertions(+), 2 deletions(-)
+ json-glib/json-reader.c |   15 ++++++---------
+ 1 files changed, 6 insertions(+), 9 deletions(-)
 
-commit c4123852196304818fe5d85d847ebe96da99e1db
+commit 2c5f4563c54fa273ffd8dbe02b60a12c4b54b977
 Author: Emmanuele Bassi <ebassi@linux.intel.com>
-Date:   Mon Jan 10 11:36:34 2011 +0000
+Date:   Sun Feb 6 12:22:49 2011 +0000
 
-    Release JSON-GLib 0.12.2
+    reader: Add accessor for the member name
+    
+    This should allow easy access to the member name during iteration.
 
- configure.ac |    4 ++--
- 1 files changed, 2 insertions(+), 2 deletions(-)
+ doc/reference/json-glib-sections.txt |    1 +
+ json-glib/json-glib.symbols          |    1 +
+ json-glib/json-reader.c              |   32 ++++++++++++++++++++++++++++++++
+ json-glib/json-reader.h              |    1 +
+ json-glib/tests/reader-test.c        |    1 +
+ 5 files changed, 36 insertions(+), 0 deletions(-)
 
-commit d16362205e8898357479ab7ad39865d57c2dda85
+commit b2880f5a4dad07ff96a9b6578ffc5d677f75eb94
 Author: Emmanuele Bassi <ebassi@linux.intel.com>
-Date:   Mon Jan 10 11:36:22 2011 +0000
+Date:   Sun Feb 6 11:34:22 2011 +0000
 
-    Update NEWS file
+    reader: Allow using read_element() on objects
+    
+    If we assume that a JSON object is just an array with a named mapping
+    then the JsonReader API should be able to descend into objects using the
+    same API used for arrays.
+    
+    This obviously is less useful than it sounds if we take a very strict
+    interpretation of JSON objects as unordered string-to-value mappings; as
+    the ordering is not guaranteed to be stable, parsers would be fairly
+    weak against various JSON definitions.
+    
+    If the JSON format parsed is guaranteed to be stable then an integer
+    offset might be an easy (albeit slightly less performant) way to access
+    data.
 
- NEWS |    8 ++++++++
- 1 files changed, 8 insertions(+), 0 deletions(-)
+ json-glib/json-reader.c       |   67 +++++++++++++++++++++++++++++++----------
+ json-glib/tests/reader-test.c |    6 ++++
+ 2 files changed, 57 insertions(+), 16 deletions(-)
 
-commit caf6c33ab80dd06f7eb58badb1e0509d1bd9357d
+commit 74ed11db6da9839ce17b448d6d17103ea0734dda
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Fri Feb 4 19:18:22 2011 +0000
+
+    reader: Add list_members() method
+    
+    Allow retrieving a list of member names from the current cursor position
+    of the JsonReader. It's useful if you're trying to inspect a JSON tree.
+
+ doc/reference/json-glib-sections.txt |    1 +
+ json-glib/json-glib.symbols          |    1 +
+ json-glib/json-reader.c              |   46 ++++++++++++++++++++++++++++++++++
+ json-glib/json-reader.h              |    1 +
+ json-glib/tests/reader-test.c        |   19 ++++++++++++++
+ 5 files changed, 68 insertions(+), 0 deletions(-)
+
+commit eb14f92019bde75947a98f5578167af6b6a17974
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Wed Jan 26 16:58:56 2011 +0000
+
+    Coding style fixes and compiler warnings removal
+    
+    G_VARIANT_CLASS_DICTIONARY is a define; GCC complais loudly when trying
+    to use a switch() on an enumeration type with case values not from the
+    enumeration.
+    
+    Plus: coding style in JSON-GLib is mostly the same as GTK+ and Clutter,
+    so we should adhere to it.
+
+ json-glib/json-gvariant.c |   67 ++++++++++++++++++++++++---------------------
+ 1 files changed, 36 insertions(+), 31 deletions(-)
+
+commit 212b243c07721242da3dc2c0e6dfe979f73ee5c6
+Author: Eduardo Lima Mitev <elima@igalia.com>
+Date:   Tue Nov 9 16:45:30 2010 +0100
+
+    gvariant: Adds JSON GVariant integration API, with docs and tests
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=632940
+
+ doc/reference/json-glib-docs.xml     |    1 +
+ doc/reference/json-glib-sections.txt |   10 +
+ json-glib/Makefile.am                |    2 +
+ json-glib/json-glib.h                |    2 +
+ json-glib/json-gvariant.c            | 1296 ++++++++++++++++++++++++++++++++++
+ json-glib/json-gvariant.h            |   46 ++
+ json-glib/tests/Makefile.am          |    4 +
+ json-glib/tests/gvariant-test.c      |  233 ++++++
+ 8 files changed, 1594 insertions(+), 0 deletions(-)
+
+commit 822b6be848f3ad53ad113f0ce317b01f1a91a54f
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Sat Jan 15 18:36:34 2011 +0000
+
+    build: Do not dist a gzip tarball
+    
+    Use only bzip2, since it gives better compression ratios; the
+    installation script on gnome.org will create a gzipped tarball by itself
+    anyway.
+
+ configure.ac |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+commit 7c07a6549df1ae1b4826bf40f70c62768ce7e35b
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Mon Jan 10 11:56:32 2011 +0000
+
+    build: Fix previous commit
+
+ configure.ac |    7 +++++++
+ 1 files changed, 7 insertions(+), 0 deletions(-)
+
+commit bb67e146c9e883185d264e693cc4a07d1a60d191
+Author: Fan, Chun-wei <fanc999%40yahoo.com.tw>
+Date:   Mon Jan 10 11:49:16 2011 +0000
+
+    build: Add Visual C++ 2008 project files
+    
+    Integrate the files inside the build, though it's still not fully
+    automated.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=635484
+    
+    Signed-off-by: Emmanuele Bassi <ebassi@linux.intel.com>
+
+ build/Makefile.am                             |    2 +-
+ build/win32/Makefile.am                       |    3 +
+ build/win32/config.h.win32                    |   61 +++++
+ build/win32/json-version.h.win32              |  100 ++++++++
+ build/win32/vs9/Makefile.am                   |   19 ++
+ build/win32/vs9/array-test.vcproj             |  189 +++++++++++++++
+ build/win32/vs9/builder-test.vcproj           |  189 +++++++++++++++
+ build/win32/vs9/generator-test.vcproj         |  189 +++++++++++++++
+ build/win32/vs9/install.vcproj                |   71 ++++++
+ build/win32/vs9/json-glib.sln                 |   80 +++++++
+ build/win32/vs9/json-glib.vcproj              |  317 +++++++++++++++++++++++++
+ build/win32/vs9/json-glib.vsprops             |   93 +++++++
+ build/win32/vs9/node-test.vcproj              |  189 +++++++++++++++
+ build/win32/vs9/object-test.vcproj            |  187 +++++++++++++++
+ build/win32/vs9/parser-test.vcproj            |  189 +++++++++++++++
+ build/win32/vs9/reader-test.vcproj            |  190 +++++++++++++++
+ build/win32/vs9/test-serialize-boxed.vcproj   |  189 +++++++++++++++
+ build/win32/vs9/test-serialize-complex.vcproj |  188 +++++++++++++++
+ build/win32/vs9/test-serialize-full.vcproj    |  189 +++++++++++++++
+ build/win32/vs9/test-serialize-simple.vcproj  |  189 +++++++++++++++
+ 20 files changed, 2822 insertions(+), 1 deletions(-)
+
+commit c7cd46b8320157e223009aa2a7204461c7d301d5
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Mon Jan 10 11:48:26 2011 +0000
+
+    build: Add .symbols file for win32 builds
+
+ json-glib/Makefile.am       |    2 +
+ json-glib/json-glib.symbols |  163 +++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 165 insertions(+), 0 deletions(-)
+
+commit 4549af3210461a07dc84a30433a0a23764618e4c
 Author: Evan Nemerson <evan@coeus-group.com>
 Date:   Sat Nov 20 16:25:41 2010 -0800
 
     Add C include information to GIR
     
     Bug #635398
-    (cherry picked from commit 4549af3210461a07dc84a30433a0a23764618e4c)
-    
-    Signed-off-by: Emmanuele Bassi <ebassi@linux.intel.com>
 
  json-glib/Makefile.am |    2 +-
  1 files changed, 1 insertions(+), 1 deletions(-)
 
-commit 89c2e81e0be5ec7ef53c1b142502a813fcffcc9e
+commit f89a50e24d2088061eb7d975db7e6f39beaf853d
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Mon Jan 10 11:16:17 2011 +0000
+
+    object: Do some more validation in set_member()
+    
+    Check if we're setting the same node, to avoid a needless replace.
+
+ json-glib/json-object.c |   10 ++++++++++
+ 1 files changed, 10 insertions(+), 0 deletions(-)
+
+commit e828cba563f2584e848994935478a7ffd21728df
+Author: Luca Bruno <lucabru@src.gnome.org>
+Date:   Thu Jan 6 17:44:46 2011 +0100
+
+    Add missing introspection annotations.
+    
+    https://bugzilla.gnome.org/show_bug.cgi?id=638932
+
+ json-glib/json-array.c        |    8 ++++----
+ json-glib/json-node.c         |    8 ++++----
+ json-glib/json-object.c       |    8 ++++----
+ json-glib/json-parser.c       |    2 +-
+ json-glib/json-serializable.c |    2 +-
+ 5 files changed, 14 insertions(+), 14 deletions(-)
+
+commit 02dd77efaa60201f74349c969dc005c8bb092057
 Author: Emmanuele Bassi <ebassi@linux.intel.com>
 Date:   Mon Jan 10 10:45:39 2011 +0000
 
@@ -250,14 +1589,11 @@ Date:   Mon Jan 10 10:45:39 2011 +0000
     serialization format, as it obviously loses precision.
     
     https://bugzilla.gnome.org/show_bug.cgi?id=637244
-    (cherry picked from commit 02dd77efaa60201f74349c969dc005c8bb092057)
-    
-    Signed-off-by: Emmanuele Bassi <ebassi@linux.intel.com>
 
  json-glib/json-generator.c |    7 ++++---
  1 files changed, 4 insertions(+), 3 deletions(-)
 
-commit 93dadcaf4da217265b045bc0398d2944ec4b7cba
+commit 3dbab961e675d0684df1121906ae3588d09653e6
 Author: Emmanuele Bassi <ebassi@linux.intel.com>
 Date:   Mon Jan 10 10:43:58 2011 +0000
 
@@ -265,63 +1601,52 @@ Date:   Mon Jan 10 10:43:58 2011 +0000
     
     Serialization of floating point values might lead to odd formats,
     especially when dealing with IEEE machine-neutral values.
-    (cherry picked from commit 3dbab961e675d0684df1121906ae3588d09653e6)
-    
-    Signed-off-by: Emmanuele Bassi <ebassi@linux.intel.com>
 
  json-glib/tests/builder-test.c |    4 ++--
  1 files changed, 2 insertions(+), 2 deletions(-)
 
-commit 80e9c9666a8f51b4210cfe6d36bf4b2443ec6a2b
+commit 567d7fb4dff83c9e37e64ef8611f0231fa181c34
 Author: Emmanuele Bassi <ebassi@linux.intel.com>
-Date:   Mon Jan 10 11:26:38 2011 +0000
+Date:   Tue Dec 14 16:35:24 2010 +0000
 
-    tests: Gracefully handle missing g_assert_error()
+    reader: Use GObject ≥ 2.26 API
     
-    We depend on GLib ≥ 2.16, but g_assert_error() landed in GLib 2.20; use
-    a fallback depending on a compile-time version check to avoid breaking
-    compilation of the test suite.
-    
-    https://bugzilla.gnome.org/show_bug.cgi?id=632190
+    Use modern API to deal with properties installation and notification.
 
- json-glib/tests/parser-test.c |    7 +++++++
- json-glib/tests/reader-test.c |   12 ++++++++++++
- 2 files changed, 19 insertions(+), 0 deletions(-)
+ json-glib/json-reader.c |   35 +++++++++++++++--------------------
+ 1 files changed, 15 insertions(+), 20 deletions(-)
 
-commit 389e3213ff33aee096a6734ae87080462310a893
-Author: Luca Bruno <lucabru@src.gnome.org>
-Date:   Thu Jan 6 17:44:46 2011 +0100
-
-    Add missing introspection annotations.
-    
-    https://bugzilla.gnome.org/show_bug.cgi?id=638932
-    (cherry picked from commit e828cba563f2584e848994935478a7ffd21728df)
-    
-    Signed-off-by: Emmanuele Bassi <ebassi@linux.intel.com>
-
- json-glib/json-array.c        |    8 ++++----
- json-glib/json-node.c         |    8 ++++----
- json-glib/json-object.c       |    8 ++++----
- json-glib/json-parser.c       |    2 +-
- json-glib/json-serializable.c |    2 +-
- 5 files changed, 14 insertions(+), 14 deletions(-)
-
-commit 8b2d33e086277e08f3e24798f9b3453815137ecc
+commit 9aed6f5a455109186ae56ec1c3e558505644d57f
 Author: Emmanuele Bassi <ebassi@linux.intel.com>
-Date:   Tue Oct 19 09:59:38 2010 +0100
+Date:   Tue Dec 14 16:26:10 2010 +0000
 
-    build: Resync the GTest rules with upstream
+    generator: Clean up and add accessors
     
-    Upstream GLib fixed the test rules to avoid repeating the test suite
-    three times.
-    (cherry picked from commit 20a16d5b9ecabe68ee18655b2ff3bdb17136c6f1)
+    Instead of asking everyone to use g_object_set() to set up a
+    JsonGenerator the class should provide a decent API for its properties.
     
-    Signed-off-by: Emmanuele Bassi <ebassi@linux.intel.com>
+    While we're at it, we should also use modern API for installing and
+    notifying of property changes.
 
- build/autotools/Makefile.am.gtest |   21 ++++++++++++---------
- 1 files changed, 12 insertions(+), 9 deletions(-)
+ doc/reference/json-glib-sections.txt |   11 ++-
+ json-glib/json-generator.c           |  256 ++++++++++++++++++++++++++++------
+ json-glib/json-generator.h           |   35 +++--
+ 3 files changed, 246 insertions(+), 56 deletions(-)
 
-commit 93069a40ff7b26d787218ea3f23a23b9b53e8d05
+commit de991a0c6dc4d0b3c366248e20ba6853bd2c3e92
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Tue Dec 14 11:39:04 2010 +0000
+
+    generator: Verify that the decimal separator is locale-independent
+    
+    There shouldn't be a requirement for this, since we're using the GLib
+    function explicitely for this reason, but it's always good to have a
+    comprehensive test suite.
+
+ json-glib/tests/generator-test.c |   58 ++++++++++++++++++++++++++++++++++++++
+ 1 files changed, 58 insertions(+), 0 deletions(-)
+
+commit 4add0e081b8f58dec1cd68152d846be87942091e
 Author: Emmanuele Bassi <ebassi@linux.intel.com>
 Date:   Tue Dec 14 11:37:25 2010 +0000
 
@@ -329,24 +1654,69 @@ Date:   Tue Dec 14 11:37:25 2010 +0000
     
     JsonGenerator is not able to generate strings for bare values, something
     that completely went under the radar for all this time.
-    (cherry picked from commit 4add0e081b8f58dec1cd68152d846be87942091e)
-    
-    Signed-off-by: Emmanuele Bassi <ebassi@linux.intel.com>
 
  json-glib/json-generator.c |   15 ++++++++++-----
  1 files changed, 10 insertions(+), 5 deletions(-)
 
-commit 53757dffe4e36f01901991045270e3d4986e8f91
+commit 20a16d5b9ecabe68ee18655b2ff3bdb17136c6f1
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Tue Oct 19 09:59:38 2010 +0100
+
+    build: Resync the GTest rules with upstream
+    
+    Upstream GLib fixed the test rules to avoid repeating the test suite
+    three times.
+
+ build/autotools/Makefile.am.gtest |   21 ++++++++++++---------
+ 1 files changed, 12 insertions(+), 9 deletions(-)
+
+commit dc262a09572328342164ebb23ad698b5cb3cd8ff
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Tue Oct 19 09:49:20 2010 +0100
+
+    Use G_DEFINE_INTERFACE()
+
+ json-glib/json-serializable.c |   35 +++++++----------------------------
+ 1 files changed, 7 insertions(+), 28 deletions(-)
+
+commit 80665415cd945f3dafed6925c9975f36b916a80f
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Tue Oct 19 09:49:05 2010 +0100
+
+    Use G_DEFINE_BOXED_TYPE()
+
+ json-glib/json-array.c  |   13 +------------
+ json-glib/json-node.c   |   13 +------------
+ json-glib/json-object.c |   13 +------------
+ 3 files changed, 3 insertions(+), 36 deletions(-)
+
+commit 51e2eef48fabbee554193ee9eadfb8696ebb3ac7
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Tue Oct 19 09:48:23 2010 +0100
+
+    build: Depend on GLib ≥ 2.26
+
+ README       |    2 +-
+ configure.ac |    2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+commit d28db01f5d12497ec96d5e507af4003b076dd154
 Author: Emmanuele Bassi <ebassi@linux.intel.com>
 Date:   Wed Sep 29 17:25:18 2010 +0100
 
     build: Use -no-undefined when compiling on win32
-    (cherry picked from commit d28db01f5d12497ec96d5e507af4003b076dd154)
-    
-    Signed-off-by: Emmanuele Bassi <ebassi@linux.intel.com>
 
  configure.ac |   13 +++++++++++++
  1 files changed, 13 insertions(+), 0 deletions(-)
+
+commit 5332217481b3e5fee73710bb50886fbc52a632a4
+Author: Emmanuele Bassi <ebassi@linux.intel.com>
+Date:   Sat Sep 25 12:02:36 2010 +0100
+
+    Post-branch version bump to 0.13.1
+
+ configure.ac |    4 ++--
+ 1 files changed, 2 insertions(+), 2 deletions(-)
 
 commit 6b4d49b8024f672d62a7059c083455ad31f7d0eb
 Author: Emmanuele Bassi <ebassi@linux.intel.com>
@@ -465,8 +1835,8 @@ Date:   Sun Aug 15 18:46:02 2010 +0100
 
     builder: Add Since: annotations
 
- json-glib/json-builder.h |   54 +++++++++++++++++++++++++--------------------
- 1 files changed, 30 insertions(+), 24 deletions(-)
+ json-glib/json-builder.h |   50 +++++++++++++++++++++++++--------------------
+ 1 files changed, 28 insertions(+), 22 deletions(-)
 
 commit 2d7550948dfb2e5907b851bc2c4bd296a7526086
 Author: Emmanuele Bassi <ebassi@linux.intel.com>
@@ -761,8 +2131,8 @@ Date:   Mon Aug 2 16:39:04 2010 +0100
     asynchronously) to retrieve the JSON data and parse it.
 
  json-glib/json-parser.c |  258 +++++++++++++++++++++++++++++++++++++++++++++++
- json-glib/json-parser.h |   49 ++++++----
- 2 files changed, 289 insertions(+), 18 deletions(-)
+ json-glib/json-parser.h |   43 +++++---
+ 2 files changed, 286 insertions(+), 15 deletions(-)
 
 commit b164bb5180749aaff385f5d61866875bfbf9c552
 Author: Emmanuele Bassi <ebassi@linux.intel.com>
@@ -916,9 +2286,9 @@ Date:   Fri May 28 11:35:05 2010 +0100
  build/autotools/shave-libtool.in   |   69 -------------------------------
  build/autotools/shave.in           |   79 ------------------------------------
  build/autotools/shave.m4           |   77 -----------------------------------
- configure.ac                       |   46 ++++++---------------
- json-glib/Makefile.am              |   47 +++++++--------------
- 9 files changed, 37 insertions(+), 300 deletions(-)
+ configure.ac                       |   44 +++++--------------
+ json-glib/Makefile.am              |   43 ++++++-------------
+ 9 files changed, 34 insertions(+), 297 deletions(-)
 
 commit 6231cf027a8f9c3b11324c1d49a350ba55353123
 Author: Emmanuele Bassi <ebassi@linux.intel.com>
@@ -1033,8 +2403,8 @@ Date:   Fri Mar 19 15:40:48 2010 +0000
     The code is fairly cleaner, now; and, most of all, still passes the
     validation test suite - which is, you know... nice.
 
- json-glib/json-parser.c |  488 +++++++++++++++++++----------------------------
- 1 files changed, 200 insertions(+), 288 deletions(-)
+ json-glib/json-parser.c |  480 +++++++++++++++++++----------------------------
+ 1 files changed, 196 insertions(+), 284 deletions(-)
 
 commit 9ce82f8052290f3956c3d80c8739c214da314d42
 Author: Emmanuele Bassi <ebassi@linux.intel.com>
@@ -1276,8 +2646,8 @@ Date:   Sat Jan 2 23:50:40 2010 +0000
     
     Use typed accessors instead of using GValues all around.
 
- json-glib/tests/generator-test.c |  145 +++++++-------------------------------
- 1 files changed, 25 insertions(+), 120 deletions(-)
+ json-glib/tests/generator-test.c |  141 ++++++-------------------------------
+ 1 files changed, 23 insertions(+), 118 deletions(-)
 
 commit 3c33b61738d74b732805b497accec830b1a05796
 Author: Emmanuele Bassi <ebassi@linux.intel.com>
@@ -1580,9 +2950,9 @@ Date:   Mon Nov 23 22:20:58 2009 +0000
  doc/reference/json-glib-sections.txt |    3 +-
  json-glib/json-gboxed.c              |  115 ++++++++++++++++++++++------------
  json-glib/json-gobject.c             |    4 +-
- json-glib/json-gobject.h             |   63 +++++++++---------
+ json-glib/json-gobject.h             |   59 +++++++++---------
  tests/test-serialize-boxed.c         |    7 +-
- 5 files changed, 114 insertions(+), 78 deletions(-)
+ 5 files changed, 112 insertions(+), 76 deletions(-)
 
 commit 61d54cc9e2a3098e876e700a9248428f400a5368
 Author: Tristan Van Berkom <tristan.van.berkom@gmail.com>
@@ -2084,19 +3454,19 @@ Date:   Tue Oct 27 11:57:38 2009 +0000
 
  .gitignore                          |    4 +-
  Makefile.am                         |    5 +-
- Makefile.decl                       |   61 ------------------------
+ Makefile.decl                       |   61 -------------------------
  build/Makefile.am                   |   12 ++++-
  build/autotools/Makefile.am         |   21 +++++++--
  build/autotools/Makefile.am.enums   |   43 +++++++++++++++++
- build/autotools/Makefile.am.gtest   |   61 ++++++++++++++++++++++++
+ build/autotools/Makefile.am.gtest   |   61 +++++++++++++++++++++++++
  build/autotools/Makefile.am.marshal |   45 ++++++++++++++++++
  build/autotools/Makefile.am.silent  |   17 +++++++
  doc/Makefile.am                     |   12 ++++-
  doc/reference/Makefile.am           |    5 +-
- json-glib/Makefile.am               |   88 +++++++++++------------------------
+ json-glib/Makefile.am               |   86 +++++++++++------------------------
  json-glib/tests/Makefile.am         |   12 +++--
- tests/Makefile.am                   |   15 ++----
- 14 files changed, 252 insertions(+), 149 deletions(-)
+ tests/Makefile.am                   |   15 +++----
+ 14 files changed, 251 insertions(+), 148 deletions(-)
 
 commit 5406301b0e3bf74c0d7ae47a618c416d5c6dc29d
 Author: Emmanuele Bassi <ebassi@linux.intel.com>
@@ -2588,8 +3958,8 @@ Date:   Sun Jun 28 23:52:34 2009 +0100
 
     Indentation fixes
 
- tests/test-parser.c |   98 +++++++++++++++++++++++++-------------------------
- 1 files changed, 49 insertions(+), 49 deletions(-)
+ tests/test-parser.c |   94 +++++++++++++++++++++++++-------------------------
+ 1 files changed, 47 insertions(+), 47 deletions(-)
 
 commit 112a8ec8dfd9c46304008b62e8ab256ed7714644
 Author: Emmanuele Bassi <ebassi@gnome.org>
@@ -2972,8 +4342,8 @@ Date:   Fri Apr 17 15:02:44 2009 +0100
     the typed JsonNode accessors and the newly added JsonObject and
     JsonArray typed accessors.
 
- tests/test-generator.c |   65 ++++++++---------------------------------------
- 1 files changed, 11 insertions(+), 54 deletions(-)
+ tests/test-generator.c |   63 +++++++----------------------------------------
+ 1 files changed, 10 insertions(+), 53 deletions(-)
 
 commit e437ce609e333c5b8ede21174dfba032c1bbfb00
 Author: Emmanuele Bassi <ebassi@linux.intel.com>
@@ -3133,9 +4503,9 @@ Date:   Mon Apr 13 23:46:52 2009 +0100
  build/autotools/shave-libtool.in |   69 +++++++++++++++++++++++++++++
  build/autotools/shave.in         |   79 +++++++++++++++++++++++++++++++++
  build/autotools/shave.m4         |   77 ++++++++++++++++++++++++++++++++
- configure.ac                     |   90 +++++++++++++++++++++----------------
+ configure.ac                     |   88 +++++++++++++++++++++----------------
  json-glib/Makefile.am            |   89 +++++++++++++++++++------------------
- 9 files changed, 340 insertions(+), 82 deletions(-)
+ 9 files changed, 339 insertions(+), 81 deletions(-)
 
 commit 8080df63b4b4eae3b59d1214fc67f48149f49773
 Author: Emmanuele Bassi <ebassi@linux.intel.com>
@@ -4324,9 +5694,9 @@ Date:   Fri Feb 29 16:00:55 2008 +0000
     Rename all the API and the data types to the Json namespace, so we can
     use the internal copy instead of GScanner.
 
- json-glib/json-scanner.c |  639 +++++++++++++++++++++++-----------------------
+ json-glib/json-scanner.c |  637 +++++++++++++++++++++++-----------------------
  json-glib/json-scanner.h |    6 +-
- 2 files changed, 328 insertions(+), 317 deletions(-)
+ 2 files changed, 327 insertions(+), 316 deletions(-)
 
 commit 65708000ab02d0a4080b662bb409ac4b79101488
 Author: Emmanuele Bassi <ebassi@openedhand.com>
@@ -5371,8 +6741,8 @@ Date:   Mon Oct 15 10:25:09 2007 +0100
  doc/reference/json-glib-sections.txt |    2 +
  json-glib/json-array.c               |   18 +++++
  json-glib/json-object.c              |   17 +++++
- json-glib/json-types.h               |  126 +++++++++++++++++----------------
- 4 files changed, 102 insertions(+), 61 deletions(-)
+ json-glib/json-types.h               |  120 +++++++++++++++++----------------
+ 4 files changed, 99 insertions(+), 58 deletions(-)
 
 commit b3ecd6e2fbdd58250427f406c43d60b8cb8d2644
 Author: Emmanuele Bassi <ebassi@openedhand.com>
@@ -5670,8 +7040,8 @@ Date:   Mon Oct 1 18:01:20 2007 +0100
  json-glib/json-object.c    |    1 -
  json-glib/json-parser.c    |    1 -
  json-glib/json-private.h   |   35 -----------------------------------
- json-glib/json-types.h     |   38 +++++++++++++++++++++++++++++++-------
- 8 files changed, 32 insertions(+), 48 deletions(-)
+ json-glib/json-types.h     |   36 ++++++++++++++++++++++++++++++------
+ 8 files changed, 31 insertions(+), 47 deletions(-)
 
 commit bfa60e9ef9da71e3c0d171f81cd08e8eac749061
 Author: Emmanuele Bassi <ebassi@openedhand.com>
@@ -5885,10 +7255,10 @@ Date:   Mon Oct 1 12:57:46 2007 +0100
  json-glib/json-parser.c  |   87 +++++++++++----
  json-glib/json-parser.h  |    2 +-
  json-glib/json-private.h |   38 +++----
- json-glib/json-types.h   |   59 ++++++-----
+ json-glib/json-types.h   |   55 ++++++----
  tests/test-01.c          |    2 +-
  tests/test-02.c          |  112 ++++++++++++++++++-
- 11 files changed, 535 insertions(+), 237 deletions(-)
+ 11 files changed, 533 insertions(+), 235 deletions(-)
 
 commit c11ebd32f73a1e21d6097bf9eba8e12f7e35497a
 Author: Emmanuele Bassi <ebassi@openedhand.com>
@@ -5904,8 +7274,8 @@ Date:   Fri Sep 21 21:07:12 2007 +0100
  json-glib/Makefile.am    |    1 +
  json-glib/json-data.c    |   93 ++++++++++++++++++++++++++++++++++++++++++++++
  json-glib/json-private.h |    7 +++
- json-glib/json-types.h   |   53 ++++++++++++++++++--------
- 4 files changed, 138 insertions(+), 16 deletions(-)
+ json-glib/json-types.h   |   49 +++++++++++++++++-------
+ 4 files changed, 136 insertions(+), 14 deletions(-)
 
 commit f661c7e1a04c2fb198279030c9dd812f357240a3
 Author: Emmanuele Bassi <ebassi@openedhand.com>
@@ -6051,23 +7421,23 @@ Date:   Thu Sep 20 17:33:28 2007 +0100
     JSON is the JavaScript Object Notation, and it's used to define objects
     and object hierarchies in a human-readable way.
 
- AUTHORS                           |    1 +
- COPYING                           |  504 +++++++++++++++++++++++++++++++++++++
- ChangeLog                         |    6 +
- Makefile.am                       |   15 ++
- README                            |   39 +++
- autogen.sh                        |    4 +
- configure.ac                      |  119 +++++++++
- doc/reference/Makefile.am         |   82 ++++++
- doc/reference/version.xml.in      |    1 +
- json-glib.pc.in                   |   11 +
- json-glib/Makefile.am             |   52 ++++
- json-glib/json-array.c            |  176 +++++++++++++
- json-glib/json-glib.h             |    8 +
- json-glib/json-object.c           |  201 +++++++++++++++
- json-glib/json-parser.c           |  152 +++++++++++
- json-glib/json-parser.h           |   57 +++++
- json-glib/json-private.h          |   26 ++
- json-glib/json-types.h            |   32 +++
- json-glib/json-version.h.in       |   65 +++++
+ AUTHORS                      |    1 +
+ COPYING                      |  504 ++++++++++++++++++++++++++++++++++++++++++
+ ChangeLog                    |    6 +
+ Makefile.am                  |   15 ++
+ README                       |   39 ++++
+ autogen.sh                   |    4 +
+ configure.ac                 |  119 ++++++++++
+ doc/reference/Makefile.am    |   82 +++++++
+ doc/reference/version.xml.in |    1 +
+ json-glib.pc.in              |   11 +
+ json-glib/Makefile.am        |   52 +++++
+ json-glib/json-array.c       |  176 +++++++++++++++
+ json-glib/json-glib.h        |    8 +
+ json-glib/json-object.c      |  201 +++++++++++++++++
+ json-glib/json-parser.c      |  152 +++++++++++++
+ json-glib/json-parser.h      |   57 +++++
+ json-glib/json-private.h     |   26 +++
+ json-glib/json-types.h       |   32 +++
+ json-glib/json-version.h.in  |   65 ++++++
  19 files changed, 1551 insertions(+), 0 deletions(-)

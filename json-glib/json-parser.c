@@ -36,6 +36,8 @@
 
 #include <string.h>
 
+#include <glib/gi18n-lib.h>
+
 #include "json-types-private.h"
 
 #include "json-debug.h"
@@ -808,9 +810,12 @@ json_scanner_msg_handler (JsonScanner *scanner,
     {
       GError *error = NULL;
 
+      /* translators: %s: is the file name, %d is the line number
+       * and %s is the error message
+       */
       g_set_error (&error, JSON_PARSER_ERROR,
                    priv->error_code,
-                   "%s:%d: Parse error: %s",
+                   _("%s:%d: Parse error: %s"),
                    priv->is_filename ? priv->filename : "<none>",
                    scanner->line,
                    message);

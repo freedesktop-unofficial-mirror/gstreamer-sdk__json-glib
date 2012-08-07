@@ -44,18 +44,7 @@
  * To retrieve the length of the array, use json_array_get_length().
  */
 
-GType
-json_array_get_type (void)
-{
-  static GType array_type = 0;
-
-  if (G_UNLIKELY (!array_type))
-    array_type = g_boxed_type_register_static (g_intern_static_string ("JsonArray"),
-                                               (GBoxedCopyFunc) json_array_ref,
-                                               (GBoxedFreeFunc) json_array_unref);
-
-  return array_type;
-}
+G_DEFINE_BOXED_TYPE (JsonArray, json_array, json_array_ref, json_array_unref);
 
 /**
  * json_array_new:
@@ -113,7 +102,7 @@ json_array_ref (JsonArray *array)
   g_return_val_if_fail (array != NULL, NULL);
   g_return_val_if_fail (array->ref_count > 0, NULL);
 
-  g_atomic_int_exchange_and_add (&array->ref_count, 1);
+  g_atomic_int_add (&array->ref_count, 1);
 
   return array;
 }
@@ -129,15 +118,10 @@ json_array_ref (JsonArray *array)
 void
 json_array_unref (JsonArray *array)
 {
-  gint old_ref;
-
   g_return_if_fail (array != NULL);
   g_return_if_fail (array->ref_count > 0);
 
-  old_ref = g_atomic_int_get (&array->ref_count);
-  if (old_ref > 1)
-    g_atomic_int_compare_and_exchange (&array->ref_count, old_ref, old_ref - 1);
-  else
+  if (g_atomic_int_dec_and_test (&array->ref_count))
     {
       guint i;
 

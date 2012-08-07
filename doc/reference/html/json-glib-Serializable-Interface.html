@@ -8,7 +8,7 @@
 <link rel="up" href="json-advanced.html" title="Part IV. JSON-GLib Advanced API">
 <link rel="prev" href="json-glib-GObject-Serialization.html" title="GObject Serialization">
 <link rel="next" href="json-glib-Boxed-Types-Serialization.html" title="Boxed Types Serialization">
-<meta name="generator" content="GTK-Doc V1.16.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -49,6 +49,16 @@
                                                          <em class="parameter"><code><span class="type">GValue</span> *value</code></em>,
                                                          <em class="parameter"><code><span class="type">GParamSpec</span> *pspec</code></em>,
                                                          <em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *property_node</code></em>);
+<span class="returnvalue">GParamSpec</span> *        <a class="link" href="json-glib-Serializable-Interface.html#json-serializable-find-property" title="json_serializable_find_property ()">json_serializable_find_property</a>     (<em class="parameter"><code><span class="type">JsonSerializable</span> *serializable</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *name</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="json-glib-Serializable-Interface.html#json-serializable-get-property" title="json_serializable_get_property ()">json_serializable_get_property</a>      (<em class="parameter"><code><span class="type">JsonSerializable</span> *serializable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GParamSpec</span> *pspec</code></em>,
+                                                         <em class="parameter"><code><span class="type">GValue</span> *value</code></em>);
+<span class="returnvalue">GParamSpec</span> **       <a class="link" href="json-glib-Serializable-Interface.html#json-serializable-list-properties" title="json_serializable_list_properties ()">json_serializable_list_properties</a>   (<em class="parameter"><code><span class="type">JsonSerializable</span> *serializable</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> *n_pspecs</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="json-glib-Serializable-Interface.html#json-serializable-set-property" title="json_serializable_set_property ()">json_serializable_set_property</a>      (<em class="parameter"><code><span class="type">JsonSerializable</span> *serializable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GParamSpec</span> *pspec</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">GValue</span> *value</code></em>);
 
 <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *          <a class="link" href="json-glib-Serializable-Interface.html#json-serializable-default-serialize-property" title="json_serializable_default_serialize_property ()">json_serializable_default_serialize_property</a>
                                                         (<em class="parameter"><code><span class="type">JsonSerializable</span> *serializable</code></em>,
@@ -86,6 +96,17 @@ or deserialized by <a class="link" href="json-glib-GObject-Serialization.html#js
                                       GValue           *value,
                                       GParamSpec       *pspec,
                                       JsonNode         *property_node);
+
+  GParamSpec * (* find_property)       (JsonSerializable *serializable,
+                                        const char       *name);
+  GParamSpec **(* list_properties)     (JsonSerializable *serializable,
+                                        guint            *n_pspecs);
+  void         (* set_property)        (JsonSerializable *serializable,
+                                        GParamSpec       *pspec,
+                                        const GValue     *value);
+  void         (* get_property)        (JsonSerializable *serializable,
+                                        GParamSpec       *pspec,
+                                        GValue           *value);
 };
 </pre>
 <p>
@@ -108,6 +129,24 @@ into a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"
 <td><p><span class="term"><em class="structfield"><code><a name="JsonSerializableIface.deserialize-property"></a>deserialize_property</code></em> ()</span></p></td>
 <td>virtual function for deserializing a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a>
 into a <span class="type">GObject</span> property</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="JsonSerializableIface.find-property"></a>find_property</code></em> ()</span></p></td>
+<td>virtual function for finding a property definition using
+its name</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="JsonSerializableIface.list-properties"></a>list_properties</code></em> ()</span></p></td>
+<td>virtual function for listing the installed property
+definitions</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="JsonSerializableIface.set-property"></a>set_property</code></em> ()</span></p></td>
+<td>virtual function for setting a property</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="JsonSerializableIface.get-property"></a>get_property</code></em> ()</span></p></td>
+<td>virtual function for getting a property</td>
 </tr>
 </tbody>
 </table></div>
@@ -197,6 +236,82 @@ property contained inside <em class="parameter"><code>property_node</code></em> 
 </tr>
 </tbody>
 </table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="json-serializable-find-property"></a><h3>json_serializable_find_property ()</h3>
+<pre class="programlisting"><span class="returnvalue">GParamSpec</span> *        json_serializable_find_property     (<em class="parameter"><code><span class="type">JsonSerializable</span> *serializable</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *name</code></em>);</pre>
+<p>
+FIXME
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>serializable</code></em> :</span></p></td>
+<td>a <span class="type">JsonSerializable</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>the name of the property</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the <span class="type">GParamSpec</span> for the property
+or <a href="/home/ebassi/gnome3/install/share/gtk-doc/html/liboil/liboil-liboiljunk.html#NULL--CAPS"><code class="literal">NULL</code></a> if no property was found. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 0.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="json-serializable-get-property"></a><h3>json_serializable_get_property ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                json_serializable_get_property      (<em class="parameter"><code><span class="type">JsonSerializable</span> *serializable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GParamSpec</span> *pspec</code></em>,
+                                                         <em class="parameter"><code><span class="type">GValue</span> *value</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="json-serializable-list-properties"></a><h3>json_serializable_list_properties ()</h3>
+<pre class="programlisting"><span class="returnvalue">GParamSpec</span> **       json_serializable_list_properties   (<em class="parameter"><code><span class="type">JsonSerializable</span> *serializable</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> *n_pspecs</code></em>);</pre>
+<p>
+FIXME
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>serializable</code></em> :</span></p></td>
+<td>a <span class="type">JsonSerializable</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n_pspecs</code></em> :</span></p></td>
+<td>return location for the length of the array
+of <span class="type">GParamSpec</span> returned by the function. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>an array
+of <span class="type">GParamSpec</span>. Use <code class="function">g_free()</code> to free the array when done. <span class="annotation">[<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> length=n_pspecs][<acronym title="Free data container after the code is done."><span class="acronym">transfer container</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 0.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="json-serializable-set-property"></a><h3>json_serializable_set_property ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                json_serializable_set_property      (<em class="parameter"><code><span class="type">JsonSerializable</span> *serializable</code></em>,
+                                                         <em class="parameter"><code><span class="type">GParamSpec</span> *pspec</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">GValue</span> *value</code></em>);</pre>
 </div>
 <hr>
 <div class="refsect2">
@@ -356,6 +471,6 @@ of the <code class="function">deserialize_property()</code> virtual function in 
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.16.1</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

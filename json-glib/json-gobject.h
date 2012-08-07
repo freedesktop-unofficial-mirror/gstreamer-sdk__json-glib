@@ -43,6 +43,12 @@ typedef struct _JsonSerializableIface   JsonSerializableIface;
  *   into a #JsonNode
  * @deserialize_property: virtual function for deserializing a #JsonNode
  *   into a #GObject property
+ * @find_property: virtual function for finding a property definition using
+ *   its name
+ * @list_properties: virtual function for listing the installed property
+ *   definitions
+ * @set_property: virtual function for setting a property
+ * @get_property: virtual function for getting a property
  *
  * Interface that allows serializing and deserializing #GObject<!-- -->s
  * with properties storing complex data types. The json_serialize_gobject()
@@ -65,6 +71,17 @@ struct _JsonSerializableIface
                                       GValue           *value,
                                       GParamSpec       *pspec,
                                       JsonNode         *property_node);
+
+  GParamSpec * (* find_property)       (JsonSerializable *serializable,
+                                        const char       *name);
+  GParamSpec **(* list_properties)     (JsonSerializable *serializable,
+                                        guint            *n_pspecs);
+  void         (* set_property)        (JsonSerializable *serializable,
+                                        GParamSpec       *pspec,
+                                        const GValue     *value);
+  void         (* get_property)        (JsonSerializable *serializable,
+                                        GParamSpec       *pspec,
+                                        GValue           *value);
 };
 
 GType     json_serializable_get_type (void) G_GNUC_CONST;
@@ -78,6 +95,17 @@ gboolean  json_serializable_deserialize_property         (JsonSerializable *seri
                                                           GValue           *value,
                                                           GParamSpec       *pspec,
                                                           JsonNode         *property_node);
+
+GParamSpec *    json_serializable_find_property         (JsonSerializable *serializable,
+                                                         const char       *name);
+GParamSpec **   json_serializable_list_properties       (JsonSerializable *serializable,
+                                                         guint            *n_pspecs);
+void            json_serializable_set_property          (JsonSerializable *serializable,
+                                                         GParamSpec       *pspec,
+                                                         const GValue     *value);
+void            json_serializable_get_property          (JsonSerializable *serializable,
+                                                         GParamSpec       *pspec,
+                                                         GValue           *value);
 
 JsonNode *json_serializable_default_serialize_property   (JsonSerializable *serializable,
                                                           const gchar      *property_name,

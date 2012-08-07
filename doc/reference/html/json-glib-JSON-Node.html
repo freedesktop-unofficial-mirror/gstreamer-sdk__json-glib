@@ -8,7 +8,7 @@
 <link rel="up" href="ch01.html" title="Data Types">
 <link rel="prev" href="ch01.html" title="Data Types">
 <link rel="next" href="json-glib-JSON-Array.html" title="JSON Array">
-<meta name="generator" content="GTK-Doc V1.16.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -46,23 +46,23 @@
 #define             <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-HOLDS-OBJECT:CAPS" title="JSON_NODE_HOLDS_OBJECT()">JSON_NODE_HOLDS_OBJECT</a>              (node)
 #define             <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-HOLDS-ARRAY:CAPS" title="JSON_NODE_HOLDS_ARRAY()">JSON_NODE_HOLDS_ARRAY</a>               (node)
 #define             <a class="link" href="json-glib-JSON-Node.html#JSON-NODE-HOLDS-NULL:CAPS" title="JSON_NODE_HOLDS_NULL()">JSON_NODE_HOLDS_NULL</a>                (node)
-<a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *             <a class="link" href="json-glib-JSON-Node.html#json-node-new" title="json_node_new ()">json_node_new</a>                    (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNodeType" title="enum JsonNodeType"><span class="type">JsonNodeType</span></a> type</code></em>);
-<a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *             <a class="link" href="json-glib-JSON-Node.html#json-node-copy" title="json_node_copy ()">json_node_copy</a>                   (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);
+<a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *          <a class="link" href="json-glib-JSON-Node.html#json-node-new" title="json_node_new ()">json_node_new</a>                       (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNodeType" title="enum JsonNodeType"><span class="type">JsonNodeType</span></a> type</code></em>);
+<a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *          <a class="link" href="json-glib-JSON-Node.html#json-node-copy" title="json_node_copy ()">json_node_copy</a>                      (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="json-glib-JSON-Node.html#json-node-free" title="json_node_free ()">json_node_free</a>                      (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);
 
 <span class="returnvalue">void</span>                <a class="link" href="json-glib-JSON-Node.html#json-node-set-array" title="json_node_set_array ()">json_node_set_array</a>                 (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>,
                                                          <em class="parameter"><code><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> *array</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="json-glib-JSON-Node.html#json-node-take-array" title="json_node_take_array ()">json_node_take_array</a>                (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>,
                                                          <em class="parameter"><code><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> *array</code></em>);
-<a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="returnvalue">JsonArray</span></a> *            <a class="link" href="json-glib-JSON-Node.html#json-node-get-array" title="json_node_get_array ()">json_node_get_array</a>              (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);
-<a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="returnvalue">JsonArray</span></a> *            <a class="link" href="json-glib-JSON-Node.html#json-node-dup-array" title="json_node_dup_array ()">json_node_dup_array</a>              (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);
+<a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="returnvalue">JsonArray</span></a> *         <a class="link" href="json-glib-JSON-Node.html#json-node-get-array" title="json_node_get_array ()">json_node_get_array</a>                 (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);
+<a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="returnvalue">JsonArray</span></a> *         <a class="link" href="json-glib-JSON-Node.html#json-node-dup-array" title="json_node_dup_array ()">json_node_dup_array</a>                 (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);
 
 <span class="returnvalue">void</span>                <a class="link" href="json-glib-JSON-Node.html#json-node-set-object" title="json_node_set_object ()">json_node_set_object</a>                (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>,
                                                          <em class="parameter"><code><a class="link" href="json-glib-JSON-Object.html#JsonObject" title="JsonObject"><span class="type">JsonObject</span></a> *object</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="json-glib-JSON-Node.html#json-node-take-object" title="json_node_take_object ()">json_node_take_object</a>               (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>,
                                                          <em class="parameter"><code><a class="link" href="json-glib-JSON-Object.html#JsonObject" title="JsonObject"><span class="type">JsonObject</span></a> *object</code></em>);
-<a class="link" href="json-glib-JSON-Object.html#JsonObject" title="JsonObject"><span class="returnvalue">JsonObject</span></a> *           <a class="link" href="json-glib-JSON-Node.html#json-node-get-object" title="json_node_get_object ()">json_node_get_object</a>             (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);
-<a class="link" href="json-glib-JSON-Object.html#JsonObject" title="JsonObject"><span class="returnvalue">JsonObject</span></a> *           <a class="link" href="json-glib-JSON-Node.html#json-node-dup-object" title="json_node_dup_object ()">json_node_dup_object</a>             (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);
+<a class="link" href="json-glib-JSON-Object.html#JsonObject" title="JsonObject"><span class="returnvalue">JsonObject</span></a> *        <a class="link" href="json-glib-JSON-Node.html#json-node-get-object" title="json_node_get_object ()">json_node_get_object</a>                (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);
+<a class="link" href="json-glib-JSON-Object.html#JsonObject" title="JsonObject"><span class="returnvalue">JsonObject</span></a> *        <a class="link" href="json-glib-JSON-Node.html#json-node-dup-object" title="json_node_dup_object ()">json_node_dup_object</a>                (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);
 
 <span class="returnvalue">void</span>                <a class="link" href="json-glib-JSON-Node.html#json-node-set-value" title="json_node_set_value ()">json_node_set_value</a>                 (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>,
                                                          <em class="parameter"><code>const <span class="type">GValue</span> *value</code></em>);
@@ -79,13 +79,13 @@
 <span class="returnvalue">gint64</span>              <a class="link" href="json-glib-JSON-Node.html#json-node-get-int" title="json_node_get_int ()">json_node_get_int</a>                   (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="json-glib-JSON-Node.html#json-node-set-string" title="json_node_set_string ()">json_node_set_string</a>                (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>,
                                                          <em class="parameter"><code>const <span class="type">gchar</span> *value</code></em>);
-const <span class="returnvalue">gchar</span> *          <a class="link" href="json-glib-JSON-Node.html#json-node-get-string" title="json_node_get_string ()">json_node_get_string</a>             (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);
-<span class="returnvalue">gchar</span> *                <a class="link" href="json-glib-JSON-Node.html#json-node-dup-string" title="json_node_dup_string ()">json_node_dup_string</a>             (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="json-glib-JSON-Node.html#json-node-get-string" title="json_node_get_string ()">json_node_get_string</a>                (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);
+<span class="returnvalue">gchar</span> *             <a class="link" href="json-glib-JSON-Node.html#json-node-dup-string" title="json_node_dup_string ()">json_node_dup_string</a>                (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);
 
 <span class="returnvalue">void</span>                <a class="link" href="json-glib-JSON-Node.html#json-node-set-parent" title="json_node_set_parent ()">json_node_set_parent</a>                (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>,
                                                          <em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *parent</code></em>);
-<a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *             <a class="link" href="json-glib-JSON-Node.html#json-node-get-parent" title="json_node_get_parent ()">json_node_get_parent</a>             (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);
-const <span class="returnvalue">gchar</span> *          <a class="link" href="json-glib-JSON-Node.html#json-node-type-name" title="json_node_type_name ()">json_node_type_name</a>              (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);
+<a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *          <a class="link" href="json-glib-JSON-Node.html#json-node-get-parent" title="json_node_get_parent ()">json_node_get_parent</a>                (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="json-glib-JSON-Node.html#json-node-type-name" title="json_node_type_name ()">json_node_type_name</a>                 (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);
 <span class="returnvalue">GType</span>               <a class="link" href="json-glib-JSON-Node.html#json-node-get-value-type" title="json_node_get_value_type ()">json_node_get_value_type</a>            (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);
 <a class="link" href="json-glib-JSON-Node.html#JsonNodeType" title="enum JsonNodeType"><span class="returnvalue">JsonNodeType</span></a>        <a class="link" href="json-glib-JSON-Node.html#json-node-get-node-type" title="json_node_get_node_type ()">json_node_get_node_type</a>             (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);
 <span class="returnvalue">gboolean</span>            <a class="link" href="json-glib-JSON-Node.html#json-node-is-null" title="json_node_is_null ()">json_node_is_null</a>                   (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);
@@ -277,7 +277,7 @@ Evaluates to <code class="literal">TRUE</code> if <em class="parameter"><code>no
 <hr>
 <div class="refsect2">
 <a name="json-node-new"></a><h3>json_node_new ()</h3>
-<pre class="programlisting"><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *             json_node_new                    (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNodeType" title="enum JsonNodeType"><span class="type">JsonNodeType</span></a> type</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *          json_node_new                       (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNodeType" title="enum JsonNodeType"><span class="type">JsonNodeType</span></a> type</code></em>);</pre>
 <p>
 Creates a new <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> of <em class="parameter"><code>type</code></em>.
 </p>
@@ -300,7 +300,7 @@ Creates a new <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="Js
 <hr>
 <div class="refsect2">
 <a name="json-node-copy"></a><h3>json_node_copy ()</h3>
-<pre class="programlisting"><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *             json_node_copy                   (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *          json_node_copy                      (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
 <p>
 Copies <em class="parameter"><code>node</code></em>. If the node contains complex data types then the reference
 count of the objects is increased.
@@ -388,7 +388,7 @@ Sets <em class="parameter"><code>array</code></em> into <em class="parameter"><c
 <hr>
 <div class="refsect2">
 <a name="json-node-get-array"></a><h3>json_node_get_array ()</h3>
-<pre class="programlisting"><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="returnvalue">JsonArray</span></a> *            json_node_get_array              (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="returnvalue">JsonArray</span></a> *         json_node_get_array                 (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
 <p>
 Retrieves the <a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> stored inside a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a>
 </p>
@@ -411,7 +411,7 @@ Retrieves the <a class="link" href="json-glib-JSON-Array.html#JsonArray" title="
 <hr>
 <div class="refsect2">
 <a name="json-node-dup-array"></a><h3>json_node_dup_array ()</h3>
-<pre class="programlisting"><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="returnvalue">JsonArray</span></a> *            json_node_dup_array              (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="returnvalue">JsonArray</span></a> *         json_node_dup_array                 (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
 <p>
 Retrieves the <a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> stored inside a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> and returns it
 with its reference count increased by one.
@@ -484,7 +484,7 @@ Sets <em class="parameter"><code>object</code></em> inside <em class="parameter"
 <hr>
 <div class="refsect2">
 <a name="json-node-get-object"></a><h3>json_node_get_object ()</h3>
-<pre class="programlisting"><a class="link" href="json-glib-JSON-Object.html#JsonObject" title="JsonObject"><span class="returnvalue">JsonObject</span></a> *           json_node_get_object             (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="json-glib-JSON-Object.html#JsonObject" title="JsonObject"><span class="returnvalue">JsonObject</span></a> *        json_node_get_object                (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
 <p>
 Retrieves the <a class="link" href="json-glib-JSON-Object.html#JsonObject" title="JsonObject"><span class="type">JsonObject</span></a> stored inside a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a>
 </p>
@@ -507,7 +507,7 @@ Retrieves the <a class="link" href="json-glib-JSON-Object.html#JsonObject" title
 <hr>
 <div class="refsect2">
 <a name="json-node-dup-object"></a><h3>json_node_dup_object ()</h3>
-<pre class="programlisting"><a class="link" href="json-glib-JSON-Object.html#JsonObject" title="JsonObject"><span class="returnvalue">JsonObject</span></a> *           json_node_dup_object             (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="json-glib-JSON-Object.html#JsonObject" title="JsonObject"><span class="returnvalue">JsonObject</span></a> *        json_node_dup_object                (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
 <p>
 Retrieves the <a class="link" href="json-glib-JSON-Object.html#JsonObject" title="JsonObject"><span class="type">JsonObject</span></a> inside <em class="parameter"><code>node</code></em>. The reference count of
 the returned object is increased.
@@ -570,7 +570,7 @@ using it, call <code class="function">g_value_unset()</code> on the <span class=
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
-<td>return location for an uninitialized value. <span class="annotation">[<acronym title="Parameter for returning results. Default is transfer full."><span class="acronym">out</span></acronym> caller-allocates]</span>
+<td>return location for an uninitialized value. <span class="annotation">[<acronym title="Out parameter, where caller must allocate storage."><span class="acronym">out caller-allocates</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -741,7 +741,7 @@ content.
 <hr>
 <div class="refsect2">
 <a name="json-node-get-string"></a><h3>json_node_get_string ()</h3>
-<pre class="programlisting">const <span class="returnvalue">gchar</span> *          json_node_get_string             (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       json_node_get_string                (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
 <p>
 Gets the string value stored inside a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a>
 </p>
@@ -763,7 +763,7 @@ Gets the string value stored inside a <a class="link" href="json-glib-JSON-Node.
 <hr>
 <div class="refsect2">
 <a name="json-node-dup-string"></a><h3>json_node_dup_string ()</h3>
-<pre class="programlisting"><span class="returnvalue">gchar</span> *                json_node_dup_string             (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             json_node_dup_string                (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
 <p>
 Gets a copy of the string value stored inside a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a>
 </p>
@@ -812,7 +812,7 @@ Sets the parent <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="
 <hr>
 <div class="refsect2">
 <a name="json-node-get-parent"></a><h3>json_node_get_parent ()</h3>
-<pre class="programlisting"><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *             json_node_get_parent             (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *          json_node_get_parent                (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
 <p>
 Retrieves the parent <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> of <em class="parameter"><code>node</code></em>.
 </p>
@@ -826,7 +826,7 @@ Retrieves the parent <a class="link" href="json-glib-JSON-Node.html#JsonNode" ti
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the parent node, or <code class="literal">NULL</code> if <em class="parameter"><code>node</code></em> is
+<td>the parent node, or <a href="/home/ebassi/gnome3/install/share/gtk-doc/html/liboil/liboil-liboiljunk.html#NULL--CAPS"><code class="literal">NULL</code></a> if <em class="parameter"><code>node</code></em> is
 the root node. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
 </td>
 </tr>
@@ -836,7 +836,7 @@ the root node. <span class="annotation">[<acronym title="Don't free data after t
 <hr>
 <div class="refsect2">
 <a name="json-node-type-name"></a><h3>json_node_type_name ()</h3>
-<pre class="programlisting">const <span class="returnvalue">gchar</span> *          json_node_type_name              (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       json_node_type_name                 (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
 <p>
 Retrieves the user readable name of the data type contained by <em class="parameter"><code>node</code></em>.
 </p>
@@ -912,7 +912,7 @@ Checks whether <em class="parameter"><code>node</code></em> is a <a class="link"
 <p>
 </p>
 <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;">
-<h3 class="title">Note</h3>A null node is not the same as a <code class="literal">NULL</code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a>
+<h3 class="title">Note</h3>A null node is not the same as a <a href="/home/ebassi/gnome3/install/share/gtk-doc/html/liboil/liboil-liboiljunk.html#NULL--CAPS"><code class="literal">NULL</code></a><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a>
 </div>
 <p>
 </p>
@@ -937,6 +937,6 @@ Checks whether <em class="parameter"><code>node</code></em> is a <a class="link"
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.16.1</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

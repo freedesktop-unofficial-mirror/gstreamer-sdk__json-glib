@@ -34,17 +34,29 @@ POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
 subdir = build
-DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
+DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in compile \
+	config.guess config.rpath config.sub depcomp install-sh \
+	ltmain.sh missing
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps =  \
 	$(top_srcdir)/build/autotools/as-compiler-flag.m4 \
+	$(top_srcdir)/build/autotools/as-linguas.m4 \
+	$(top_srcdir)/build/autotools/gettext.m4 \
 	$(top_srcdir)/build/autotools/gtk-doc.m4 \
+	$(top_srcdir)/build/autotools/iconv.m4 \
+	$(top_srcdir)/build/autotools/intlmacosx.m4 \
 	$(top_srcdir)/build/autotools/introspection.m4 \
+	$(top_srcdir)/build/autotools/lib-ld.m4 \
+	$(top_srcdir)/build/autotools/lib-link.m4 \
+	$(top_srcdir)/build/autotools/lib-prefix.m4 \
 	$(top_srcdir)/build/autotools/libtool.m4 \
 	$(top_srcdir)/build/autotools/ltoptions.m4 \
 	$(top_srcdir)/build/autotools/ltsugar.m4 \
 	$(top_srcdir)/build/autotools/ltversion.m4 \
 	$(top_srcdir)/build/autotools/lt~obsolete.m4 \
+	$(top_srcdir)/build/autotools/nls.m4 \
+	$(top_srcdir)/build/autotools/po.m4 \
+	$(top_srcdir)/build/autotools/progtest.m4 \
 	$(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
@@ -102,6 +114,7 @@ am__relativize = \
   done; \
   reldir="$$dir2"
 ACLOCAL = @ACLOCAL@
+ALL_LINGUAS = @ALL_LINGUAS@
 AMTAR = @AMTAR@
 AM_DEFAULT_VERBOSITY = @AM_DEFAULT_VERBOSITY@
 AR = @AR@
@@ -128,14 +141,20 @@ EXEEXT = @EXEEXT@
 FGREP = @FGREP@
 GCOV_CFLAGS = @GCOV_CFLAGS@
 GCOV_LDFLAGS = @GCOV_LDFLAGS@
+GETTEXT_MACRO_VERSION = @GETTEXT_MACRO_VERSION@
+GETTEXT_PACKAGE = @GETTEXT_PACKAGE@
 GLIB_CFLAGS = @GLIB_CFLAGS@
 GLIB_GENMARSHAL = @GLIB_GENMARSHAL@
 GLIB_LIBS = @GLIB_LIBS@
 GLIB_MKENUMS = @GLIB_MKENUMS@
 GLIB_PREFIX = @GLIB_PREFIX@
+GMSGFMT = @GMSGFMT@
+GMSGFMT_015 = @GMSGFMT_015@
 GOBJECT_QUERY = @GOBJECT_QUERY@
 GREP = @GREP@
 GTKDOC_CHECK = @GTKDOC_CHECK@
+GTKDOC_DEPS_CFLAGS = @GTKDOC_DEPS_CFLAGS@
+GTKDOC_DEPS_LIBS = @GTKDOC_DEPS_LIBS@
 GTKDOC_MKPDF = @GTKDOC_MKPDF@
 GTKDOC_REBASE = @GTKDOC_REBASE@
 HTML_DIR = @HTML_DIR@
@@ -144,6 +163,8 @@ INSTALL_DATA = @INSTALL_DATA@
 INSTALL_PROGRAM = @INSTALL_PROGRAM@
 INSTALL_SCRIPT = @INSTALL_SCRIPT@
 INSTALL_STRIP_PROGRAM = @INSTALL_STRIP_PROGRAM@
+INTLLIBS = @INTLLIBS@
+INTL_MACOSX_LIBS = @INTL_MACOSX_LIBS@
 INTROSPECTION_CFLAGS = @INTROSPECTION_CFLAGS@
 INTROSPECTION_COMPILER = @INTROSPECTION_COMPILER@
 INTROSPECTION_GENERATE = @INTROSPECTION_GENERATE@
@@ -163,16 +184,23 @@ JSON_RELEASE_STATUS = @JSON_RELEASE_STATUS@
 JSON_VERSION = @JSON_VERSION@
 LD = @LD@
 LDFLAGS = @LDFLAGS@
+LIBICONV = @LIBICONV@
+LIBINTL = @LIBINTL@
 LIBOBJS = @LIBOBJS@
 LIBS = @LIBS@
 LIBTOOL = @LIBTOOL@
 LIPO = @LIPO@
 LN_S = @LN_S@
+LTLIBICONV = @LTLIBICONV@
+LTLIBINTL = @LTLIBINTL@
 LTLIBOBJS = @LTLIBOBJS@
 MAINTAINER_CFLAGS = @MAINTAINER_CFLAGS@
 MAKEINFO = @MAKEINFO@
 MANIFEST_TOOL = @MANIFEST_TOOL@
 MKDIR_P = @MKDIR_P@
+MSGFMT = @MSGFMT@
+MSGFMT_015 = @MSGFMT_015@
+MSGMERGE = @MSGMERGE@
 NM = @NM@
 NMEDIT = @NMEDIT@
 OBJDUMP = @OBJDUMP@
@@ -190,12 +218,17 @@ PATH_SEPARATOR = @PATH_SEPARATOR@
 PKG_CONFIG = @PKG_CONFIG@
 PKG_CONFIG_LIBDIR = @PKG_CONFIG_LIBDIR@
 PKG_CONFIG_PATH = @PKG_CONFIG_PATH@
+POSUB = @POSUB@
 RANLIB = @RANLIB@
 SED = @SED@
 SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
 STRIP = @STRIP@
+USE_NLS = @USE_NLS@
 VERSION = @VERSION@
+XGETTEXT = @XGETTEXT@
+XGETTEXT_015 = @XGETTEXT_015@
+XGETTEXT_EXTRA_OPTIONS = @XGETTEXT_EXTRA_OPTIONS@
 abs_builddir = @abs_builddir@
 abs_srcdir = @abs_srcdir@
 abs_top_builddir = @abs_top_builddir@
@@ -248,7 +281,7 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-SUBDIRS = autotools
+SUBDIRS = autotools win32
 all: all-recursive
 
 .SUFFIXES:
@@ -261,9 +294,9 @@ $(srcdir)/Makefile.in:  $(srcdir)/Makefile.am  $(am__configure_deps)
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --gnu build/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign build/Makefile'; \
 	$(am__cd) $(top_srcdir) && \
-	  $(AUTOMAKE) --gnu build/Makefile
+	  $(AUTOMAKE) --foreign build/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
