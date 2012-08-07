@@ -16,6 +16,10 @@ G_BEGIN_DECLS
 GType json_parser_error_get_type (void) G_GNUC_CONST;
 #define JSON_TYPE_PARSER_ERROR (json_parser_error_get_type())
 
+/* enumerations from "../json-glib/json-path.h" */
+GType json_path_error_get_type (void) G_GNUC_CONST;
+#define JSON_TYPE_PATH_ERROR (json_path_error_get_type())
+
 /* enumerations from "../json-glib/json-reader.h" */
 GType json_reader_error_get_type (void) G_GNUC_CONST;
 #define JSON_TYPE_READER_ERROR (json_reader_error_get_type())

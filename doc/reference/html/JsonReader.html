@@ -7,8 +7,8 @@
 <link rel="home" href="index.html" title="JSON-GLib Reference Manual">
 <link rel="up" href="ch02.html" title="Parser">
 <link rel="prev" href="JsonParser.html" title="JsonParser">
-<link rel="next" href="ch03.html" title="Generator">
-<meta name="generator" content="GTK-Doc V1.16.1 (XML mode)">
+<link rel="next" href="JsonPath.html" title="JsonPath">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -18,7 +18,7 @@
 <td><a accesskey="u" href="ch02.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
 <th width="100%" align="center">JSON-GLib Reference Manual</th>
-<td><a accesskey="n" href="ch03.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+<td><a accesskey="n" href="JsonPath.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
 </tr>
 <tr><td colspan="5" class="shortcuts">
 <a href="#JsonReader.synopsis" class="shortcut">Top</a>
@@ -43,7 +43,7 @@
 <a name="JsonReader.synopsis"></a><h2>Synopsis</h2>
 <pre class="synopsis">struct              <a class="link" href="JsonReader.html#JsonReader-struct" title="struct JsonReader">JsonReader</a>;
 struct              <a class="link" href="JsonReader.html#JsonReaderClass" title="struct JsonReaderClass">JsonReaderClass</a>;
-<a class="link" href="JsonReader.html" title="JsonReader"><span class="returnvalue">JsonReader</span></a> *            <a class="link" href="JsonReader.html#json-reader-new" title="json_reader_new ()">json_reader_new</a>                 (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);
+<a class="link" href="JsonReader.html" title="JsonReader"><span class="returnvalue">JsonReader</span></a> *        <a class="link" href="JsonReader.html#json-reader-new" title="json_reader_new ()">json_reader_new</a>                     (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="JsonReader.html#json-reader-set-root" title="json_reader_set_root ()">json_reader_set_root</a>                (<em class="parameter"><code><a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a> *reader</code></em>,
                                                          <em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *root</code></em>);
 
@@ -58,18 +58,20 @@ struct              <a class="link" href="JsonReader.html#JsonReaderClass" title
 <span class="returnvalue">void</span>                <a class="link" href="JsonReader.html#json-reader-end-member" title="json_reader_end_member ()">json_reader_end_member</a>              (<em class="parameter"><code><a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a> *reader</code></em>);
 <span class="returnvalue">gboolean</span>            <a class="link" href="JsonReader.html#json-reader-is-object" title="json_reader_is_object ()">json_reader_is_object</a>               (<em class="parameter"><code><a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a> *reader</code></em>);
 <span class="returnvalue">gint</span>                <a class="link" href="JsonReader.html#json-reader-count-members" title="json_reader_count_members ()">json_reader_count_members</a>           (<em class="parameter"><code><a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a> *reader</code></em>);
+<span class="returnvalue">gchar</span> **            <a class="link" href="JsonReader.html#json-reader-list-members" title="json_reader_list_members ()">json_reader_list_members</a>            (<em class="parameter"><code><a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a> *reader</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="JsonReader.html#json-reader-get-member-name" title="json_reader_get_member_name ()">json_reader_get_member_name</a>         (<em class="parameter"><code><a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a> *reader</code></em>);
 
 <span class="returnvalue">gboolean</span>            <a class="link" href="JsonReader.html#json-reader-is-value" title="json_reader_is_value ()">json_reader_is_value</a>                (<em class="parameter"><code><a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a> *reader</code></em>);
-<a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *              <a class="link" href="JsonReader.html#json-reader-get-value" title="json_reader_get_value ()">json_reader_get_value</a>           (<em class="parameter"><code><a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a> *reader</code></em>);
+<a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *          <a class="link" href="JsonReader.html#json-reader-get-value" title="json_reader_get_value ()">json_reader_get_value</a>               (<em class="parameter"><code><a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a> *reader</code></em>);
 <span class="returnvalue">gint64</span>              <a class="link" href="JsonReader.html#json-reader-get-int-value" title="json_reader_get_int_value ()">json_reader_get_int_value</a>           (<em class="parameter"><code><a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a> *reader</code></em>);
 <span class="returnvalue">gdouble</span>             <a class="link" href="JsonReader.html#json-reader-get-double-value" title="json_reader_get_double_value ()">json_reader_get_double_value</a>        (<em class="parameter"><code><a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a> *reader</code></em>);
-const <span class="returnvalue">gchar</span> *           <a class="link" href="JsonReader.html#json-reader-get-string-value" title="json_reader_get_string_value ()">json_reader_get_string_value</a>    (<em class="parameter"><code><a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a> *reader</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="JsonReader.html#json-reader-get-string-value" title="json_reader_get_string_value ()">json_reader_get_string_value</a>        (<em class="parameter"><code><a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a> *reader</code></em>);
 <span class="returnvalue">gboolean</span>            <a class="link" href="JsonReader.html#json-reader-get-boolean-value" title="json_reader_get_boolean_value ()">json_reader_get_boolean_value</a>       (<em class="parameter"><code><a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a> *reader</code></em>);
 <span class="returnvalue">gboolean</span>            <a class="link" href="JsonReader.html#json-reader-get-null-value" title="json_reader_get_null_value ()">json_reader_get_null_value</a>          (<em class="parameter"><code><a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a> *reader</code></em>);
 
 enum                <a class="link" href="JsonReader.html#JsonReaderError" title="enum JsonReaderError">JsonReaderError</a>;
 #define             <a class="link" href="JsonReader.html#JSON-READER-ERROR:CAPS" title="JSON_READER_ERROR">JSON_READER_ERROR</a>
-const <span class="returnvalue">GError</span> *          <a class="link" href="JsonReader.html#json-reader-get-error" title="json_reader_get_error ()">json_reader_get_error</a>           (<em class="parameter"><code><a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a> *reader</code></em>);
+const <span class="returnvalue">GError</span> *      <a class="link" href="JsonReader.html#json-reader-get-error" title="json_reader_get_error ()">json_reader_get_error</a>               (<em class="parameter"><code><a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a> *reader</code></em>);
 </pre>
 </div>
 <div class="refsect1">
@@ -196,7 +198,7 @@ private data
 <hr>
 <div class="refsect2">
 <a name="json-reader-new"></a><h3>json_reader_new ()</h3>
-<pre class="programlisting"><a class="link" href="JsonReader.html" title="JsonReader"><span class="returnvalue">JsonReader</span></a> *            json_reader_new                 (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="JsonReader.html" title="JsonReader"><span class="returnvalue">JsonReader</span></a> *        json_reader_new                     (<em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);</pre>
 <p>
 Creates a new <a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a>. You can use this object to read the contents of
 the JSON tree starting from <em class="parameter"><code>node</code></em>
@@ -206,7 +208,7 @@ the JSON tree starting from <em class="parameter"><code>node</code></em>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>node</code></em> :</span></p></td>
-<td>a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a>, or <code class="literal">NULL</code>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+<td>a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a>, or <a href="/home/ebassi/gnome3/install/share/gtk-doc/html/liboil/liboil-liboiljunk.html#NULL--CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
 </td>
 </tr>
 <tr>
@@ -253,8 +255,8 @@ If another <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonN
 <pre class="programlisting"><span class="returnvalue">gboolean</span>            json_reader_read_element            (<em class="parameter"><code><a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a> *reader</code></em>,
                                                          <em class="parameter"><code><span class="type">guint</span> index_</code></em>);</pre>
 <p>
-Advances the cursor of <em class="parameter"><code>reader</code></em> to the element <em class="parameter"><code>index_</code></em> of array at the
-current position.
+Advances the cursor of <em class="parameter"><code>reader</code></em> to the element <em class="parameter"><code>index_</code></em> of the array
+or the object at the current position.
 </p>
 <p>
 You can use the json_reader_get_value* family of functions to retrieve
@@ -309,9 +311,9 @@ reposition the cursor inside the <a class="link" href="JsonReader.html" title="J
 <p>
 </p>
 <p>
-If <em class="parameter"><code>reader</code></em> is not currently on an array, or if the <em class="parameter"><code>index_</code></em> is bigger than
-the size of the array, the <a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a> will be put in an error state until
-<a class="link" href="JsonReader.html#json-reader-end-element" title="json_reader_end_element ()"><code class="function">json_reader_end_element()</code></a> is called.
+If <em class="parameter"><code>reader</code></em> is not currently on an array or an object, or if the <em class="parameter"><code>index_</code></em> is
+bigger than the size of the array or the object, the <a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a> will be
+put in an error state until <a class="link" href="JsonReader.html#json-reader-end-element" title="json_reader_end_element ()"><code class="function">json_reader_end_element()</code></a> is called.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
@@ -565,6 +567,57 @@ the <a class="link" href="JsonReader.html" title="JsonReader"><span class="type"
 </div>
 <hr>
 <div class="refsect2">
+<a name="json-reader-list-members"></a><h3>json_reader_list_members ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> **            json_reader_list_members            (<em class="parameter"><code><a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a> *reader</code></em>);</pre>
+<p>
+Retrieves a list of member names from the current position, if <em class="parameter"><code>reader</code></em>
+is positioned on an object.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>reader</code></em> :</span></p></td>
+<td>a <a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a newly allocated, <a href="/home/ebassi/gnome3/install/share/gtk-doc/html/liboil/liboil-liboiljunk.html#NULL--CAPS"><code class="literal">NULL</code></a>-terminated
+array of strings holding the members name. Use <code class="function">g_strfreev()</code> when
+done. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 0.14</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="json-reader-get-member-name"></a><h3>json_reader_get_member_name ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       json_reader_get_member_name         (<em class="parameter"><code><a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a> *reader</code></em>);</pre>
+<p>
+Retrieves the name of the current member.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>reader</code></em> :</span></p></td>
+<td>a <a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the name of the member, or <a href="/home/ebassi/gnome3/install/share/gtk-doc/html/liboil/liboil-liboiljunk.html#NULL--CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 0.14</p>
+</div>
+<hr>
+<div class="refsect2">
 <a name="json-reader-is-value"></a><h3>json_reader_is_value ()</h3>
 <pre class="programlisting"><span class="returnvalue">gboolean</span>            json_reader_is_value                (<em class="parameter"><code><a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a> *reader</code></em>);</pre>
 <p>
@@ -591,7 +644,7 @@ otherwise</td>
 <hr>
 <div class="refsect2">
 <a name="json-reader-get-value"></a><h3>json_reader_get_value ()</h3>
-<pre class="programlisting"><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *              json_reader_get_value           (<em class="parameter"><code><a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a> *reader</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *          json_reader_get_value               (<em class="parameter"><code><a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a> *reader</code></em>);</pre>
 <p>
 Retrieves the <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> of the current position of <em class="parameter"><code>reader</code></em>
 </p>
@@ -605,7 +658,7 @@ Retrieves the <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="Js
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a>, or <code class="literal">NULL</code>. The returned node
+<td>a <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a>, or <a href="/home/ebassi/gnome3/install/share/gtk-doc/html/liboil/liboil-liboiljunk.html#NULL--CAPS"><code class="literal">NULL</code></a>. The returned node
 is owned by the <a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a> and it should not be modified or freed
 directly. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
 </td>
@@ -663,7 +716,7 @@ Retrieves the floating point value of the current position of <em class="paramet
 <hr>
 <div class="refsect2">
 <a name="json-reader-get-string-value"></a><h3>json_reader_get_string_value ()</h3>
-<pre class="programlisting">const <span class="returnvalue">gchar</span> *           json_reader_get_string_value    (<em class="parameter"><code><a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a> *reader</code></em>);</pre>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       json_reader_get_string_value        (<em class="parameter"><code><a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a> *reader</code></em>);</pre>
 <p>
 Retrieves the string value of the current position of <em class="parameter"><code>reader</code></em>
 </p>
@@ -737,7 +790,10 @@ Checks whether the value of the current position of <em class="parameter"><code>
   JSON_READER_ERROR_NO_ARRAY,
   JSON_READER_ERROR_INVALID_INDEX,
   JSON_READER_ERROR_NO_OBJECT,
-  JSON_READER_ERROR_INVALID_MEMBER
+  JSON_READER_ERROR_INVALID_MEMBER,
+  JSON_READER_ERROR_INVALID_NODE,
+  JSON_READER_ERROR_NO_VALUE,
+  JSON_READER_ERROR_INVALID_TYPE
 } JsonReaderError;
 </pre>
 <p>
@@ -766,6 +822,23 @@ Error codes enumeration for <a class="link" href="JsonReader.html" title="JsonRe
 <td>Member not found
 </td>
 </tr>
+<tr>
+<td><p><a name="JSON-READER-ERROR-INVALID-NODE:CAPS"></a><span class="term"><code class="literal">JSON_READER_ERROR_INVALID_NODE</code></span></p></td>
+<td>No valid node found at the current position
+</td>
+</tr>
+<tr>
+<td><p><a name="JSON-READER-ERROR-NO-VALUE:CAPS"></a><span class="term"><code class="literal">JSON_READER_ERROR_NO_VALUE</code></span></p></td>
+<td>The node at the current position does not
+  hold a value
+</td>
+</tr>
+<tr>
+<td><p><a name="JSON-READER-ERROR-INVALID-TYPE:CAPS"></a><span class="term"><code class="literal">JSON_READER_ERROR_INVALID_TYPE</code></span></p></td>
+<td>The node at the current position does not
+  hold a value of the desired type
+</td>
+</tr>
 </tbody>
 </table></div>
 <p class="since">Since 0.12</p>
@@ -783,7 +856,7 @@ Error domain for <a class="link" href="JsonReader.html" title="JsonReader"><span
 <hr>
 <div class="refsect2">
 <a name="json-reader-get-error"></a><h3>json_reader_get_error ()</h3>
-<pre class="programlisting">const <span class="returnvalue">GError</span> *          json_reader_get_error           (<em class="parameter"><code><a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a> *reader</code></em>);</pre>
+<pre class="programlisting">const <span class="returnvalue">GError</span> *      json_reader_get_error               (<em class="parameter"><code><a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a> *reader</code></em>);</pre>
 <p>
 Retrieves the <span class="type">GError</span> currently set on <em class="parameter"><code>reader</code></em>, if the <a class="link" href="JsonReader.html" title="JsonReader"><span class="type">JsonReader</span></a>
 is in error state
@@ -798,7 +871,7 @@ is in error state
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the pointer to the error, or <code class="literal">NULL</code>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+<td>the pointer to the error, or <a href="/home/ebassi/gnome3/install/share/gtk-doc/html/liboil/liboil-liboiljunk.html#NULL--CAPS"><code class="literal">NULL</code></a>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
 </td>
 </tr>
 </tbody>
@@ -820,6 +893,6 @@ The root of the JSON tree that the <a class="link" href="JsonReader.html" title=
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.16.1</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

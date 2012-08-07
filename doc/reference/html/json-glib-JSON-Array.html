@@ -8,7 +8,7 @@
 <link rel="up" href="ch01.html" title="Data Types">
 <link rel="prev" href="json-glib-JSON-Node.html" title="JSON Node">
 <link rel="next" href="json-glib-JSON-Object.html" title="JSON Object">
-<meta name="generator" content="GTK-Doc V1.16.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18.1 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -38,18 +38,18 @@
 <div class="refsynopsisdiv">
 <a name="json-glib-JSON-Array.synopsis"></a><h2>Synopsis</h2>
 <pre class="synopsis">                    <a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray">JsonArray</a>;
-<a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="returnvalue">JsonArray</span></a> *            <a class="link" href="json-glib-JSON-Array.html#json-array-new" title="json_array_new ()">json_array_new</a>                   (<em class="parameter"><code><span class="type">void</span></code></em>);
-<a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="returnvalue">JsonArray</span></a> *            <a class="link" href="json-glib-JSON-Array.html#json-array-sized-new" title="json_array_sized_new ()">json_array_sized_new</a>             (<em class="parameter"><code><span class="type">guint</span> n_elements</code></em>);
-<a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="returnvalue">JsonArray</span></a> *            <a class="link" href="json-glib-JSON-Array.html#json-array-ref" title="json_array_ref ()">json_array_ref</a>                   (<em class="parameter"><code><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> *array</code></em>);
+<a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="returnvalue">JsonArray</span></a> *         <a class="link" href="json-glib-JSON-Array.html#json-array-new" title="json_array_new ()">json_array_new</a>                      (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="returnvalue">JsonArray</span></a> *         <a class="link" href="json-glib-JSON-Array.html#json-array-sized-new" title="json_array_sized_new ()">json_array_sized_new</a>                (<em class="parameter"><code><span class="type">guint</span> n_elements</code></em>);
+<a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="returnvalue">JsonArray</span></a> *         <a class="link" href="json-glib-JSON-Array.html#json-array-ref" title="json_array_ref ()">json_array_ref</a>                      (<em class="parameter"><code><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> *array</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="json-glib-JSON-Array.html#json-array-unref" title="json_array_unref ()">json_array_unref</a>                    (<em class="parameter"><code><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> *array</code></em>);
 
 <span class="returnvalue">void</span>                <a class="link" href="json-glib-JSON-Array.html#json-array-add-element" title="json_array_add_element ()">json_array_add_element</a>              (<em class="parameter"><code><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> *array</code></em>,
                                                          <em class="parameter"><code><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> *node</code></em>);
-<a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *             <a class="link" href="json-glib-JSON-Array.html#json-array-get-element" title="json_array_get_element ()">json_array_get_element</a>           (<em class="parameter"><code><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> *array</code></em>,
+<a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *          <a class="link" href="json-glib-JSON-Array.html#json-array-get-element" title="json_array_get_element ()">json_array_get_element</a>              (<em class="parameter"><code><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> *array</code></em>,
                                                          <em class="parameter"><code><span class="type">guint</span> index_</code></em>);
-<a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *             <a class="link" href="json-glib-JSON-Array.html#json-array-dup-element" title="json_array_dup_element ()">json_array_dup_element</a>           (<em class="parameter"><code><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> *array</code></em>,
+<a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *          <a class="link" href="json-glib-JSON-Array.html#json-array-dup-element" title="json_array_dup_element ()">json_array_dup_element</a>              (<em class="parameter"><code><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> *array</code></em>,
                                                          <em class="parameter"><code><span class="type">guint</span> index_</code></em>);
-<span class="returnvalue">GList</span> *                <a class="link" href="json-glib-JSON-Array.html#json-array-get-elements" title="json_array_get_elements ()">json_array_get_elements</a>          (<em class="parameter"><code><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> *array</code></em>);
+<span class="returnvalue">GList</span> *             <a class="link" href="json-glib-JSON-Array.html#json-array-get-elements" title="json_array_get_elements ()">json_array_get_elements</a>             (<em class="parameter"><code><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> *array</code></em>);
 <span class="returnvalue">guint</span>               <a class="link" href="json-glib-JSON-Array.html#json-array-get-length" title="json_array_get_length ()">json_array_get_length</a>               (<em class="parameter"><code><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> *array</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="json-glib-JSON-Array.html#json-array-remove-element" title="json_array_remove_element ()">json_array_remove_element</a>           (<em class="parameter"><code><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> *array</code></em>,
                                                          <em class="parameter"><code><span class="type">guint</span> index_</code></em>);
@@ -63,7 +63,7 @@
 
 <span class="returnvalue">void</span>                <a class="link" href="json-glib-JSON-Array.html#json-array-add-array-element" title="json_array_add_array_element ()">json_array_add_array_element</a>        (<em class="parameter"><code><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> *array</code></em>,
                                                          <em class="parameter"><code><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> *value</code></em>);
-<a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="returnvalue">JsonArray</span></a> *            <a class="link" href="json-glib-JSON-Array.html#json-array-get-array-element" title="json_array_get_array_element ()">json_array_get_array_element</a>     (<em class="parameter"><code><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> *array</code></em>,
+<a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="returnvalue">JsonArray</span></a> *         <a class="link" href="json-glib-JSON-Array.html#json-array-get-array-element" title="json_array_get_array_element ()">json_array_get_array_element</a>        (<em class="parameter"><code><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> *array</code></em>,
                                                          <em class="parameter"><code><span class="type">guint</span> index_</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="json-glib-JSON-Array.html#json-array-add-boolean-element" title="json_array_add_boolean_element ()">json_array_add_boolean_element</a>      (<em class="parameter"><code><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> *array</code></em>,
                                                          <em class="parameter"><code><span class="type">gboolean</span> value</code></em>);
@@ -82,11 +82,11 @@
                                                          <em class="parameter"><code><span class="type">guint</span> index_</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="json-glib-JSON-Array.html#json-array-add-object-element" title="json_array_add_object_element ()">json_array_add_object_element</a>       (<em class="parameter"><code><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> *array</code></em>,
                                                          <em class="parameter"><code><a class="link" href="json-glib-JSON-Object.html#JsonObject" title="JsonObject"><span class="type">JsonObject</span></a> *value</code></em>);
-<a class="link" href="json-glib-JSON-Object.html#JsonObject" title="JsonObject"><span class="returnvalue">JsonObject</span></a> *           <a class="link" href="json-glib-JSON-Array.html#json-array-get-object-element" title="json_array_get_object_element ()">json_array_get_object_element</a>    (<em class="parameter"><code><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> *array</code></em>,
+<a class="link" href="json-glib-JSON-Object.html#JsonObject" title="JsonObject"><span class="returnvalue">JsonObject</span></a> *        <a class="link" href="json-glib-JSON-Array.html#json-array-get-object-element" title="json_array_get_object_element ()">json_array_get_object_element</a>       (<em class="parameter"><code><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> *array</code></em>,
                                                          <em class="parameter"><code><span class="type">guint</span> index_</code></em>);
 <span class="returnvalue">void</span>                <a class="link" href="json-glib-JSON-Array.html#json-array-add-string-element" title="json_array_add_string_element ()">json_array_add_string_element</a>       (<em class="parameter"><code><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> *array</code></em>,
                                                          <em class="parameter"><code>const <span class="type">gchar</span> *value</code></em>);
-const <span class="returnvalue">gchar</span> *          <a class="link" href="json-glib-JSON-Array.html#json-array-get-string-element" title="json_array_get_string_element ()">json_array_get_string_element</a>    (<em class="parameter"><code><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> *array</code></em>,
+const <span class="returnvalue">gchar</span> *       <a class="link" href="json-glib-JSON-Array.html#json-array-get-string-element" title="json_array_get_string_element ()">json_array_get_string_element</a>       (<em class="parameter"><code><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> *array</code></em>,
                                                          <em class="parameter"><code><span class="type">guint</span> index_</code></em>);
 </pre>
 </div>
@@ -121,7 +121,7 @@ and should only be accessed by the provided API
 <hr>
 <div class="refsect2">
 <a name="json-array-new"></a><h3>json_array_new ()</h3>
-<pre class="programlisting"><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="returnvalue">JsonArray</span></a> *            json_array_new                   (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<pre class="programlisting"><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="returnvalue">JsonArray</span></a> *         json_array_new                      (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
 <p>
 Creates a new <a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a>.
 </p>
@@ -137,7 +137,7 @@ Creates a new <a class="link" href="json-glib-JSON-Array.html#JsonArray" title="
 <hr>
 <div class="refsect2">
 <a name="json-array-sized-new"></a><h3>json_array_sized_new ()</h3>
-<pre class="programlisting"><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="returnvalue">JsonArray</span></a> *            json_array_sized_new             (<em class="parameter"><code><span class="type">guint</span> n_elements</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="returnvalue">JsonArray</span></a> *         json_array_sized_new                (<em class="parameter"><code><span class="type">guint</span> n_elements</code></em>);</pre>
 <p>
 Creates a new <a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> with <em class="parameter"><code>n_elements</code></em> slots already allocated.
 </p>
@@ -159,7 +159,7 @@ Creates a new <a class="link" href="json-glib-JSON-Array.html#JsonArray" title="
 <hr>
 <div class="refsect2">
 <a name="json-array-ref"></a><h3>json_array_ref ()</h3>
-<pre class="programlisting"><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="returnvalue">JsonArray</span></a> *            json_array_ref                   (<em class="parameter"><code><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> *array</code></em>);</pre>
+<pre class="programlisting"><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="returnvalue">JsonArray</span></a> *         json_array_ref                      (<em class="parameter"><code><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> *array</code></em>);</pre>
 <p>
 Increase by one the reference count of a <a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a>.
 </p>
@@ -225,7 +225,7 @@ Appends <em class="parameter"><code>node</code></em> inside <em class="parameter
 <hr>
 <div class="refsect2">
 <a name="json-array-get-element"></a><h3>json_array_get_element ()</h3>
-<pre class="programlisting"><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *             json_array_get_element           (<em class="parameter"><code><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> *array</code></em>,
+<pre class="programlisting"><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *          json_array_get_element              (<em class="parameter"><code><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> *array</code></em>,
                                                          <em class="parameter"><code><span class="type">guint</span> index_</code></em>);</pre>
 <p>
 Retrieves the <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> containing the value of the element at <em class="parameter"><code>index_</code></em>
@@ -254,7 +254,7 @@ inside a <a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonA
 <hr>
 <div class="refsect2">
 <a name="json-array-dup-element"></a><h3>json_array_dup_element ()</h3>
-<pre class="programlisting"><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *             json_array_dup_element           (<em class="parameter"><code><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> *array</code></em>,
+<pre class="programlisting"><a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="returnvalue">JsonNode</span></a> *          json_array_dup_element              (<em class="parameter"><code><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> *array</code></em>,
                                                          <em class="parameter"><code><span class="type">guint</span> index_</code></em>);</pre>
 <p>
 Retrieves a copy of the <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a> containing the value of the
@@ -285,7 +285,7 @@ index. Use <a class="link" href="json-glib-JSON-Node.html#json-node-free" title=
 <hr>
 <div class="refsect2">
 <a name="json-array-get-elements"></a><h3>json_array_get_elements ()</h3>
-<pre class="programlisting"><span class="returnvalue">GList</span> *                json_array_get_elements          (<em class="parameter"><code><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> *array</code></em>);</pre>
+<pre class="programlisting"><span class="returnvalue">GList</span> *             json_array_get_elements             (<em class="parameter"><code><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> *array</code></em>);</pre>
 <p>
 Gets the elements of a <a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> as a list of <a class="link" href="json-glib-JSON-Node.html#JsonNode" title="JsonNode"><span class="type">JsonNode</span></a>s.
 </p>
@@ -460,7 +460,7 @@ See also: <a class="link" href="json-glib-JSON-Array.html#json-array-add-element
 <hr>
 <div class="refsect2">
 <a name="json-array-get-array-element"></a><h3>json_array_get_array_element ()</h3>
-<pre class="programlisting"><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="returnvalue">JsonArray</span></a> *            json_array_get_array_element     (<em class="parameter"><code><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> *array</code></em>,
+<pre class="programlisting"><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="returnvalue">JsonArray</span></a> *         json_array_get_array_element        (<em class="parameter"><code><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> *array</code></em>,
                                                          <em class="parameter"><code><span class="type">guint</span> index_</code></em>);</pre>
 <p>
 Conveniently retrieves the array from the element at <em class="parameter"><code>index_</code></em>
@@ -751,7 +751,7 @@ See also: <a class="link" href="json-glib-JSON-Array.html#json-array-add-element
 <hr>
 <div class="refsect2">
 <a name="json-array-get-object-element"></a><h3>json_array_get_object_element ()</h3>
-<pre class="programlisting"><a class="link" href="json-glib-JSON-Object.html#JsonObject" title="JsonObject"><span class="returnvalue">JsonObject</span></a> *           json_array_get_object_element    (<em class="parameter"><code><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> *array</code></em>,
+<pre class="programlisting"><a class="link" href="json-glib-JSON-Object.html#JsonObject" title="JsonObject"><span class="returnvalue">JsonObject</span></a> *        json_array_get_object_element       (<em class="parameter"><code><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> *array</code></em>,
                                                          <em class="parameter"><code><span class="type">guint</span> index_</code></em>);</pre>
 <p>
 Conveniently retrieves the object from the element at <em class="parameter"><code>index_</code></em>
@@ -811,7 +811,7 @@ See also: <a class="link" href="json-glib-JSON-Array.html#json-array-add-element
 <hr>
 <div class="refsect2">
 <a name="json-array-get-string-element"></a><h3>json_array_get_string_element ()</h3>
-<pre class="programlisting">const <span class="returnvalue">gchar</span> *          json_array_get_string_element    (<em class="parameter"><code><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> *array</code></em>,
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       json_array_get_string_element       (<em class="parameter"><code><a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"><span class="type">JsonArray</span></a> *array</code></em>,
                                                          <em class="parameter"><code><span class="type">guint</span> index_</code></em>);</pre>
 <p>
 Conveniently retrieves the string value of the element at <em class="parameter"><code>index_</code></em>
@@ -845,6 +845,6 @@ the <a class="link" href="json-glib-JSON-Array.html#JsonArray" title="JsonArray"
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.16.1</div>
+          Generated by GTK-Doc V1.18.1</div>
 </body>
 </html>

@@ -776,6 +776,23 @@ AC_DEFUN([_AM_SET_OPTIONS],
 AC_DEFUN([_AM_IF_OPTION],
 [m4_ifset(_AM_MANGLE_OPTION([$1]), [$2], [$3])])
 
+# Copyright (C) 2001, 2003, 2005  Free Software Foundation, Inc.
+#
+# This file is free software; the Free Software Foundation
+# gives unlimited permission to copy and/or distribute it,
+# with or without modifications, as long as this notice is preserved.
+
+# AM_RUN_LOG(COMMAND)
+# -------------------
+# Run COMMAND, save the exit status in ac_status, and log it.
+# (This has been adapted from Autoconf's _AC_RUN_LOG macro.)
+AC_DEFUN([AM_RUN_LOG],
+[{ echo "$as_me:$LINENO: $1" >&AS_MESSAGE_LOG_FD
+   ($1) >&AS_MESSAGE_LOG_FD 2>&AS_MESSAGE_LOG_FD
+   ac_status=$?
+   echo "$as_me:$LINENO: \$? = $ac_status" >&AS_MESSAGE_LOG_FD
+   (exit $ac_status); }])
+
 # Check to make sure that the build environment is sane.    -*- Autoconf -*-
 
 # Copyright (C) 1996, 1997, 2000, 2001, 2003, 2005, 2008
@@ -1382,10 +1399,20 @@ main ()
 ])
 
 m4_include([build/autotools/as-compiler-flag.m4])
+m4_include([build/autotools/as-linguas.m4])
+m4_include([build/autotools/gettext.m4])
 m4_include([build/autotools/gtk-doc.m4])
+m4_include([build/autotools/iconv.m4])
+m4_include([build/autotools/intlmacosx.m4])
 m4_include([build/autotools/introspection.m4])
+m4_include([build/autotools/lib-ld.m4])
+m4_include([build/autotools/lib-link.m4])
+m4_include([build/autotools/lib-prefix.m4])
 m4_include([build/autotools/libtool.m4])
 m4_include([build/autotools/ltoptions.m4])
 m4_include([build/autotools/ltsugar.m4])
 m4_include([build/autotools/ltversion.m4])
 m4_include([build/autotools/lt~obsolete.m4])
+m4_include([build/autotools/nls.m4])
+m4_include([build/autotools/po.m4])
+m4_include([build/autotools/progtest.m4])

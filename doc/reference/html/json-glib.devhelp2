@@ -14,6 +14,7 @@
       <sub name="Parser" link="ch02.html">
         <sub name="JsonParser" link="JsonParser.html"/>
         <sub name="JsonReader" link="JsonReader.html"/>
+        <sub name="JsonPath" link="JsonPath.html"/>
       </sub>
       <sub name="Generator" link="ch03.html">
         <sub name="JsonGenerator" link="JsonGenerator.html"/>
@@ -24,6 +25,7 @@
       <sub name="GObject Serialization" link="json-glib-GObject-Serialization.html"/>
       <sub name="Serializable Interface" link="json-glib-Serializable-Interface.html"/>
       <sub name="Boxed Types Serialization" link="json-glib-Boxed-Types-Serialization.html"/>
+      <sub name="JSON GVariant Integration" link="json-glib-JSON-GVariant-Integration.html"/>
     </sub>
     <sub name="JSON-GLib Additional Reference" link="json-tools.html">
       <sub name="Versioning information" link="json-glib-Versioning-information.html"/>
@@ -36,6 +38,7 @@
     <sub name="Index of new symbols in 0.8" link="ix05.html"/>
     <sub name="Index of new symbols in 0.10" link="ix06.html"/>
     <sub name="Index of new symbols in 0.12" link="ix07.html"/>
+    <sub name="Index of new symbols in 0.14" link="ix08.html"/>
     <sub name="Annotation Glossary" link="annotation-glossary.html"/>
     <sub name="License" link="license.html"/>
   </chapters>
@@ -166,6 +169,8 @@
     <keyword type="function" name="json_reader_end_member ()" link="JsonReader.html#json-reader-end-member" since="0.12"/>
     <keyword type="function" name="json_reader_is_object ()" link="JsonReader.html#json-reader-is-object" since="0.12"/>
     <keyword type="function" name="json_reader_count_members ()" link="JsonReader.html#json-reader-count-members" since="0.12"/>
+    <keyword type="function" name="json_reader_list_members ()" link="JsonReader.html#json-reader-list-members" since="0.14"/>
+    <keyword type="function" name="json_reader_get_member_name ()" link="JsonReader.html#json-reader-get-member-name" since="0.14"/>
     <keyword type="function" name="json_reader_is_value ()" link="JsonReader.html#json-reader-is-value" since="0.12"/>
     <keyword type="function" name="json_reader_get_value ()" link="JsonReader.html#json-reader-get-value" since="0.12"/>
     <keyword type="function" name="json_reader_get_int_value ()" link="JsonReader.html#json-reader-get-int-value" since="0.12"/>
@@ -177,13 +182,29 @@
     <keyword type="macro" name="JSON_READER_ERROR" link="JsonReader.html#JSON-READER-ERROR:CAPS" since="0.12"/>
     <keyword type="function" name="json_reader_get_error ()" link="JsonReader.html#json-reader-get-error" since="0.12"/>
     <keyword type="property" name="The &quot;root&quot; property" link="JsonReader.html#JsonReader--root"/>
+    <keyword type="" name="Syntax of the JSONPath expressions" link="JsonPath.html#json-path-syntax"/>
+    <keyword type="struct" name="JsonPath" link="JsonPath.html#JsonPath-struct"/>
+    <keyword type="struct" name="JsonPathClass" link="JsonPath.html#JsonPathClass" since="0.14"/>
+    <keyword type="function" name="json_path_new ()" link="JsonPath.html#json-path-new" since="0.14"/>
+    <keyword type="macro" name="JSON_PATH_ERROR" link="JsonPath.html#JSON-PATH-ERROR:CAPS" since="0.14"/>
+    <keyword type="enum" name="enum JsonPathError" link="JsonPath.html#JsonPathError" since="0.14"/>
+    <keyword type="function" name="json_path_compile ()" link="JsonPath.html#json-path-compile" since="0.14"/>
+    <keyword type="function" name="json_path_match ()" link="JsonPath.html#json-path-match" since="0.14"/>
+    <keyword type="function" name="json_path_query ()" link="JsonPath.html#json-path-query" since="0.14"/>
     <keyword type="struct" name="struct JsonGenerator" link="JsonGenerator.html#JsonGenerator-struct"/>
     <keyword type="struct" name="struct JsonGeneratorClass" link="JsonGenerator.html#JsonGeneratorClass"/>
     <keyword type="function" name="json_generator_new ()" link="JsonGenerator.html#json-generator-new"/>
+    <keyword type="function" name="json_generator_set_root ()" link="JsonGenerator.html#json-generator-set-root"/>
+    <keyword type="function" name="json_generator_get_root ()" link="JsonGenerator.html#json-generator-get-root" since="0.14"/>
+    <keyword type="function" name="json_generator_set_pretty ()" link="JsonGenerator.html#json-generator-set-pretty" since="0.14"/>
+    <keyword type="function" name="json_generator_get_pretty ()" link="JsonGenerator.html#json-generator-get-pretty" since="0.14"/>
+    <keyword type="function" name="json_generator_set_indent ()" link="JsonGenerator.html#json-generator-set-indent" since="0.14"/>
+    <keyword type="function" name="json_generator_get_indent ()" link="JsonGenerator.html#json-generator-get-indent" since="0.14"/>
+    <keyword type="function" name="json_generator_set_indent_char ()" link="JsonGenerator.html#json-generator-set-indent-char" since="0.14"/>
+    <keyword type="function" name="json_generator_get_indent_char ()" link="JsonGenerator.html#json-generator-get-indent-char" since="0.14"/>
     <keyword type="function" name="json_generator_to_file ()" link="JsonGenerator.html#json-generator-to-file"/>
     <keyword type="function" name="json_generator_to_data ()" link="JsonGenerator.html#json-generator-to-data"/>
     <keyword type="function" name="json_generator_to_stream ()" link="JsonGenerator.html#json-generator-to-stream" since="0.12"/>
-    <keyword type="function" name="json_generator_set_root ()" link="JsonGenerator.html#json-generator-set-root"/>
     <keyword type="property" name="The &quot;indent&quot; property" link="JsonGenerator.html#JsonGenerator--indent"/>
     <keyword type="property" name="The &quot;indent-char&quot; property" link="JsonGenerator.html#JsonGenerator--indent-char"/>
     <keyword type="property" name="The &quot;pretty&quot; property" link="JsonGenerator.html#JsonGenerator--pretty"/>
@@ -213,6 +234,10 @@
     <keyword type="struct" name="struct JsonSerializableIface" link="json-glib-Serializable-Interface.html#JsonSerializableIface"/>
     <keyword type="function" name="json_serializable_serialize_property ()" link="json-glib-Serializable-Interface.html#json-serializable-serialize-property"/>
     <keyword type="function" name="json_serializable_deserialize_property ()" link="json-glib-Serializable-Interface.html#json-serializable-deserialize-property"/>
+    <keyword type="function" name="json_serializable_find_property ()" link="json-glib-Serializable-Interface.html#json-serializable-find-property" since="0.14"/>
+    <keyword type="function" name="json_serializable_get_property ()" link="json-glib-Serializable-Interface.html#json-serializable-get-property"/>
+    <keyword type="function" name="json_serializable_list_properties ()" link="json-glib-Serializable-Interface.html#json-serializable-list-properties" since="0.14"/>
+    <keyword type="function" name="json_serializable_set_property ()" link="json-glib-Serializable-Interface.html#json-serializable-set-property"/>
     <keyword type="function" name="json_serializable_default_serialize_property ()" link="json-glib-Serializable-Interface.html#json-serializable-default-serialize-property" since="0.10"/>
     <keyword type="function" name="json_serializable_default_deserialize_property ()" link="json-glib-Serializable-Interface.html#json-serializable-default-deserialize-property" since="0.10"/>
     <keyword type="function" name="JsonBoxedSerializeFunc ()" link="json-glib-Boxed-Types-Serialization.html#JsonBoxedSerializeFunc" since="0.10"/>
@@ -223,6 +248,10 @@
     <keyword type="function" name="json_boxed_can_deserialize ()" link="json-glib-Boxed-Types-Serialization.html#json-boxed-can-deserialize" since="0.10"/>
     <keyword type="function" name="json_boxed_serialize ()" link="json-glib-Boxed-Types-Serialization.html#json-boxed-serialize" since="0.10"/>
     <keyword type="function" name="json_boxed_deserialize ()" link="json-glib-Boxed-Types-Serialization.html#json-boxed-deserialize" since="0.10"/>
+    <keyword type="function" name="json_gvariant_serialize ()" link="json-glib-JSON-GVariant-Integration.html#json-gvariant-serialize" since="0.14"/>
+    <keyword type="function" name="json_gvariant_serialize_data ()" link="json-glib-JSON-GVariant-Integration.html#json-gvariant-serialize-data" since="0.14"/>
+    <keyword type="function" name="json_gvariant_deserialize ()" link="json-glib-JSON-GVariant-Integration.html#json-gvariant-deserialize" since="0.14"/>
+    <keyword type="function" name="json_gvariant_deserialize_data ()" link="json-glib-JSON-GVariant-Integration.html#json-gvariant-deserialize-data" since="0.14"/>
     <keyword type="macro" name="JSON_MAJOR_VERSION" link="json-glib-Versioning-information.html#JSON-MAJOR-VERSION:CAPS"/>
     <keyword type="macro" name="JSON_MINOR_VERSION" link="json-glib-Versioning-information.html#JSON-MINOR-VERSION:CAPS"/>
     <keyword type="macro" name="JSON_MICRO_VERSION" link="json-glib-Versioning-information.html#JSON-MICRO-VERSION:CAPS"/>
@@ -244,5 +273,9 @@
     <keyword type="constant" name="JSON_READER_ERROR_INVALID_INDEX" link="JsonReader.html#JSON-READER-ERROR-INVALID-INDEX:CAPS"/>
     <keyword type="constant" name="JSON_READER_ERROR_NO_OBJECT" link="JsonReader.html#JSON-READER-ERROR-NO-OBJECT:CAPS"/>
     <keyword type="constant" name="JSON_READER_ERROR_INVALID_MEMBER" link="JsonReader.html#JSON-READER-ERROR-INVALID-MEMBER:CAPS"/>
+    <keyword type="constant" name="JSON_READER_ERROR_INVALID_NODE" link="JsonReader.html#JSON-READER-ERROR-INVALID-NODE:CAPS"/>
+    <keyword type="constant" name="JSON_READER_ERROR_NO_VALUE" link="JsonReader.html#JSON-READER-ERROR-NO-VALUE:CAPS"/>
+    <keyword type="constant" name="JSON_READER_ERROR_INVALID_TYPE" link="JsonReader.html#JSON-READER-ERROR-INVALID-TYPE:CAPS"/>
+    <keyword type="constant" name="JSON_PATH_ERROR_INVALID_QUERY" link="JsonPath.html#JSON-PATH-ERROR-INVALID-QUERY:CAPS"/>
   </functions>
 </book>

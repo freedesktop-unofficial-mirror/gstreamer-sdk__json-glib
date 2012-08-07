@@ -1,8 +1,8 @@
 # bump micro_version to the next even number for each point release
 # bump micro_version to the next odd number after each release
 m4_define([json_major_version], [0])
-m4_define([json_minor_version], [12])
-m4_define([json_micro_version], [6])
+m4_define([json_minor_version], [14])
+m4_define([json_micro_version], [2])
 
 m4_define([json_version], [json_major_version.json_minor_version.json_micro_version])
 
@@ -13,27 +13,29 @@ m4_define([json_release_status],
 
 # bump up by 1 for every micro release with no API changes, otherwise
 # set to 0. after release, bump up by 1
-m4_define([json_interface_age], [6])
+m4_define([json_interface_age], [2])
 m4_define([json_binary_age], [m4_eval(100 * json_minor_version + json_micro_version)])
 
 m4_define([lt_current], [m4_eval(100 * json_minor_version + json_micro_version - json_interface_age)])
 m4_define([lt_revision], [json_interface_age])
 m4_define([lt_age], [m4_eval(json_binary_age - json_interface_age)])
 
-m4_define([glib_req_version], [2.16])
+m4_define([glib_req_version], [2.26])
 
 AC_PREREQ([2.63])
 
 AC_INIT([json-glib],
         [json_version],
         [http://bugzilla.gnome.org/enter_bug.cgi?product=json-glib],
-        [json-glib])
+        [json-glib],
+        [http://live.gnome.org/JsonGlib])
 
 AC_CONFIG_HEADER([config.h])
 AC_CONFIG_SRCDIR([json-glib/json-glib.h])
+AC_CONFIG_AUX_DIR([build])
 AC_CONFIG_MACRO_DIR([build/autotools])
 
-AM_INIT_AUTOMAKE([1.11 no-define -Wno-portability dist-bzip2])
+AM_INIT_AUTOMAKE([1.11 no-define foreign -Wno-portability dist-xz no-dist-gzip tar-ustar])
 
 AM_SILENT_RULES([yes])
 AM_PATH_GLIB_2_0
@@ -92,8 +94,8 @@ dnl = Enable debug level ======================================================
 m4_define([debug_default], [m4_if(m4_eval(json_minor_version % 2), [1], [yes], [minimum])])
 
 AC_ARG_ENABLE([debug],
-              [AC_HELP_STRING([--enable-debug=@<:@no/minimum/yes@:>@],
-                              [turn on debugging @<:@default=debug_default@:>@])],
+              [AS_HELP_STRING([--enable-debug=@<:@no/minimum/yes@:>@],
+                              [turn on debugging @<:@default=]debug_default[@:>@])],
               [],
               [enable_debug=debug_default])
 
@@ -125,8 +127,8 @@ dnl = Enable strict compiler flags ============================================
 # use strict compiler flags only on development releases
 m4_define([maintainer_flags_default], [m4_if(m4_eval(json_minor_version % 2), [1], [yes], [no])])
 AC_ARG_ENABLE([maintainer-flags],
-              [AC_HELP_STRING([--enable-maintainer-flags=@<:@no/yes@:>@],
-                              [Use strict compiler flags @<:@default=maintainer_flags_default@:>@])],
+              [AS_HELP_STRING([--enable-maintainer-flags=@<:@no/yes@:>@],
+                              [Use strict compiler flags @<:@default=]maintainer_flags_default[@:>@])],
               [],
               [enable_maintainer_flags=maintainer_flags_default])
 
@@ -140,6 +142,7 @@ AS_IF([test "x$enable_maintainer_flags" = "xyes" && test "x$GCC" = "xyes"],
                             -Wno-strict-aliasing"])
       ]
 )
+MAINTAINER_CFLAGS="${MAINTAINER_CFLAGS#*  }"
 AC_SUBST([MAINTAINER_CFLAGS])
 
 dnl = GCOV coverage checks ====================================================
@@ -166,17 +169,36 @@ GTK_DOC_CHECK([1.13], [--flavour no-tmpl])
 
 GOBJECT_INTROSPECTION_CHECK([0.9.5])
 
+AM_GNU_GETTEXT_VERSION([0.18])
+AM_GNU_GETTEXT([external])
+
+GETTEXT_PACKAGE="json-glib-1.0"
+AC_SUBST(GETTEXT_PACKAGE)
+AC_DEFINE_UNQUOTED([GETTEXT_PACKAGE],
+                   ["$GETTEXT_PACKAGE"],
+                   [The prefix for our gettext translation domains.])
+AS_ALL_LINGUAS
+
 AC_CONFIG_FILES([
         Makefile
+
         build/Makefile
         build/autotools/Makefile
+        build/win32/Makefile
+        build/win32/config.h.win32
+        build/win32/vs9/Makefile
+        build/win32/vs10/Makefile
+
         json-glib/Makefile
         json-glib/json-version.h
         json-glib/tests/Makefile
-        tests/Makefile
+
         doc/Makefile
         doc/reference/Makefile
         doc/reference/version.xml
+
+        po/Makefile.in
+
         json-glib.pc
 ])
 
@@ -190,7 +212,7 @@ echo ""
 echo " • Prefix: ${prefix}"
 echo ""
 echo " • Debug level: ${enable_debug}"
-echo " • Compiler flags: ${MAINTAINER_CFLAGS}"
+echo " • Compiler flags: ${CFLAGS} ${MAINTAINER_CFLAGS}"
 echo ""
 echo " • API reference: ${enable_gtk_doc}"
 echo ""

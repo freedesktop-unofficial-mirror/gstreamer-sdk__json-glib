@@ -31,12 +31,15 @@
 #include <json-glib/json-builder.h>
 #include <json-glib/json-generator.h>
 #include <json-glib/json-parser.h>
+#include <json-glib/json-path.h>
 #include <json-glib/json-reader.h>
 #include <json-glib/json-version.h>
 
 #include <json-glib/json-enum-types.h>
 
 #include <json-glib/json-gobject.h>
+
+#include <json-glib/json-gvariant.h>
 
 #undef __JSON_GLIB_INSIDE__
 

@@ -32,6 +32,30 @@ json_parser_error_get_type(void) {
   return g_enum_type_id__volatile;
 }
 
+/* enumerations from "../json-glib/json-path.h" */
+#include "../json-glib/json-path.h"
+
+GType
+json_path_error_get_type(void) {
+  static volatile gsize g_enum_type_id__volatile = 0;
+
+  if (g_once_init_enter (&g_enum_type_id__volatile))
+    {
+      static const GEnumValue values[] = {
+        { JSON_PATH_ERROR_INVALID_QUERY, "JSON_PATH_ERROR_INVALID_QUERY", "query" },
+        { 0, NULL, NULL }
+      };
+      GType g_enum_type_id;
+
+      g_enum_type_id =
+        g_enum_register_static (g_intern_static_string ("JsonPathError"), values);
+
+      g_once_init_leave (&g_enum_type_id__volatile, g_enum_type_id);
+    }
+
+  return g_enum_type_id__volatile;
+}
+
 /* enumerations from "../json-glib/json-reader.h" */
 #include "../json-glib/json-reader.h"
 
@@ -46,6 +70,9 @@ json_reader_error_get_type(void) {
         { JSON_READER_ERROR_INVALID_INDEX, "JSON_READER_ERROR_INVALID_INDEX", "invalid-index" },
         { JSON_READER_ERROR_NO_OBJECT, "JSON_READER_ERROR_NO_OBJECT", "no-object" },
         { JSON_READER_ERROR_INVALID_MEMBER, "JSON_READER_ERROR_INVALID_MEMBER", "invalid-member" },
+        { JSON_READER_ERROR_INVALID_NODE, "JSON_READER_ERROR_INVALID_NODE", "invalid-node" },
+        { JSON_READER_ERROR_NO_VALUE, "JSON_READER_ERROR_NO_VALUE", "no-value" },
+        { JSON_READER_ERROR_INVALID_TYPE, "JSON_READER_ERROR_INVALID_TYPE", "invalid-type" },
         { 0, NULL, NULL }
       };
       GType g_enum_type_id;

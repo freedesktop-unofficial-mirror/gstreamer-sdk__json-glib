@@ -35,7 +35,7 @@
  * SECTION:json-object
  * @short_description: a JSON object representation
  *
- * #JsonArray is the representation of the object type inside JSON. It contains
+ * #JsonObject is the representation of the object type inside JSON. It contains
  * #JsonNode<!-- -->s, which may contain fundamental types, arrays or other
  * objects. Each member of an object is accessed using its name.
  *
@@ -49,18 +49,7 @@
  * use json_object_get_size().
  */
 
-GType
-json_object_get_type (void)
-{
-  static GType object_type = 0;
-
-  if (G_UNLIKELY (!object_type))
-    object_type = g_boxed_type_register_static (g_intern_static_string ("JsonObject"),
-                                                (GBoxedCopyFunc) json_object_ref,
-                                                (GBoxedFreeFunc) json_object_unref);
-
-  return object_type;
-}
+G_DEFINE_BOXED_TYPE (JsonObject, json_object, json_object_ref, json_object_unref);
 
 /**
  * json_object_new:
@@ -100,7 +89,7 @@ json_object_ref (JsonObject *object)
   g_return_val_if_fail (object != NULL, NULL);
   g_return_val_if_fail (object->ref_count > 0, NULL);
 
-  g_atomic_int_exchange_and_add (&object->ref_count, 1);
+  g_atomic_int_add (&object->ref_count, 1);
 
   return object;
 }
@@ -116,15 +105,10 @@ json_object_ref (JsonObject *object)
 void
 json_object_unref (JsonObject *object)
 {
-  gint old_ref;
-
   g_return_if_fail (object != NULL);
   g_return_if_fail (object->ref_count > 0);
 
-  old_ref = g_atomic_int_get (&object->ref_count);
-  if (old_ref > 1)
-    g_atomic_int_compare_and_exchange (&object->ref_count, old_ref, old_ref - 1);
-  else
+  if (g_atomic_int_dec_and_test (&object->ref_count))
     {
       g_list_free (object->members_ordered);
       g_hash_table_destroy (object->members);
@@ -152,16 +136,9 @@ object_set_member_internal (JsonObject  *object,
        * pointer to its name, to avoid keeping invalid pointers
        * once we replace the key in the hash table
        */
-      for (l = object->members_ordered; l != NULL; l =  l->next)
-        {
-          gchar *tmp = l->data;
-
-          if (strcmp (tmp, name) == 0)
-            {
-              l->data = name;
-              break;
-            }
-        }
+      l = g_list_find_custom (object->members_ordered, name, (GCompareFunc) strcmp);
+      if (l != NULL)
+        l->data = name;
     }
 
   g_hash_table_replace (object->members, name, node);
@@ -220,10 +197,20 @@ json_object_set_member (JsonObject  *object,
                         const gchar *member_name,
                         JsonNode    *node)
 {
+  JsonNode *old_node;
+
   g_return_if_fail (object != NULL);
   g_return_if_fail (member_name != NULL);
   g_return_if_fail (node != NULL);
 
+  old_node = g_hash_table_lookup (object->members, member_name);
+  if (old_node == NULL)
+    goto set_member;
+
+  if (old_node == node)
+    return;
+
+set_member:
   object_set_member_internal (object, member_name, node);
 }
 

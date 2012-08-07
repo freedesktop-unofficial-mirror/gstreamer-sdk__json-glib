@@ -41,18 +41,28 @@ host_triplet = @host@
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in \
 	$(top_srcdir)/build/autotools/Makefile.am.gtest \
 	$(top_srcdir)/build/autotools/Makefile.am.silent
-noinst_PROGRAMS = $(am__EXEEXT_1)
+noinst_PROGRAMS = $(am__EXEEXT_2)
 subdir = json-glib/tests
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps =  \
 	$(top_srcdir)/build/autotools/as-compiler-flag.m4 \
+	$(top_srcdir)/build/autotools/as-linguas.m4 \
+	$(top_srcdir)/build/autotools/gettext.m4 \
 	$(top_srcdir)/build/autotools/gtk-doc.m4 \
+	$(top_srcdir)/build/autotools/iconv.m4 \
+	$(top_srcdir)/build/autotools/intlmacosx.m4 \
 	$(top_srcdir)/build/autotools/introspection.m4 \
+	$(top_srcdir)/build/autotools/lib-ld.m4 \
+	$(top_srcdir)/build/autotools/lib-link.m4 \
+	$(top_srcdir)/build/autotools/lib-prefix.m4 \
 	$(top_srcdir)/build/autotools/libtool.m4 \
 	$(top_srcdir)/build/autotools/ltoptions.m4 \
 	$(top_srcdir)/build/autotools/ltsugar.m4 \
 	$(top_srcdir)/build/autotools/ltversion.m4 \
 	$(top_srcdir)/build/autotools/lt~obsolete.m4 \
+	$(top_srcdir)/build/autotools/nls.m4 \
+	$(top_srcdir)/build/autotools/po.m4 \
+	$(top_srcdir)/build/autotools/progtest.m4 \
 	$(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
@@ -60,40 +70,84 @@ mkinstalldirs = $(install_sh) -d
 CONFIG_HEADER = $(top_builddir)/config.h
 CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
-am__EXEEXT_1 = array-test$(EXEEXT) object-test$(EXEEXT) \
-	node-test$(EXEEXT) parser-test$(EXEEXT) \
-	generator-test$(EXEEXT) builder-test$(EXEEXT) \
-	reader-test$(EXEEXT)
+am__EXEEXT_1 =
+am__EXEEXT_2 = array$(EXEEXT) boxed$(EXEEXT) builder$(EXEEXT) \
+	generator$(EXEEXT) gvariant$(EXEEXT) node$(EXEEXT) \
+	object$(EXEEXT) parser$(EXEEXT) path$(EXEEXT) reader$(EXEEXT) \
+	serialize-simple$(EXEEXT) serialize-complex$(EXEEXT) \
+	serialize-full$(EXEEXT) $(am__EXEEXT_1)
 PROGRAMS = $(noinst_PROGRAMS)
-am_array_test_OBJECTS = array-test.$(OBJEXT)
-array_test_OBJECTS = $(am_array_test_OBJECTS)
+array_SOURCES = array.c
+array_OBJECTS = array.$(OBJEXT)
+array_LDADD = $(LDADD)
 am__DEPENDENCIES_1 =
-am__DEPENDENCIES_2 = $(am__DEPENDENCIES_1) \
-	$(top_builddir)/json-glib/libjson-glib-1.0.la
-array_test_DEPENDENCIES = $(am__DEPENDENCIES_2)
+array_DEPENDENCIES = ../libjson-glib-1.0.la $(am__DEPENDENCIES_1) \
+	$(am__DEPENDENCIES_1)
 AM_V_lt = $(am__v_lt_$(V))
 am__v_lt_ = $(am__v_lt_$(AM_DEFAULT_VERBOSITY))
 am__v_lt_0 = --silent
-am_builder_test_OBJECTS = builder-test.$(OBJEXT)
-builder_test_OBJECTS = $(am_builder_test_OBJECTS)
-builder_test_DEPENDENCIES = $(am__DEPENDENCIES_2)
-am_generator_test_OBJECTS = generator-test.$(OBJEXT)
-generator_test_OBJECTS = $(am_generator_test_OBJECTS)
-generator_test_DEPENDENCIES = $(am__DEPENDENCIES_2)
-am_node_test_OBJECTS = node-test.$(OBJEXT)
-node_test_OBJECTS = $(am_node_test_OBJECTS)
-node_test_DEPENDENCIES = $(am__DEPENDENCIES_2)
-am_object_test_OBJECTS = object-test.$(OBJEXT)
-object_test_OBJECTS = $(am_object_test_OBJECTS)
-object_test_DEPENDENCIES = $(am__DEPENDENCIES_2)
-am_parser_test_OBJECTS = parser-test.$(OBJEXT)
-parser_test_OBJECTS = $(am_parser_test_OBJECTS)
-parser_test_DEPENDENCIES = $(am__DEPENDENCIES_2)
-am_reader_test_OBJECTS = reader-test.$(OBJEXT)
-reader_test_OBJECTS = $(am_reader_test_OBJECTS)
-reader_test_DEPENDENCIES = $(am__DEPENDENCIES_2)
+boxed_SOURCES = boxed.c
+boxed_OBJECTS = boxed.$(OBJEXT)
+boxed_LDADD = $(LDADD)
+boxed_DEPENDENCIES = ../libjson-glib-1.0.la $(am__DEPENDENCIES_1) \
+	$(am__DEPENDENCIES_1)
+builder_SOURCES = builder.c
+builder_OBJECTS = builder.$(OBJEXT)
+builder_LDADD = $(LDADD)
+builder_DEPENDENCIES = ../libjson-glib-1.0.la $(am__DEPENDENCIES_1) \
+	$(am__DEPENDENCIES_1)
+generator_SOURCES = generator.c
+generator_OBJECTS = generator.$(OBJEXT)
+generator_LDADD = $(LDADD)
+generator_DEPENDENCIES = ../libjson-glib-1.0.la $(am__DEPENDENCIES_1) \
+	$(am__DEPENDENCIES_1)
+gvariant_SOURCES = gvariant.c
+gvariant_OBJECTS = gvariant.$(OBJEXT)
+gvariant_LDADD = $(LDADD)
+gvariant_DEPENDENCIES = ../libjson-glib-1.0.la $(am__DEPENDENCIES_1) \
+	$(am__DEPENDENCIES_1)
+node_SOURCES = node.c
+node_OBJECTS = node.$(OBJEXT)
+node_LDADD = $(LDADD)
+node_DEPENDENCIES = ../libjson-glib-1.0.la $(am__DEPENDENCIES_1) \
+	$(am__DEPENDENCIES_1)
+object_SOURCES = object.c
+object_OBJECTS = object.$(OBJEXT)
+object_LDADD = $(LDADD)
+object_DEPENDENCIES = ../libjson-glib-1.0.la $(am__DEPENDENCIES_1) \
+	$(am__DEPENDENCIES_1)
+parser_SOURCES = parser.c
+parser_OBJECTS = parser.$(OBJEXT)
+parser_LDADD = $(LDADD)
+parser_DEPENDENCIES = ../libjson-glib-1.0.la $(am__DEPENDENCIES_1) \
+	$(am__DEPENDENCIES_1)
+path_SOURCES = path.c
+path_OBJECTS = path.$(OBJEXT)
+path_LDADD = $(LDADD)
+path_DEPENDENCIES = ../libjson-glib-1.0.la $(am__DEPENDENCIES_1) \
+	$(am__DEPENDENCIES_1)
+reader_SOURCES = reader.c
+reader_OBJECTS = reader.$(OBJEXT)
+reader_LDADD = $(LDADD)
+reader_DEPENDENCIES = ../libjson-glib-1.0.la $(am__DEPENDENCIES_1) \
+	$(am__DEPENDENCIES_1)
+serialize_complex_SOURCES = serialize-complex.c
+serialize_complex_OBJECTS = serialize-complex.$(OBJEXT)
+serialize_complex_LDADD = $(LDADD)
+serialize_complex_DEPENDENCIES = ../libjson-glib-1.0.la \
+	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1)
+serialize_full_SOURCES = serialize-full.c
+serialize_full_OBJECTS = serialize-full.$(OBJEXT)
+serialize_full_LDADD = $(LDADD)
+serialize_full_DEPENDENCIES = ../libjson-glib-1.0.la \
+	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1)
+serialize_simple_SOURCES = serialize-simple.c
+serialize_simple_OBJECTS = serialize-simple.$(OBJEXT)
+serialize_simple_LDADD = $(LDADD)
+serialize_simple_DEPENDENCIES = ../libjson-glib-1.0.la \
+	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1)
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)
-depcomp = $(SHELL) $(top_srcdir)/depcomp
+depcomp = $(SHELL) $(top_srcdir)/build/depcomp
 am__depfiles_maybe = depfiles
 am__mv = mv -f
 COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
@@ -118,18 +172,17 @@ am__v_CCLD_0 = @echo "  CCLD  " $@;
 AM_V_GEN = $(am__v_GEN_$(V))
 am__v_GEN_ = $(am__v_GEN_$(AM_DEFAULT_VERBOSITY))
 am__v_GEN_0 = @echo "  GEN   " $@;
-SOURCES = $(array_test_SOURCES) $(builder_test_SOURCES) \
-	$(generator_test_SOURCES) $(node_test_SOURCES) \
-	$(object_test_SOURCES) $(parser_test_SOURCES) \
-	$(reader_test_SOURCES)
-DIST_SOURCES = $(array_test_SOURCES) $(builder_test_SOURCES) \
-	$(generator_test_SOURCES) $(node_test_SOURCES) \
-	$(object_test_SOURCES) $(parser_test_SOURCES) \
-	$(reader_test_SOURCES)
+SOURCES = array.c boxed.c builder.c generator.c gvariant.c node.c \
+	object.c parser.c path.c reader.c serialize-complex.c \
+	serialize-full.c serialize-simple.c
+DIST_SOURCES = array.c boxed.c builder.c generator.c gvariant.c node.c \
+	object.c parser.c path.c reader.c serialize-complex.c \
+	serialize-full.c serialize-simple.c
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 ACLOCAL = @ACLOCAL@
+ALL_LINGUAS = @ALL_LINGUAS@
 AMTAR = @AMTAR@
 AM_DEFAULT_VERBOSITY = @AM_DEFAULT_VERBOSITY@
 AR = @AR@
@@ -156,14 +209,20 @@ EXEEXT = @EXEEXT@
 FGREP = @FGREP@
 GCOV_CFLAGS = @GCOV_CFLAGS@
 GCOV_LDFLAGS = @GCOV_LDFLAGS@
+GETTEXT_MACRO_VERSION = @GETTEXT_MACRO_VERSION@
+GETTEXT_PACKAGE = @GETTEXT_PACKAGE@
 GLIB_CFLAGS = @GLIB_CFLAGS@
 GLIB_GENMARSHAL = @GLIB_GENMARSHAL@
 GLIB_LIBS = @GLIB_LIBS@
 GLIB_MKENUMS = @GLIB_MKENUMS@
 GLIB_PREFIX = @GLIB_PREFIX@
+GMSGFMT = @GMSGFMT@
+GMSGFMT_015 = @GMSGFMT_015@
 GOBJECT_QUERY = @GOBJECT_QUERY@
 GREP = @GREP@
 GTKDOC_CHECK = @GTKDOC_CHECK@
+GTKDOC_DEPS_CFLAGS = @GTKDOC_DEPS_CFLAGS@
+GTKDOC_DEPS_LIBS = @GTKDOC_DEPS_LIBS@
 GTKDOC_MKPDF = @GTKDOC_MKPDF@
 GTKDOC_REBASE = @GTKDOC_REBASE@
 HTML_DIR = @HTML_DIR@
@@ -172,6 +231,8 @@ INSTALL_DATA = @INSTALL_DATA@
 INSTALL_PROGRAM = @INSTALL_PROGRAM@
 INSTALL_SCRIPT = @INSTALL_SCRIPT@
 INSTALL_STRIP_PROGRAM = @INSTALL_STRIP_PROGRAM@
+INTLLIBS = @INTLLIBS@
+INTL_MACOSX_LIBS = @INTL_MACOSX_LIBS@
 INTROSPECTION_CFLAGS = @INTROSPECTION_CFLAGS@
 INTROSPECTION_COMPILER = @INTROSPECTION_COMPILER@
 INTROSPECTION_GENERATE = @INTROSPECTION_GENERATE@
@@ -191,16 +252,23 @@ JSON_RELEASE_STATUS = @JSON_RELEASE_STATUS@
 JSON_VERSION = @JSON_VERSION@
 LD = @LD@
 LDFLAGS = @LDFLAGS@
+LIBICONV = @LIBICONV@
+LIBINTL = @LIBINTL@
 LIBOBJS = @LIBOBJS@
 LIBS = @LIBS@
 LIBTOOL = @LIBTOOL@
 LIPO = @LIPO@
 LN_S = @LN_S@
+LTLIBICONV = @LTLIBICONV@
+LTLIBINTL = @LTLIBINTL@
 LTLIBOBJS = @LTLIBOBJS@
 MAINTAINER_CFLAGS = @MAINTAINER_CFLAGS@
 MAKEINFO = @MAKEINFO@
 MANIFEST_TOOL = @MANIFEST_TOOL@
 MKDIR_P = @MKDIR_P@
+MSGFMT = @MSGFMT@
+MSGFMT_015 = @MSGFMT_015@
+MSGMERGE = @MSGMERGE@
 NM = @NM@
 NMEDIT = @NMEDIT@
 OBJDUMP = @OBJDUMP@
@@ -218,12 +286,17 @@ PATH_SEPARATOR = @PATH_SEPARATOR@
 PKG_CONFIG = @PKG_CONFIG@
 PKG_CONFIG_LIBDIR = @PKG_CONFIG_LIBDIR@
 PKG_CONFIG_PATH = @PKG_CONFIG_PATH@
+POSUB = @POSUB@
 RANLIB = @RANLIB@
 SED = @SED@
 SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
 STRIP = @STRIP@
+USE_NLS = @USE_NLS@
 VERSION = @VERSION@
+XGETTEXT = @XGETTEXT@
+XGETTEXT_015 = @XGETTEXT_015@
+XGETTEXT_EXTRA_OPTIONS = @XGETTEXT_EXTRA_OPTIONS@
 abs_builddir = @abs_builddir@
 abs_srcdir = @abs_srcdir@
 abs_top_builddir = @abs_top_builddir@
@@ -281,8 +354,9 @@ GTESTER_REPORT = gtester-report
 
 # initialize variables for unconditional += appending
 EXTRA_DIST = stream-load.json
-TEST_PROGS = array-test object-test node-test parser-test \
-	generator-test builder-test reader-test
+TEST_PROGS = array boxed builder generator gvariant node object parser \
+	path reader serialize-simple serialize-complex serialize-full \
+	$(NULL)
 QUIET_GEN = $(AM_V_GEN)
 QUIET_LN = $(QUIET_LN_$(V))
 QUIET_LN_ = $(QUIET_LN_$(AM_DEFAULT_VERBOSITY))
@@ -291,6 +365,7 @@ QUIET_RM = $(QUIET_RM_$(V))
 QUIET_RM_ = $(QUIET_RM_$(AM_DEFAULT_VERBOSITY))
 QUIET_RM_0 = @echo '  RM     '$@;
 NULL = 
+DISTCLEANFILES = 
 INCLUDES = \
 	-I$(top_srcdir)			\
 	-I$(top_srcdir)/json-glib	\
@@ -298,24 +373,11 @@ INCLUDES = \
 
 AM_CPPFLAGS = $(JSON_DEBUG_CFLAGS) -DTESTS_DATA_DIR=\""$(top_srcdir)/json-glib/tests"\"
 AM_CFLAGS = -g $(JSON_CFLAGS) $(MAINTAINER_CFLAGS)
-DISTCLEANFILES = 
-progs_ldadd = $(JSON_LIBS) \
-	$(top_builddir)/json-glib/libjson-glib-1.0.la
+LDADD = \
+	../libjson-glib-1.0.la \
+	$(JSON_LIBS) \
+	$(NULL)
 
-array_test_SOURCES = array-test.c
-array_test_LDADD = $(progs_ldadd)
-object_test_SOURCES = object-test.c
-object_test_LDADD = $(progs_ldadd)
-node_test_SOURCES = node-test.c
-node_test_LDADD = $(progs_ldadd)
-parser_test_SOURCES = parser-test.c
-parser_test_LDADD = $(progs_ldadd)
-generator_test_SOURCES = generator-test.c
-generator_test_LDADD = $(progs_ldadd)
-builder_test_SOURCES = builder-test.c
-builder_test_LDADD = $(progs_ldadd)
-reader_test_SOURCES = reader-test.c
-reader_test_LDADD = $(progs_ldadd)
 all: all-am
 
 .SUFFIXES:
@@ -329,9 +391,9 @@ $(srcdir)/Makefile.in:  $(srcdir)/Makefile.am $(top_srcdir)/build/autotools/Make
 	      exit 1;; \
 	  esac; \
 	done; \
-	echo ' cd $(top_srcdir) && $(AUTOMAKE) --gnu json-glib/tests/Makefile'; \
+	echo ' cd $(top_srcdir) && $(AUTOMAKE) --foreign json-glib/tests/Makefile'; \
 	$(am__cd) $(top_srcdir) && \
-	  $(AUTOMAKE) --gnu json-glib/tests/Makefile
+	  $(AUTOMAKE) --foreign json-glib/tests/Makefile
 .PRECIOUS: Makefile
 Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status
 	@case '$?' in \
@@ -359,27 +421,45 @@ clean-noinstPROGRAMS:
 	list=`for p in $$list; do echo "$$p"; done | sed 's/$(EXEEXT)$$//'`; \
 	echo " rm -f" $$list; \
 	rm -f $$list
-array-test$(EXEEXT): $(array_test_OBJECTS) $(array_test_DEPENDENCIES) 
-	@rm -f array-test$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(array_test_OBJECTS) $(array_test_LDADD) $(LIBS)
-builder-test$(EXEEXT): $(builder_test_OBJECTS) $(builder_test_DEPENDENCIES) 
-	@rm -f builder-test$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(builder_test_OBJECTS) $(builder_test_LDADD) $(LIBS)
-generator-test$(EXEEXT): $(generator_test_OBJECTS) $(generator_test_DEPENDENCIES) 
-	@rm -f generator-test$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(generator_test_OBJECTS) $(generator_test_LDADD) $(LIBS)
-node-test$(EXEEXT): $(node_test_OBJECTS) $(node_test_DEPENDENCIES) 
-	@rm -f node-test$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(node_test_OBJECTS) $(node_test_LDADD) $(LIBS)
-object-test$(EXEEXT): $(object_test_OBJECTS) $(object_test_DEPENDENCIES) 
-	@rm -f object-test$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(object_test_OBJECTS) $(object_test_LDADD) $(LIBS)
-parser-test$(EXEEXT): $(parser_test_OBJECTS) $(parser_test_DEPENDENCIES) 
-	@rm -f parser-test$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(parser_test_OBJECTS) $(parser_test_LDADD) $(LIBS)
-reader-test$(EXEEXT): $(reader_test_OBJECTS) $(reader_test_DEPENDENCIES) 
-	@rm -f reader-test$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(reader_test_OBJECTS) $(reader_test_LDADD) $(LIBS)
+array$(EXEEXT): $(array_OBJECTS) $(array_DEPENDENCIES) 
+	@rm -f array$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(array_OBJECTS) $(array_LDADD) $(LIBS)
+boxed$(EXEEXT): $(boxed_OBJECTS) $(boxed_DEPENDENCIES) 
+	@rm -f boxed$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(boxed_OBJECTS) $(boxed_LDADD) $(LIBS)
+builder$(EXEEXT): $(builder_OBJECTS) $(builder_DEPENDENCIES) 
+	@rm -f builder$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(builder_OBJECTS) $(builder_LDADD) $(LIBS)
+generator$(EXEEXT): $(generator_OBJECTS) $(generator_DEPENDENCIES) 
+	@rm -f generator$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(generator_OBJECTS) $(generator_LDADD) $(LIBS)
+gvariant$(EXEEXT): $(gvariant_OBJECTS) $(gvariant_DEPENDENCIES) 
+	@rm -f gvariant$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(gvariant_OBJECTS) $(gvariant_LDADD) $(LIBS)
+node$(EXEEXT): $(node_OBJECTS) $(node_DEPENDENCIES) 
+	@rm -f node$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(node_OBJECTS) $(node_LDADD) $(LIBS)
+object$(EXEEXT): $(object_OBJECTS) $(object_DEPENDENCIES) 
+	@rm -f object$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(object_OBJECTS) $(object_LDADD) $(LIBS)
+parser$(EXEEXT): $(parser_OBJECTS) $(parser_DEPENDENCIES) 
+	@rm -f parser$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(parser_OBJECTS) $(parser_LDADD) $(LIBS)
+path$(EXEEXT): $(path_OBJECTS) $(path_DEPENDENCIES) 
+	@rm -f path$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(path_OBJECTS) $(path_LDADD) $(LIBS)
+reader$(EXEEXT): $(reader_OBJECTS) $(reader_DEPENDENCIES) 
+	@rm -f reader$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(reader_OBJECTS) $(reader_LDADD) $(LIBS)
+serialize-complex$(EXEEXT): $(serialize_complex_OBJECTS) $(serialize_complex_DEPENDENCIES) 
+	@rm -f serialize-complex$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(serialize_complex_OBJECTS) $(serialize_complex_LDADD) $(LIBS)
+serialize-full$(EXEEXT): $(serialize_full_OBJECTS) $(serialize_full_DEPENDENCIES) 
+	@rm -f serialize-full$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(serialize_full_OBJECTS) $(serialize_full_LDADD) $(LIBS)
+serialize-simple$(EXEEXT): $(serialize_simple_OBJECTS) $(serialize_simple_DEPENDENCIES) 
+	@rm -f serialize-simple$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(serialize_simple_OBJECTS) $(serialize_simple_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -387,13 +467,19 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/array-test.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/builder-test.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/generator-test.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/node-test.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/object-test.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/parser-test.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/reader-test.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/array.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/boxed.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/builder.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/generator.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/gvariant.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/node.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/object.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/parser.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/path.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/reader.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/serialize-complex.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/serialize-full.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/serialize-simple.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
